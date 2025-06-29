@@ -36,6 +36,12 @@
                 radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 20%);
         }
         
+        @media (max-width: 992px) {
+    body {
+        padding-top: 80px;
+    }
+}
+        
         /* Header & Navigation */
         header {
             padding: 1.5rem 5%;
@@ -103,27 +109,51 @@
 
 /* Responsive: Show mobile menu button and stack nav */
 @media (max-width: 992px) {
+    .main-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+    }
+    .main-nav .logo {
+        margin: 0 auto;
+        height: 64px;
+    }
+    .main-nav .logo img {
+        height: 64px;
+    }
+    .main-nav .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1100;
+    }
     .main-nav ul {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
-        width: 100%;
+        width: 100vw;
         background: rgba(0,0,0,0.98);
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
-        padding: 2rem 0;
+        gap: 2rem;
+        padding: 2.5rem 0 2rem 0;
         z-index: 1001;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     }
     .main-nav ul.open {
         display: flex;
+        animation: fadeInDown 0.3s;
     }
-    .main-nav .mobile-menu-btn {
-        display: block;
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px);}
+        to { opacity: 1; transform: translateY(0);}
     }
-    .main-nav .logo {
-        margin: 0 auto;
+    .main-nav li {
+        margin: 0;
     }
 }
         
@@ -923,6 +953,21 @@
             }
         }
         
+        @media (max-width: 600px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    .main-nav .logo img {
+        height: 48px;
+    }
+    .cta h2 {
+        font-size: 1.5rem;
+    }
+    .cta p {
+        font-size: 1rem;
+    }
+}
+        
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 2rem;
@@ -941,6 +986,19 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (max-width: 992px) {
+    body.menu-open {
+        overflow: hidden;
+    }
+    .mobile-nav.open::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.7);
+        z-index: 1000;
+    }
+}
     </style>
 </head>
 <body>
@@ -1162,33 +1220,33 @@
             
             <div class="contact-form">
                 <form action="https://formsubmit.co/zomaxa.agency@gmail.com" method="POST">
-  <!-- Prevent spam & customize -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="box">
-  <input type="hidden" name="_autoresponse" value="Thank you for contacting ZOMAXA. We'll get back to you soon.">
+                  <!-- Prevent spam & customize -->
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_template" value="box">
+                  <input type="hidden" name="_autoresponse" value="Thank you for contacting ZOMAXA. We'll get back to you soon.">
 
-  <div class="form-group">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
-  </div>
+                  <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                  </div>
 
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
-  </div>
+                  <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                  </div>
 
-  <div class="form-group">
-    <label for="subject">Subject</label>
-    <input type="text" id="subject" name="subject" class="form-control" placeholder="What is this regarding?" required>
-  </div>
+                  <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-control" placeholder="What is this regarding?" required>
+                  </div>
 
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project" required></textarea>
-  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project" required></textarea>
+                  </div>
 
-  <button type="submit" class="submit-btn">Send Message</button>
-</form>
+                  <button type="submit" class="submit-btn">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
@@ -1198,8 +1256,8 @@
         <h2>Ready to Elevate Your Brand?</h2>
         <p>Connect with us on Instagram to discuss how we can transform your digital presence.</p>
         <a href="https://www.instagram.com/zomaxa.media" target="_blank" class="cta-button">
-        <i class="fab fa-instagram"></i> DM Us on Instagram
-    </a>
+            <i class="fab fa-instagram"></i> DM Us on Instagram
+        </a>
     </section>
 
     <!-- Footer -->
@@ -1271,6 +1329,7 @@
 const mobileNavs = document.querySelectorAll('.mobile-nav');
 mobileMenuBtn.addEventListener('click', () => {
     mobileNavs.forEach(nav => nav.classList.toggle('open'));
+    document.body.classList.toggle('menu-open');
     mobileMenuBtn.innerHTML = mobileNavs[0].classList.contains('open') ?
         '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
 });
