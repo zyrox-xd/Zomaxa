@@ -1072,3 +1072,23 @@
         z-index: 1000;
     }
 }
+
+@media (max-width: 768px) {
+  a:hover,
+  button:hover,
+  .cta-button:hover,
+  .nav-menu a:hover,
+  .service-card:hover,
+  .submit-btn:hover {
+    color: inherit !important;
+    background: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    text-decoration: none !important;
+    /* Add more properties as needed */
+  }
+  .cta-button:hover:before,
+  .submit-btn:hover:before {
+    width: 0 !important;
+  }
+}
