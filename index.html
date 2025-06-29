@@ -52,6 +52,68 @@
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
         }
         
+        .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav .nav-left {
+    margin-right: auto;
+}
+
+.main-nav .nav-right {
+    margin-left: auto;
+}
+
+.main-nav .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2rem;
+    height: 48px;
+}
+
+.main-nav .logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+/* Responsive: Show mobile menu button and stack nav */
+@media (max-width: 992px) {
+    .main-nav ul {
+        display: none;
+    }
+    .main-nav .mobile-menu-btn {
+        display: block;
+    }
+    .main-nav .logo {
+        margin: 0 auto;
+    }
+}
+        
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
@@ -107,15 +169,6 @@
         
         nav a:hover:after {
             width: 100%;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--gold);
-            font-size: 1.5rem;
-            cursor: pointer;
         }
         
         /* Hero Section */
@@ -714,9 +767,9 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            z-index: 1;
+            z-index: 2; /* Make sure the text is above the background */
         }
-        
+
         .cta-button:before {
             content: "";
             position: absolute;
@@ -725,14 +778,14 @@
             width: 0%;
             height: 100%;
             background-color: var(--gold);
-            z-index: -1;
+            z-index: 1; /* Background below the text */
             transition: width 0.3s ease;
-            }
-        
-        .cta-button:hover {
-            color: var(--black);
         }
-        
+
+        .cta-button:hover {
+            color: var(--black); /* Text turns black on hover */
+        }
+
         .cta-button:hover:before {
             width: 100%;
         }
@@ -880,25 +933,26 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="logo">
-  zomaxa
-</div>
-
-        <nav>
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <nav class="main-nav">
+        <ul class="nav-left">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <a href="#hero" class="logo">
+            <img src="images/ZOMAXA.png" alt="ZOMAXA Logo" style="height:72px; display:block; margin:auto;">
+        </a>
+        <ul class="nav-right">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
         <button class="mobile-menu-btn">
             <i class="fas fa-bars"></i>
         </button>
-    </header>
+    </nav>
+</header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <h1>Elevating Brands Through <span>Design</span>, <span>Strategy</span> & <span>Web</span></h1>
         <p>ZOMAXA transforms brands into powerful stories through premium digital experiences and strategic design thinking.</p>
         <div class="scroll-indicator">
@@ -1067,7 +1121,7 @@
                         </div>
                         <div class="contact-text">
                             <h4>Email</h4>
-                            <p><a href="mailto:zomaxa.agency@gmailcom">zomaxa.agency@gmail.com</a></p>
+                            <p><a href="mailto:zomaxa.agency@gmail.com">zomaxa.agency@gmail.com</a></p>
                         </div>
                     </div>
                     
@@ -1094,8 +1148,7 @@
             </div>
             
             <div class="contact-form">
-                <form>
-                    <form action="https://formsubmit.co/zomaxa.agency@gmail.com" method="POST">
+                <form action="https://formsubmit.co/zomaxa.agency@gmail.com" method="POST">
   <!-- Prevent spam & customize -->
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="box">
@@ -1123,8 +1176,6 @@
 
   <button type="submit" class="submit-btn">Send Message</button>
 </form>
-
-                </form>
             </div>
         </div>
     </section>
@@ -1133,9 +1184,9 @@
     <section class="cta">
         <h2>Ready to Elevate Your Brand?</h2>
         <p>Connect with us on Instagram to discuss how we can transform your digital presence.</p>
-        <button class="cta-button">
-            <a href="https://www.instagram.com/zomaxa.media" target="_blank"><i class="fab fa-instagram"></i> DM Us on Instagram
-        </button></a>
+        <a href="https://www.instagram.com/zomaxa.media" target="_blank" class="cta-button">
+        <i class="fab fa-instagram"></i> DM Us on Instagram
+    </a>
     </section>
 
     <!-- Footer -->
