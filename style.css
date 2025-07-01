@@ -894,7 +894,8 @@
         }
 
         .cta-button:hover {
-            color: var(--black); /* Text turns black on hover */
+            color: var(--black) !important;
+            text-decoration: none !important;
         }
 
         .cta-button:hover:before {
@@ -1091,4 +1092,15 @@
   .submit-btn:hover:before {
     width: 0 !important;
   }
+}
+
+.cta-button {
+  text-decoration: none !important;
+}
+
+.cta-button:hover,
+.cta-button:visited,
+.cta-button:active,
+.cta-button:focus {
+  text-decoration: none !important;
 }
