@@ -1104,3 +1104,25 @@
 .cta-button:focus {
   text-decoration: none !important;
 }
+.project-card a,
+.project-card a:visited,
+.project-card a:hover,
+.project-card a:active {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+a.project-card,
+a.project-card:visited,
+a.project-card:active,
+a.project-card:hover {
+  color: inherit !important;
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+a.project-card .project-image {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+}
