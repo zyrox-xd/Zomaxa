@@ -1126,3 +1126,11 @@ a.project-card .project-image {
   border: none !important;
   outline: none !important;
 }
+a.project-card,
+a.project-card *,
+a.project-card .project-image {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  color: inherit !important;
+}
