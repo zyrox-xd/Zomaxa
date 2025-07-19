@@ -1134,3 +1134,15 @@ a.project-card .project-image {
   outline: none !important;
   color: inherit !important;
 }
+a.project-card,
+a.project-card *,
+a.project-card .project-image,
+a.project-card .project-overlay,
+a.project-card .project-overlay h3,
+a.project-card .project-overlay p,
+a.project-card .project-tags .tag {
+  color: inherit !important;
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+}
