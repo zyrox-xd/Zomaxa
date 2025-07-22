@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium digital solutions with transparent pricing. Custom-crafted design, marketing, and strategy packages to help brands grow with clarity and style.">
+    <meta name="keywords" content="web design, branding, ecommerce, digital marketing, premium websites">
+    <title>ZOMAXA | Premium Digital Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22> @ </text></svg>">
+    <style>
+        /* Global Styles */
+        :root {
+            --black: #000000;
+            --gold: #D4AF37;
+            --light-gold: #e6c96c;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --gray: #888888;
+            --dark-gray: #1a1a1a;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 20%);
+            background-size: 100% 100%;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            border-radius: 2px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:hover {
+            background: var(--gold);
+            color: var(--black);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border: none;
+            color: var(--white);
+            padding: 16px 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--light-gold), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .gold-divider {
+            height: 2px;
+            width: 100px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 20px auto;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--light-gold), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,20,20,0.95) 100%);
+            padding-top: 70px;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--light-gray);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .hero .btn {
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--light-gold), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Pricing Cards */
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .pricing-card {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 280px;
+            transition: var(--transition);
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--gold);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-15px);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+        
+        .pricing-card .plan-tag {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--light-gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .pricing-cost {
+            margin: 20px 0;
+        }
+        
+        .one-time-cost {
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .monthly-cost {
+            font-size: 1.1rem;
+            color: var(--light-gray);
+            margin-top: 5px;
+        }
+        
+        .free-maintenance {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--light-gold);
+            border: 1px dashed var(--gold);
+            border-radius: 5px;
+            padding: 10px;
+            margin: 15px 0;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .free-maintenance i {
+            margin-right: 5px;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+        }
+        
+        .pricing-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-card ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-card ul li i {
+            color: var(--gold);
+            font-size: 0.9rem;
+            min-width: 20px;
+        }
+        
+        .hosting-option {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--black);
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+        
+        /* Add-ons */
+        .addons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .addon-card {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .addon-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .addon-card i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .addon-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .addon-price {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin: 10px 0;
+        }
+        
+        .addon-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: rgba(15, 15, 15, 0.8);
+            padding: 80px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-card::before {
+            content: "“";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            font-family: Georgia, serif;
+            color: rgba(212, 175, 55, 0.1);
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--light-gray);
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gold);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--black);
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* CTA Section */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(20,20,20,0.9) 0%, rgba(0,0,0,0.95) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-banner::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-banner h3 {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-banner p {
+            font-size: 1.1rem;
+            color: var(--light-gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        .whatsapp-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .qr-code {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .qr-code img {
+            width: 140px;
+            height: 140px;
+            display: block;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--light-gold), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+        
+        .footer-tags {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .footer-tags span {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+        
+        /* WhatsApp Sticky Button */
+        .whatsapp-sticky {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-sticky:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-15px);
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 15px;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+                 align-items: center;
+        text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+            
+            .hero {
+                min-height: 700px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .pricing-cards {
+                gap: 20px;
+            }
+            
+            .pricing-card {
+                max-width: 100%;
+                padding: 30px 20px;
+            }
+            
+            .whatsapp-container {
+                flex-direction: column;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+            
+            .one-time-cost {
+                font-size: 1.3rem;
+            }
+            
+            .monthly-cost {
+                font-size: 1rem;
+            }
+            
+            .hero-stats {
+                gap: 25px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+        /* Contact & Affiliate Form Styles */
+/* filepath: c:\Users\ALI\OneDrive\Documents\Web-dev-projects\price-zomaxa\index.html */
+.contact-form-container,
+.form-container {
+    background: rgba(20, 20, 20, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    padding: 40px 30px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form,
+.affiliate-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    width: 100%;
+}
+
+.form-group label {
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.form-control,
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.affiliate-form input,
+.affiliate-form select,
+.affiliate-form textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 5px;
+    padding: 12px 14px;
+    color: var(--white);
+    font-size: 1rem;
+    transition: border 0.3s;
+    outline: none;
+    width: 100%;
+    resize: none;
+}
+
+.form-control:focus,
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus,
+.affiliate-form input:focus,
+.affiliate-form select:focus,
+.affiliate-form textarea:focus {
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.09);
+}
+
+.contact-form select,
+.affiliate-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='16' height='16' fill='gold' xmlns='http://www.w3.org/2000/svg'><path d='M4 6l4 4 4-4'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 18px 18px;
+    padding-right: 36px;
+}
+
+.form-submit,
+.submit-button {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 5px;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.08);
+    letter-spacing: 1px;
+}
+
+.form-submit:hover,
+.submit-button:hover {
+    background: var(--black);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+}
+
+@media (max-width: 600px) {
+    .contact-form-container,
+    .form-container {
+        padding: 20px 8px;
+    }
+    .contact-form,
+    .affiliate-form {
+        gap: 14px;
+    }
+}
+label[for="package"] {
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+.contact-form select:focus,
+.contact-form select option {
+    background: rgba(20, 20, 20, 0.95);
+    color: var(--white);
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#header" class="logo">ZOMAXA</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#pricing">Pricing</a>
+                <a href="#addons">Add-ons</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+                <a href="index.html" style="color:var(--gold);font-weight:600;">Home</a>
+                 <a href="affiliate.html" style="color:var(--gold);font-weight:600;">Affiliate</a>
+            </nav>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Digital Solutions.<br>Transparent Pricing.</h1>
+                <p>Custom-crafted design, marketing, and strategy packages to help brands grow with clarity and style. We create digital experiences that convert visitors into customers.</p>
+                <a href="#pricing" class="btn">Explore Our Packages</a>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Premium Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Our Premium Packages</h2>
+                <div class="gold-divider"></div>
+                <p>Choose the perfect solution for your brand's growth journey. Each package is crafted with attention to detail and premium quality.</p>
+            </div>
+            
+            <div class="pricing-cards">
+                <!-- Starter Plan -->
+                <div class="pricing-card fade-in">
+                    <div class="popular-badge">Entry Level</div>
+                    <h3>Starter Plan</h3>
+                    <div class="plan-tag">Perfect for new businesses starting online</div>
+                    <div class="pricing-cost">
+                        <div class="one-time-cost">₹5,999 One-Time</div>
+                        <div class="monthly-cost">+ ₹499/month</div>
+                    </div>
+                    
+                    <div class="free-maintenance">
+                        <i class="fas fa-gift"></i> 1 Months Maintenance Free
+                    </div>
+                    
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 1 Page Website (Landing or Bio Page)</li>
+                        <li><i class="fas fa-check-circle"></i> WhatsApp Chat Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Mobile-Optimized Design</li>
+                        <li><i class="fas fa-check-circle"></i> Clean user interface</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Contact Form</li>
+                    </ul>
+                    <div class="hosting-option">
+                        <i class="fas fa-server"></i> Hosting & Maintenance: 
+                        <div>₹499/month or ₹4,999/year</div>
+                    </div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <!-- Business Plan -->
+                <div class="pricing-card fade-in popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Business Plan</h3>
+                    <div class="plan-tag">For growing brands & local stores</div>
+                    <div class="pricing-cost">
+                        <div class="one-time-cost">₹9,999 One-Time</div>
+                        <div class="monthly-cost">+ ₹999/month</div>
+                    </div>
+                    
+                    <div class="free-maintenance">
+                        <i class="fas fa-gift"></i> 2 Months Maintenance Free
+                    </div>
+                    
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 3–5 Page Website</li>
+                        <li><i class="fas fa-check-circle"></i> WhatsApp Chat Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Custom Design with Branding</li>
+                        <li><i class="fas fa-check-circle"></i> Basic SEO Setup</li>
+                        <li><i class="fas fa-check-circle"></i> Google Business Profile</li>
+                        <li><i class="fas fa-check-circle"></i> Social Media Integration</li>
+                    </ul>
+                    <div class="hosting-option">
+                        <i class="fas fa-server"></i> Hosting & Maintenance: 
+                        <div>₹999/month or ₹9,999/year</div>
+                    </div>
+                    <a href="#contact" class="btn">Launch Business</a>
+                </div>
+                
+                <!-- E-Commerce Plan -->
+                <div class="pricing-card fade-in">
+                    <div class="popular-badge">Advanced</div>
+                    <h3>E-Commerce Plan</h3>
+                    <div class="plan-tag">Sell your products online without hassle</div>
+                    <div class="pricing-cost">
+                        <div class="one-time-cost">₹19,999 One-Time</div>
+                        <div class="monthly-cost">+ ₹1,499/month</div>
+                    </div>
+                    <div style="color:var(--gray); font-size:0.98rem; margin-top:8px;">
+        <i class="fas fa-info-circle"></i> Price may vary depending on website requirements.
+    </div> 
+                    <div class="free-maintenance">
+                        <i class="fas fa-gift"></i> 3 Months Maintenance Free
+                    </div>
+                    
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Full E-Commerce Website</li>
+                        <li><i class="fas fa-check-circle"></i> UPI/Razorpay/COD Setup</li>
+                        <li><i class="fas fa-check-circle"></i> Product Catalog (up to 50)</li>
+                        <li><i class="fas fa-check-circle"></i> Mobile Friendly Design</li>
+                        <li><i class="fas fa-check-circle"></i> WhatsApp Order Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Inventory Management</li>
+                    </ul>
+                    <div class="hosting-option">
+                        <i class="fas fa-server"></i> Hosting & Maintenance: 
+                        <div>₹1,499/month or ₹14,999/year</div>
+                    </div>
+                    <a href="#contact" class="btn">Start Selling</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add-ons Section -->
+    <section class="section" id="addons">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Optional Add-ons</h2>
+                <div class="gold-divider"></div>
+                <p>Enhance your package with these premium extras tailored to specific needs.</p>
+            </div>
+            
+            <div class="addons">
+                <div class="addon-card fade-in">
+                    <i class="fas fa-drafting-compass"></i>
+                    <h4>Logo Design</h4>
+                    <div class="addon-price">₹2,500</div>
+                    <p>Minimal or Mascot-style professional logo crafted to represent your brand identity. Includes 3 concepts and final files.</p>
+                </div>
+                
+                    <div class="addon-card fade-in">
+        <i class="fas fa-pen-nib"></i>
+        <h4>Copywriting</h4>
+        <div class="addon-price">₹500</div>
+        <p>Professional website copywriting for impactful headlines, engaging content, and clear calls-to-action tailored to your brand.</p>
+    </div>
+                
+                <div class="addon-card fade-in">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>eCommerce Integration</h4>
+                    <div class="addon-price">₹3,500</div>
+                    <p>Complete cart, checkout, and WhatsApp order flow setup for your online store. Includes payment gateway setup.</p>
+                </div>
+
+               <div class="addon-card fade-in">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Extra Pages</h4>
+                    <div class="addon-price">₹1,000 / page</div>
+                    <p>Add additional custom-designed pages to your website. Perfect for About, Services, Gallery, or any unique content you need.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Client Success Stories</h2>
+                <div class="gold-divider"></div>
+                <p>Don't just take our word for it. See what our clients say about working with us.</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "ZOMAXA transformed our online presence completely. Our conversion rate increased by 65% within the first month after launching our new website. The team is professional, responsive, and truly understands business needs."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CB</div>
+                        <div class="author-info">
+                            <h4>Cake bites</h4>
+                            <p>Baker</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "We chose the Business Plan and couldn't be happier. The attention to detail in design and the seamless WhatsApp integration has helped us connect with customers like never before. Our inquiries have tripled!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div class="author-info">
+                            <h4>Cosmatrix</h4>
+                            <p>Skincare retailer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "The eCommerce package was worth every rupee. Setting up our online store was effortless with ZOMAXA. The WhatsApp order system has simplified our operations and increased sales by 40%. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ST</div>
+                        <div class="author-info">
+                            <h4>Shaa trading</h4>
+                            <p>Skncare wholesaler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Get In Touch</h2>
+                <div class="gold-divider"></div>
+                <p>Have questions or ready to start your project? We'd love to hear from you.</p>
+            </div>
+            
+            <div class="contact-form-container fade-in">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xeozaakr" method="POST">
+    <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" class="form-control" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" class="form-control" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" class="form-control" name="phone">
+    </div>
+    <div class="form-group">
+        <label for="package">Interested Package</label>
+        <select id="package" class="form-control" name="package">
+            <option value="">Select a package</option>
+            <option value="starter">Starter Plan</option>
+            <option value="business">Business Plan</option>
+            <option value="ecommerce">E-Commerce Plan</option>
+            <option value="custom">Custom Solution</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="addons">Add ons</label>
+        <select id="addons" class="form-control" name="addons">
+            <option value="">Select Add-ons</option>
+            <option value="logo">Logo Design</option>
+            <option value="copywriting">Copywriting</option>
+            <option value="ecommerce-integration">E-Commerce Integration</option>
+            <option value="extra-pages">Extra Pages</option>
+        </select>
+    </div>
+    <div class="form-group full-width">
+        <label for="affiliate">Affiliate Code (if any)</label>
+        <input type="text" id="affiliate" class="form-control" name="affiliate" placeholder="Enter your affiliate code">
+    </div>
+    <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" class="form-control" name="message" required></textarea>
+    </div>
+    <button type="submit" class="form-submit" name="submit">Send Message</button>
+</form>
+    <!-- CTA Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="cta-banner fade-in">
+                <div class="cta-content">
+                    <h3>Want something custom?</h3>
+                    <p>Contact us via WhatsApp — we'll tailor a plan for your vision! Our team is ready to discuss your project and provide a personalized quote.</p>
+                    
+                    <div class="whatsapp-container">
+
+                        </div>
+                        <a href="https://wa.me/918904198424" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Chat With ZOMAXA Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">ZOMAXA</div>
+                <p>Powered by Passion & Pixels</p>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/zomaxa.media/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.zomaxa.co/"><i class="fas fa-briefcase"></i></a>
+                </div>
+                
+                <div class="copyright">
+                    © ZOMAXA 2025 | Crafting Digital Masterpieces
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Sticky Button -->
+    <a href="https://wa.me/918904198424" class="whatsapp-sticky">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <a href="#header" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Scroll animation implementation
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            // Scroll observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Back to top button visibility
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = mobileToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        
+    </script>
+</body>
+</html> 
