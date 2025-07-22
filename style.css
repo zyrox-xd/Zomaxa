@@ -1146,3 +1146,17 @@ a.project-card .project-tags .tag {
   border: none !important;
   outline: none !important;
 }
+a.project-card,
+a.project-card *,
+a.project-card .project-image,
+a.project-card .project-overlay,
+a.project-card .project-overlay h3,
+a.project-card .project-overlay p,
+a.project-card .project-tags .tag,
+a.project-card .project-status .tag {
+  color: #D4AF37 !important;
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  background: none !important;
+}
