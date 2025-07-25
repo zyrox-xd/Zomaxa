@@ -59,4 +59,41 @@ burger.addEventListener('click', () => {
     menu.classList.toggle('active');
     burger.classList.toggle('active');
 });
+     // Work Section Specific JavaScript
+  document.addEventListener('DOMContentLoaded', function() {
+    // Only target elements inside the work section
+    const workSection = document.getElementById('work');
+    if (!workSection) return;
     
+    const filterButtons = workSection.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filterValue = this.getAttribute('data-filter');
+        const projectCards = workSection.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+          if (filterValue === 'all') {
+            card.style.display = 'block';
+          } else {
+            const tags = card.querySelectorAll('.tag');
+            let hasTag = false;
+            
+            tags.forEach(tag => {
+              if (tag.textContent.toLowerCase().includes(filterValue)) {
+                hasTag = true;
+              }
+            });
+            
+            card.style.display = hasTag ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  });
