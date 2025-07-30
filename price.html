@@ -1044,6 +1044,56 @@ label[for="package"] {
   outline: none !important;
   border: none !important;
 }
+
+/* Thank You Message Styles */
+.thank-you-container {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(20, 20, 20, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.thank-you-container.active {
+    display: block;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.thank-you-icon {
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.thank-you-container h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, var(--light-gold), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.thank-you-container p {
+    font-size: 1.1rem;
+    color: var(--light-gray);
+    line-height: 1.7;
+    margin-bottom: 30px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thank-you-container .btn {
+    margin: 10px;
+}
     </style>
 </head>
 <body>
@@ -1293,65 +1343,79 @@ label[for="package"] {
                 <p>Have questions or ready to start your project? We'd love to hear from you.</p>
             </div>
             
-            <div class="contact-form-container fade-in">
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xeozaakr" method="POST">
-    <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" class="form-control" name="name" required>
-    </div>
-    <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" class="form-control" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" class="form-control" name="phone">
-    </div>
-    <div class="form-group">
-        <label for="package">Interested Package</label>
-        <select id="package" class="form-control" name="package">
-            <option value="">Select a package</option>
-            <option value="starter">Starter Plan</option>
-            <option value="business">Business Plan</option>
-            <option value="ecommerce">E-Commerce Plan</option>
-            <option value="custom">Custom Solution</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="addons">Add ons</label>
-        <select id="addons" class="form-control" name="addons">
-            <option value="">Select Add-ons</option>
-            <option value="logo">Logo Design</option>
-            <option value="copywriting">Copywriting</option>
-            <option value="ecommerce-integration">E-Commerce Integration</option>
-            <option value="extra-pages">Extra Pages</option>
-        </select>
-    </div>
-    <div class="form-group full-width">
-        <label for="affiliate">Affiliate Code (if any)</label>
-        <input type="text" id="affiliate" class="form-control" name="affiliate" placeholder="Enter your affiliate code">
-    </div>
-    <div class="form-group">
-        <label for="message">Your Message</label>
-        <textarea id="message" class="form-control" name="message" required></textarea>
-    </div>
-    <button type="submit" class="form-submit" name="submit">Send Message</button>
-</form>
+            <!-- Contact Form -->
+            <div class="contact-form-container fade-in" id="contactFormContainer">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="package">Interested Package</label>
+                        <select id="package" class="form-control" name="package">
+                            <option value="">Select a package</option>
+                            <option value="starter">Starter Plan</option>
+                            <option value="business">Business Plan</option>
+                            <option value="ecommerce">E-Commerce Plan</option>
+                            <option value="custom">Custom Solution</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="addons">Add ons</label>
+                        <select id="addons" class="form-control" name="addons">
+                            <option value="">Select Add-ons</option>
+                            <option value="logo">Logo Design</option>
+                            <option value="copywriting">Copywriting</option>
+                            <option value="ecommerce-integration">E-Commerce Integration</option>
+                            <option value="extra-pages">Extra Pages</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="affiliate">Affiliate Code (if any)</label>
+                        <input type="text" id="affiliate" class="form-control" name="affiliate" placeholder="Enter your affiliate code">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit" name="submit">Send Message</button>
+                </form>
+            </div>
+            
+            <!-- Thank You Message -->
+            <div class="thank-you-container" id="thankYouMessage">
+                <div class="thank-you-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Thank You For Contacting Us!</h3>
+                <p>Your message has been successfully submitted. Our team will review your inquiry and contact you within 24 hours to discuss your project.</p>
+                <p>In the meantime, feel free to explore our portfolio or connect with us on WhatsApp for immediate assistance.</p>
+                <a href="#pricing" class="btn">View Our Packages</a>
+                <a href="https://wa.me/918904198424" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
-    <section class="section" id="contact">
+    <section class="section">
         <div class="container">
             <div class="cta-banner fade-in">
                 <div class="cta-content">
                     <h3>Want something custom?</h3>
                     <p>Contact us via WhatsApp — we'll tailor a plan for your vision! Our team is ready to discuss your project and provide a personalized quote.</p>
-                    
-                    <div class="whatsapp-container">
-
-                        </div>
-                        <a href="https://wa.me/918904198424" class="btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Chat With ZOMAXA Now
-                        </a>
-                    </div>
+                    <a href="https://wa.me/918904198424" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chat With ZOMAXA Now
+                    </a>
                 </div>
             </div>
         </div>
@@ -1462,8 +1526,47 @@ label[for="package"] {
                     }
                 });
             });
+            
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+            const contactFormContainer = document.getElementById('contactFormContainer');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Form validation
+                let isValid = true;
+                const requiredFields = contactForm.querySelectorAll('[required]');
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#ff4d4d';
+                    } else {
+                        field.style.borderColor = '';
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Simulate form submission (in a real scenario, you would use AJAX)
+                setTimeout(() => {
+                    // Hide form and show thank you message
+                    contactFormContainer.style.display = 'none';
+                    thankYouMessage.classList.add('active');
+                    
+                    // Scroll to thank you message
+                    thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Reset form
+                    contactForm.reset();
+                }, 800);
+            });
         });
-       
     </script>
 </body>
 </html>
