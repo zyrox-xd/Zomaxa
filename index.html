@@ -410,6 +410,8 @@
             height: 400px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
             transition: all 0.4s ease;
+            display: block; /* Added for the anchor tag to behave correctly */
+            text-decoration: none; /* Removed underline from anchor */
         }
         
         .project-card:hover {
@@ -756,7 +758,7 @@
         footer {
             padding: 4rem 5% 2rem;
             background-color: var(--black);
-            border-top: 1px solid var(--light-gray);
+            border-top: 1px solid rgba(212, 175, 55, 0.1); /* Changed color for consistency */
             text-align: center;
         }
         
@@ -877,6 +879,7 @@
             
             .about-stats {
                 flex-wrap: wrap;
+                justify-content: center; /* Center stats on smaller screens */
             }
             
             .cta h2 {
@@ -894,6 +897,9 @@
         }
         
         @media (max-width: 480px) {
+            body {
+                padding-top: 80px; /* Adjust for smaller header */
+            }
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -933,7 +939,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="navbar">
         <a href="#hero" class="logo">ZOMAXA</a>
         <div class="hamburger">
@@ -950,7 +955,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content fade-in">
             <h1>Elevating Brands Through <span>Design</span>, <span>Strategy</span> & <span>Web</span></h1>
@@ -966,7 +970,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="services" id="services">
         <div class="section-header fade-in">
             <h2>What We Do</h2>
@@ -1011,25 +1014,23 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta">
         <div class="section-header fade-in">
             <h2>Ready to Elevate Your Brand?</h2>
             <p>Connect with us on Instagram to discuss how we can transform your digital presence.</p>
             <a href="https://www.instagram.com/zomaxa.media" target="_blank" class="btn">
-                <i class="fab fa-instagram"></i> DM Us on Instagram
+                <i class="fab fa-instagram" style="margin-right: 8px;"></i> DM Us on Instagram
             </a>
         </div>
     </section>
 
-    <!-- Work Section -->
     <section class="work" id="work">
         <div class="section-header fade-in">
             <h2>Our Work</h2>
             <p>Explore our portfolio of transformative brand experiences</p>
         </div>
         <div class="work-grid">
-            <a href="https://zyrox-xd.github.io/Portfolio/" class="project-card fade-in">
+            <a href="https://zyrox-xd.github.io/Portfolio/" target="_blank" class="project-card fade-in">
                 <div class="project-image" style="background-image: url('/images/portfolio.png');"></div>
                 <div class="project-overlay">
                     <h3>Portfolio Design</h3>
@@ -1053,13 +1054,13 @@
                         <span class="tag">E-commerce</span>
                         <span class="tag">Skin Care</span>
                     </div>
-                    <div class="project-status">
-                        <span class="tag" style="background: #d4af37; color: #121212; font-weight:600;">Under Development</span>
-                    </div>
+                </div>
+                 <div class="project-status">
+                    <span class="tag" style="background: #d4af37; color: #121212; font-weight:600;">Under Development</span>
                 </div>
             </div>
             
-            <a href="https://zyrox-xd.github.io/cake-bites/" class="project-card fade-in">
+            <a href="https://zyrox-xd.github.io/cake-bites/" target="_blank" class="project-card fade-in">
                 <div class="project-image" style="background-image: url('images/cake.jpg');"></div>
                 <div class="project-overlay">
                     <h3>Cake Bites</h3>
@@ -1073,7 +1074,7 @@
                 </div>
             </a>
             
-            <a href="https://zyrox-xd.github.io/RaafiEdits/" class="project-card fade-in">
+            <a href="https://zyrox-xd.github.io/RaafiEdits/" target="_blank" class="project-card fade-in">
                 <div class="project-image" style="background-image: url('images/Raafiedits.png');"></div>
                 <div class="project-overlay">
                     <h3>Editor Portfolio</h3>
@@ -1089,7 +1090,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-content fade-in">
@@ -1121,7 +1121,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-container">
             <div class="contact-info fade-in">
@@ -1173,7 +1172,7 @@
             </div>
             
             <div class="contact-form fade-in">
-                <form id="contactForm">
+                <form id="contactForm" action="https://formspree.io/f/xeozaakr" method="POST">
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
@@ -1200,13 +1199,13 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">ZOMAXA</div>
             <div class="social-links">
                 <a href="https://www.instagram.com/zomaxa.media" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/in/zomaxa-agency-ba5084372/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
             <div class="copyright">
                 &copy; 2025 ZOMAXA Agency. All rights reserved.
             </div>
@@ -1267,22 +1266,23 @@
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
         
-        // Form submission
+        // Optional: You can keep the old form submission JS for a success message,
+        // but Formspree will handle redirection to a thank you page by default.
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // In a real scenario, you would submit to your server
-            // For this example, we'll show a confirmation message
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
+            // This part is optional if you use Formspree's success page
+            setTimeout(() => {
+                contactForm.reset();
+            }, 500);
         });
     </script>
 </body>
