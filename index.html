@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23D4AF37%22>Z</text></svg>">
-    
+
     <style>
         :root {
             --gold: #D4AF37;
@@ -51,10 +51,9 @@
             height: 100%;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
             pointer-events: none;
-            z-index: 9999;
+            z-index: 1;
         }
 
-        /* Typography */
         h1, h2, h3, h4, h5, .logo, .price-title {
             font-family: 'Cinzel', serif;
             font-weight: 400;
@@ -67,7 +66,7 @@
             background-clip: text;
         }
 
-        /* Navigation */
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
@@ -90,9 +89,16 @@
             color: var(--gold);
             text-decoration: none;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
         }
 
-        .nav-links { display: flex; gap: 2.5rem; }
+        .logo span.dot {
+            color: var(--text-main);
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
 
         .nav-links a {
             color: var(--text-main);
@@ -117,13 +123,31 @@
             transition: var(--transition);
         }
 
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
 
-        .mobile-toggle { display: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--gold); }
 
-        /* Page Structure (SPA Logic) */
-        main { flex: 1; padding-top: 80px; }
+        .nav-links a.cta-link {
+            border: 1px solid rgba(212,175,55,0.5);
+            padding: .6rem 1.4rem;
+            border-radius: 999px;
+        }
+
+        .nav-links a.cta-link:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        .mobile-toggle {
+            display: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        main { flex: 1; padding-top: 80px; position: relative; z-index: 2; }
 
         .page-section {
             display: none;
@@ -139,7 +163,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Components */
         .container {
             padding: 6rem 5%;
             max-width: 1400px;
@@ -163,6 +186,22 @@
             cursor: pointer;
         }
 
+        .btn-glow::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 120%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg);
+            transition: transform .6s ease;
+        }
+
+        .btn-glow:hover::before {
+            transform: translateX(250%) skewX(-20deg);
+        }
+
         .btn-glow:hover {
             background: var(--gold);
             color: var(--bg-dark);
@@ -174,39 +213,672 @@
             margin-bottom: 5rem;
         }
 
-        .section-header h2 { font-size: 3rem; margin-bottom: 1rem; }
-        .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
 
-        /* HERO SECTION (Global) */
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* HERO */
         .hero {
             height: calc(100vh - 80px);
             min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             padding: 0 5%;
             position: relative;
             background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
         }
 
+        .hero-inner {
+            max-width: 1100px;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: .75rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
         .hero-content h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            line-height: 1.1;
+            font-size: clamp(3rem, 8vw, 5.2rem);
+            line-height: 1.05;
             margin-bottom: 1.5rem;
+        }
+
+        .hero-highlight {
+            display: inline-block;
+            padding: .1rem .4rem;
+            border-bottom: 1px solid rgba(212,175,55,0.7);
         }
 
         .hero-content p {
             font-size: clamp(1rem, 1.5vw, 1.2rem);
             color: var(--text-muted);
             max-width: 650px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2.5rem;
         }
 
-        /* ------------------------------------- */
-        /* AFFILIATE SPECIFIC STYLES             */
-        /* ------------------------------------- */
-        
+        .hero-cta-row {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-note {
+            font-size: .8rem;
+            color: var(--text-muted);
+        }
+
+        /* LOGO TICKER */
+        .logo-ticker-wrap {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 2rem 0;
+            overflow: hidden;
+            background: var(--surface);
+            white-space: nowrap;
+        }
+        .logo-ticker {
+            display: inline-block;
+            animation: ticker 28s linear infinite;
+        }
+        .ticker-item {
+            display: inline-block;
+            padding: 0 3rem;
+            font-family: 'Cinzel', serif;
+            color: rgba(255,255,255,0.3);
+            font-size: 1.4rem;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* PROCESS */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-top: 1px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.03);
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .process-card h3 {
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .process-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .process-detail {
+            margin-top: 1rem;
+            font-size: .85rem;
+            color: var(--text-muted);
+        }
+
+        /* WHY ZOMAXA */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-card {
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 2.2rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+        }
+
+        .why-icon {
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 1.2rem;
+        }
+
+        .why-tag {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .7rem;
+            color: var(--text-muted);
+            margin-bottom: .4rem;
+        }
+
+        /* SERVICES & PRICING */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .service-card {
+            background: var(--surface);
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .service-card li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card li::before {
+            content: "•";
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        .plan-fit {
+            margin-top: 1.5rem;
+            font-size: .8rem;
+            color: var(--text-muted);
+            border-top: 1px dashed rgba(255,255,255,0.1);
+            padding-top: 1rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(145deg, var(--surface), #1a1a10);
+            border: 1px solid var(--gold);
+            transform: scale(1.03);
+            z-index: 2;
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            border: 1px solid rgba(212,175,55,0.5);
+            padding: .25rem .6rem;
+        }
+
+        .price-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .price-amount {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: .5rem;
+            display: block;
+        }
+
+        .price-note {
+            font-size: .8rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .price-features li i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        /* WORK / PORTFOLIO */
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            padding-bottom: 5px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            background: var(--surface-light);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: grayscale(100%);
+        }
+
+        .work-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .work-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.8rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+            transform: translateY(18px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .work-item:hover .work-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .work-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-title {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-family: 'Cinzel', serif;
+            margin-bottom: .5rem;
+        }
+
+        .work-meta {
+            font-size: .8rem;
+            color: var(--text-muted);
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 2px;
+            z-index: 2;
+        }
+
+        .case-snippet {
+            margin-top: .6rem;
+            font-size: .8rem;
+            color: var(--text-muted);
+        }
+
+        /* ABOUT / AGENCY */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .about-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--gold);
+            height: 400px;
+            position: relative;
+            background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%);
+        }
+
+        .about-visual span.large-z {
+            font-size: 12rem;
+            font-family: 'Cinzel', serif;
+            color: rgba(212, 175, 55, 0.1);
+        }
+
+        .about-visual span.est {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-size: .8rem;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+        }
+
+        .stat h3 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .stat span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: var(--surface-light);
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--text-muted);
+        }
+
+        .team-name {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .team-role {
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: .5rem;
+        }
+
+        .team-note {
+            font-size: .8rem;
+            color: var(--text-muted);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-wrap {
+            margin-top: 5rem;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .test-card {
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 2.5rem 2.2rem;
+            border: 1px solid rgba(255,255,255,0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .test-quote {
+            font-size: .95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.6rem;
+        }
+
+        .test-name {
+            font-size: .95rem;
+            font-weight: 600;
+        }
+
+        .test-role {
+            font-size: .8rem;
+            color: var(--text-muted);
+        }
+
+        .quote-mark {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            font-size: 2.2rem;
+            color: rgba(212,175,55,0.18);
+        }
+
+        /* FORMS / CONTACT / AFFILIATE */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info-box h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-box p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info-box i {
+            width: 30px;
+            color: var(--gold);
+        }
+
+        .contact-form {
+            background: var(--surface);
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-group.full-width { grid-column: span 2; }
+
+        .form-label,
+        .form-group label {
+            display: block;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea,
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 1rem 0;
+            color: var(--white);
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-select option,
+        .form-group select option {
+            background: var(--surface);
+            color: var(--white);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus,
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: var(--gold);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gold);
+            color: var(--bg-dark);
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            background: #b8860b;
+        }
+
         .affiliate-hero {
             min-height: 80vh;
             display: flex;
@@ -218,7 +890,6 @@
             background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, rgba(0, 0, 0, 1) 70%);
         }
 
-        /* Steps Container */
         .steps-container {
             display: flex;
             justify-content: center;
@@ -227,7 +898,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .step-card {
             flex: 1;
             min-width: 280px;
@@ -238,15 +909,18 @@
             text-align: center;
             transition: var(--transition);
         }
-        
+
         .step-card:hover {
             transform: translateY(-10px);
             border-color: var(--gold);
         }
-        
+
         .step-number {
-            width: 60px; height: 60px;
-            display: flex; align-items: center; justify-content: center;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 0 auto 25px;
             background: rgba(212, 175, 55, 0.1);
             color: var(--gold);
@@ -257,7 +931,6 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* Commission Structure */
         .commission-container {
             background: linear-gradient(135deg, var(--surface) 0%, #1a1a10 100%);
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -268,48 +941,83 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .commission-content {
-            position: relative; z-index: 2;
-            display: flex; flex-wrap: wrap; gap: 40px; align-items: center;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
         }
-        
+
         .commission-option {
-            flex: 1; min-width: 300px;
+            flex: 1;
+            min-width: 300px;
             padding: 30px;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.05);
         }
-        
-        .commission-option h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--gold); text-align: center; }
-        
-        .commission-list { list-style: none; }
+
+        .commission-option h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-align: center;
+        }
+
+        .commission-list {
+            list-style: none;
+        }
+
         .commission-list li {
-            display: flex; justify-content: space-between;
+            display: flex;
+            justify-content: space-between;
             padding: 15px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
+
         .commission-plan { color: var(--white); }
-        .commission-amount { color: var(--gold); font-weight: 600; font-size: 1.1rem; }
-        
-        .or-divider {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            color: var(--gold); font-weight: 600; font-size: 1.2rem;
+
+        .commission-amount {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
+
+        .or-divider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
         .or-divider span { padding: 15px 0; }
-        .or-divider:before, .or-divider:after {
-            content: ""; width: 1px; height: 40px;
+
+        .or-divider:before,
+        .or-divider:after {
+            content: "";
+            width: 1px;
+            height: 40px;
             background: linear-gradient(to bottom, transparent, var(--gold), transparent);
         }
 
-        /* Who Can Join */
         .join-container {
-            display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
-            max-width: 1200px; margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+
         .join-card {
-            flex: 1; min-width: 250px;
+            flex: 1;
+            min-width: 250px;
             background: var(--surface);
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 8px;
@@ -317,155 +1025,111 @@
             text-align: center;
             transition: var(--transition);
         }
-        .join-card:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .join-icon {
-            width: 80px; height: 80px;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 25px;
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--gold); font-size: 2.5rem;
-            border-radius: 50%; border: 1px solid var(--gold);
+
+        .join-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
         }
 
-        /* Benefits Grid */
-        .benefits-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; max-width: 1200px; margin: 0 auto;
+        .join-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            font-size: 2.5rem;
+            border-radius: 50%;
+            border: 1px solid var(--gold);
         }
+
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .benefit-card {
             background: var(--surface);
             border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 8px; padding: 40px 30px;
+            border-radius: 8px;
+            padding: 40px 30px;
             transition: var(--transition);
         }
-        .benefit-card:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .benefit-icon { color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; }
 
-        /* Affiliate Form & Join Team Form */
-        .affiliate-form-container, .join-team-container {
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .benefit-icon {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .affiliate-form-container,
+        .join-team-container {
             background: linear-gradient(135deg, var(--surface) 0%, #161616 100%);
             border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 10px; max-width: 800px; margin: 0 auto; padding: 60px 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
         }
+
         .affiliate-form {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
         }
+
         .form-success {
-            text-align: center; padding: 30px;
+            text-align: center;
+            padding: 30px;
             background: rgba(30, 30, 30, 0.7);
-            border-radius: 8px; border: 1px solid var(--success);
+            border-radius: 8px;
+            border: 1px solid var(--success);
             display: none;
         }
 
-        /* ------------------------------------- */
-        /* GENERAL STYLES CONTINUED              */
-        /* ------------------------------------- */
-
-        /* LOGO TICKER */
-        .logo-ticker-wrap {
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding: 2rem 0;
-            overflow: hidden;
-            background: var(--surface);
-            white-space: nowrap;
-        }
-        .logo-ticker { display: inline-block; animation: ticker 30s linear infinite; }
-        .ticker-item {
-            display: inline-block; padding: 0 3rem;
-            font-family: 'Cinzel', serif; color: rgba(255,255,255,0.3); font-size: 1.5rem;
-        }
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* PROCESS TIMELINE */
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .process-card { background: var(--surface); padding: 2.5rem; border-top: 1px solid var(--gold); position: relative; }
-        .process-number {
-            font-size: 4rem; font-weight: 700; color: rgba(255,255,255,0.05);
-            position: absolute; top: 10px; right: 20px; font-family: 'Cinzel', serif;
-        }
-        .process-card h3 { margin-bottom: 1rem; color: var(--gold); }
-        .process-card p { font-size: 0.9rem; color: var(--text-muted); }
-
-        /* SERVICES & PRICING */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 6rem; }
-        .service-card { background: var(--surface); padding: 3rem; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .service-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 2rem; }
-        .service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; }
-        .service-card ul { list-style: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
-        .service-card li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
-        .service-card li::before { content: "•"; color: var(--gold); margin-right: 10px; }
-
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .pricing-card { background: var(--surface); padding: 3rem; border: 1px solid rgba(255,255,255,0.05); text-align: center; position: relative; transition: var(--transition); }
-        .pricing-card.featured { background: linear-gradient(145deg, var(--surface), #1a1a10); border: 1px solid var(--gold); transform: scale(1.05); z-index: 2; }
-        .price-title { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main); }
-        .price-amount { font-size: 2.5rem; font-weight: 700; color: var(--gold); margin-bottom: 2rem; display: block; }
-        .price-features { list-style: none; margin-bottom: 2rem; text-align: left; }
-        .price-features li { margin-bottom: 1rem; color: var(--text-muted); display: flex; align-items: center; }
-        .price-features li i { color: var(--gold); margin-right: 10px; width: 20px; }
-
-        /* WORK PORTFOLIO */
-        .filter-bar { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
-        .filter-btn { background: transparent; border: none; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; cursor: pointer; font-size: 0.8rem; transition: var(--transition); padding-bottom: 5px; border-bottom: 1px solid transparent; }
-        .filter-btn:hover, .filter-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-        
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
-        .work-item { position: relative; aspect-ratio: 16/9; overflow: hidden; display: block; text-decoration: none; background: var(--surface-light); border: 1px solid rgba(255,255,255,0.05); }
-        .work-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: grayscale(100%); }
-        .work-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
-        .work-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); transform: translateY(20px); opacity: 0; transition: var(--transition); }
-        .work-item:hover .work-overlay { transform: translateY(0); opacity: 1; }
-        .work-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); display: block; margin-bottom: 0.5rem; }
-        .work-title { color: var(--white); font-size: 1.5rem; font-family: 'Cinzel', serif; }
-        .status-badge { position: absolute; top: 15px; right: 15px; background: var(--gold); color: #000; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 2px; z-index: 2; }
-
-        /* ABOUT SECTION */
-        .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 6rem; }
-        .about-visual { display: flex; justify-content: center; align-items: center; border: 1px solid var(--gold); height: 400px; position: relative; background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%); }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .team-card { text-align: center; padding: 2rem; background: var(--surface); border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
-        .team-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .team-avatar { width: 100px; height: 100px; margin: 0 auto 1.5rem; border-radius: 50%; background: var(--surface-light); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted); }
-        .team-name { font-size: 1.2rem; color: var(--white); margin-bottom: 0.5rem; font-family: 'Cinzel', serif; }
-        .team-role { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* CONTACT FORM */
-        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-        .contact-info-box h3 { color: var(--gold); margin-bottom: 1.5rem; }
-        .contact-info-box p { margin-bottom: 1rem; color: var(--text-muted); display: flex; align-items: center; }
-        .contact-info-box i { width: 30px; color: var(--gold); }
-        .contact-form { background: var(--surface); padding: 3rem; border: 1px solid rgba(255,255,255,0.05); }
-        .form-group { margin-bottom: 2rem; position: relative; }
-        .form-group.full-width { grid-column: span 2; }
-        .form-label, .form-group label { display: block; color: var(--text-muted); margin-bottom: 0.8rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
-        .form-input, .form-select, .form-textarea, .form-group input, .form-group select, .form-group textarea {
-            width: 100%; background: transparent; border: none;
-            border-bottom: 1px solid rgba(255,255,255,0.2); padding: 1rem 0;
-            color: var(--white); font-family: 'Manrope', sans-serif; font-size: 1rem;
-            transition: var(--transition);
-        }
-        .form-select option, .form-group select option { background: var(--surface); color: var(--white); }
-        .form-input:focus, .form-select:focus, .form-textarea:focus, .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-bottom-color: var(--gold); }
-        .btn-submit {
-            width: 100%; padding: 1.2rem; background: var(--gold); color: var(--bg-dark);
-            border: none; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
-            cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 10px;
-        }
-        .btn-submit:hover { background: #b8860b; }
-
-        /* WhatsApp Sticky */
+        /* WHATSAPP STICKY */
         .whatsapp-sticky {
-            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
-            width: 60px; height: 60px; border-radius: 50%;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--white); font-size: 1.8rem;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease; animation: pulse 2s infinite; text-decoration: none;
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            z-index: 999;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 1px solid rgba(37,211,102,.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #25D366;
+            font-size: 1.7rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+            transition: all 0.3s ease;
         }
-        .whatsapp-sticky:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); animation: none; }
+
+        .whatsapp-sticky::after {
+            content: "";
+            position: absolute;
+            inset: -3px;
+            border-radius: inherit;
+            border: 1px solid rgba(37, 211, 102, 0.25);
+        }
+
+        .whatsapp-sticky:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
@@ -478,29 +1142,97 @@
             border-top: 1px solid rgba(255,255,255,0.05);
             padding: 5rem 5% 2rem;
             margin-top: auto;
+            position: relative;
+            z-index: 2;
         }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
-        .footer-col h4 { font-size: 1.1rem; color: var(--gold); margin-bottom: 1.5rem; letter-spacing: 1px; }
-        .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 0.8rem; }
-        .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition); }
-        .footer-col a:hover { color: var(--gold); padding-left: 5px; }
-        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); font-size: 0.8rem; }
 
-        /* Responsive */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul { list-style: none; }
+
+        .footer-col li { margin-bottom: 0.8rem; }
+
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.2);
+            font-size: 0.8rem;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 992px) {
             .hero-content h1 { font-size: 3.5rem; }
             .pricing-card.featured { transform: scale(1); }
-            .about-layout, .contact-layout, .footer-grid, .commission-content, .affiliate-form { grid-template-columns: 1fr; gap: 3rem; }
-            .or-divider { flex-direction: row; padding: 20px 0; }
+            .about-layout,
+            .contact-layout,
+            .footer-grid,
+            .commission-content,
+            .affiliate-form {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .or-divider {
+                flex-direction: row;
+                padding: 20px 0;
+            }
             .or-divider span { padding: 0 20px; }
-            .or-divider:before, .or-divider:after { width: 40px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+            .or-divider:before,
+            .or-divider:after {
+                width: 40px;
+                height: 1px;
+                background: linear-gradient(to right, transparent, var(--gold), transparent);
+            }
             .form-group.full-width { grid-column: span 1; }
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
             .nav-links.active {
-                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%;
-                background: var(--bg-dark); padding: 2rem; gap: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-dark);
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 520px;
+            }
+            .container {
+                padding: 4.5rem 5%;
+            }
+            .section-header h2 {
+                font-size: 2.4rem;
             }
         }
     </style>
@@ -508,7 +1240,9 @@
 <body>
 
     <nav>
-        <a href="#home" class="logo" onclick="navigateTo('home')">ZOMAXA<span style="color:var(--text-main)">.</span></a>
+        <a href="#home" class="logo" onclick="navigateTo('home')">
+            ZOMAXA<span class="dot">.</span>
+        </a>
         <div class="mobile-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
@@ -518,7 +1252,7 @@
             <a href="#work" onclick="navigateTo('work')" class="nav-item">Work</a>
             <a href="#about" onclick="navigateTo('about')" class="nav-item">Agency</a>
             <a href="#contact" onclick="navigateTo('contact')" class="nav-item">Contact</a>
-            <a href="#affiliate" onclick="navigateTo('affiliate')" style="color: var(--gold);">Affiliate</a>
+            <a href="#affiliate" onclick="navigateTo('affiliate')" class="nav-item cta-link">Affiliate</a>
         </div>
     </nav>
 
@@ -526,25 +1260,34 @@
         <!-- HOME PAGE -->
         <div id="home" class="page-section active">
             <section class="hero">
-                <div class="hero-content">
-                    <h1>Crafting Digital<br><span class="gold-text">Masterpieces</span></h1>
-                    <p>ZOMAXA is a premier creative agency blending data-driven strategy with award-winning design. We transform ambitious businesses into iconic brands.</p>
-                    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                        <button onclick="navigateTo('work')" class="btn-glow">View Portfolio</button>
-                        <button onclick="navigateTo('contact')" class="btn-glow" style="border-color: rgba(255,255,255,0.2); color: var(--white);">Start Project</button>
+                <div class="hero-inner">
+                    <div class="hero-eyebrow">Premium creative studio for brands that want trust, not just looks</div>
+                    <div class="hero-content">
+                        <h1>
+                            We build brands people<br>
+                            <span class="gold-text hero-highlight">trust before they buy.</span>
+                        </h1>
+                        <p>ZOMAXA blends strategic thinking, refined aesthetics, and conversion-focused design to turn small brands into serious players.</p>
                     </div>
+                    <div class="hero-cta-row">
+                        <button onclick="navigateTo('work')" class="btn-glow">View Case Studies</button>
+                        <button onclick="navigateTo('contact')" class="btn-glow" style="border-color: rgba(255,255,255,0.2); color: var(--white);">
+                            Start a Project
+                        </button>
+                    </div>
+                    <p class="hero-note">Avg response time: under 30 minutes · Operating from Bangalore & Bhatkal</p>
                 </div>
             </section>
 
-            <!-- Ticker -->
+            <!-- Client Ticker -->
             <div class="logo-ticker-wrap">
                 <div class="logo-ticker">
                     <span class="ticker-item">GLOWTIQA</span>
                     <span class="ticker-item">SHAA TRADING</span>
                     <span class="ticker-item">CAKE BITES</span>
                     <span class="ticker-item">RAAFI EDITS</span>
-                    <span class="ticker-item">LUXE HOMES</span>
-                    <span class="ticker-item">APEX FITNESS</span>
+                    <span class="ticker-item">CREATORS & SMALL BRANDS</span>
+                    <span class="ticker-item">DTC BRANDS</span>
                     <span class="ticker-item">GLOWTIQA</span>
                     <span class="ticker-item">SHAA TRADING</span>
                 </div>
@@ -553,29 +1296,69 @@
             <!-- Process -->
             <section class="container">
                 <div class="section-header">
-                    <h2>Our Process</h2>
-                    <p>We believe in a structured approach to creativity. Here is how we bring your vision to life.</p>
+                    <h2>From Idea to Impact</h2>
+                    <p>We don’t just make it look good. We make sure it works — for your sales, perception, and long-term brand.</p>
                 </div>
                 <div class="process-grid">
                     <div class="process-card">
                         <span class="process-number">01</span>
-                        <h3>Discovery</h3>
-                        <p>We dive deep into your brand, audience, and goals to build a solid foundation.</p>
+                        <h3>Discovery & Positioning</h3>
+                        <p>We break down your current brand, competitors, and ideal customer so we know what “winning” looks like.</p>
+                        <div class="process-detail">
+                            30–45 min strategy call · Brand audit · Competitor mapping
+                        </div>
                     </div>
                     <div class="process-card">
                         <span class="process-number">02</span>
-                        <h3>Strategy</h3>
-                        <p>We craft a roadmap that aligns creative output with measurable business objectives.</p>
+                        <h3>Strategy & Blueprint</h3>
+                        <p>We design the backbone: messaging, structure, and visual direction that aligns with your business goals.</p>
+                        <div class="process-detail">
+                            Site map · Wireframes · Brand voice guide · Conversion plan
+                        </div>
                     </div>
                     <div class="process-card">
                         <span class="process-number">03</span>
-                        <h3>Creation</h3>
-                        <p>Our designers and developers bring the strategy to life with pixel-perfect execution.</p>
+                        <h3>Creation & Build</h3>
+                        <p>We execute with pixel-level detail — design, development, and content come together in one clean system.</p>
+                        <div class="process-detail">
+                            UI/UX · Frontend dev · Copywriting · Mobile optimization
+                        </div>
                     </div>
                     <div class="process-card">
                         <span class="process-number">04</span>
-                        <h3>Launch</h3>
-                        <p>We ensure a smooth deployment and provide ongoing support to ensure growth.</p>
+                        <h3>Launch & Support</h3>
+                        <p>We don’t disappear after delivery. We help you launch, refine, and measure initial performance.</p>
+                        <div class="process-detail">
+                            Guided launch · Fixes & tweaks · Optional content support
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why ZOMAXA -->
+            <section class="container">
+                <div class="section-header">
+                    <h2>Why Brands Choose ZOMAXA</h2>
+                    <p>Plenty of people can “make a website.” We build the one you can confidently send to anyone.</p>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-bullseye"></i></div>
+                        <div class="why-tag">Strategy-first</div>
+                        <h3>Designed to Sell, Not Just Impress</h3>
+                        <p>Every page is built around one thing: what you want visitors to do. That’s why we obsess over funnels, flows, and clarity — not just pretty sections.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                        <div class="why-tag">Luxury Minimalism</div>
+                        <h3>Premium Look Without the Noise</h3>
+                        <p>We keep things clean, calm, and confident. Minimal layouts, strong typography, and smart use of white space let your brand speak louder.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="why-tag">Partnership</div>
+                        <h3>Built With You, Not Just For You</h3>
+                        <p>You won’t be guessing what’s happening. We ship in clear phases, with check-ins, previews, and room for your input at every critical step.</p>
                     </div>
                 </div>
             </section>
@@ -585,82 +1368,99 @@
         <div id="services" class="page-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Comprehensive Services</h2>
-                    <p>From visual identity to technical implementation, we cover the full digital spectrum.</p>
+                    <h2>Services That Move the Needle</h2>
+                    <p>Brand, web, and content — aligned under one system instead of ten different freelancers.</p>
                 </div>
-                
+
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-chess-queen"></i></div>
                         <h3>Brand Identity</h3>
-                        <p>More than just a logo. We create cohesive visual systems that tell your story.</p>
+                        <p>We create a visual language that actually feels like you — not a generic logo template.</p>
                         <ul>
-                            <li>Logo Design & Guidelines</li>
-                            <li>Visual Strategy</li>
-                            <li>Typography & Color Palettes</li>
+                            <li>Logo + Variations + Brand mark</li>
+                            <li>Color, typography & usage rules</li>
+                            <li>Basic or full brand guideline PDF</li>
                         </ul>
+                        <div class="plan-fit">
+                            Perfect if you’re launching or rebranding and want to look serious from day one.
+                        </div>
                     </div>
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-desktop"></i></div>
-                        <h3>Web Design & Dev</h3>
-                        <p>Immersive websites optimized for conversion, speed, and mobile responsiveness.</p>
+                        <h3>Web Design & Development</h3>
+                        <p>Conversion-focused websites that feel premium and load fast across devices.</p>
                         <ul>
-                            <li>UI/UX Design</li>
-                            <li>Frontend Development</li>
-                            <li>E-Commerce Solutions</li>
+                            <li>Custom UI/UX design</li>
+                            <li>Responsive frontend development</li>
+                            <li>E-commerce / Portfolio / Landing pages</li>
                         </ul>
+                        <div class="plan-fit">
+                            Ideal for brands ready to take online sales, trust, and perception seriously.
+                        </div>
                     </div>
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-camera-retro"></i></div>
-                        <h3>Content Production</h3>
-                        <p>High-end photography and video content that captures attention instantly.</p>
+                        <h3>Content & Social Assets</h3>
+                        <p>Visuals and reels that carry your brand language across platforms.</p>
                         <ul>
-                            <li>Reels & Shorts</li>
-                            <li>Product Photography</li>
-                            <li>Promotional Videos</li>
+                            <li>Reels & shorts for Instagram</li>
+                            <li>Product or brand-focused visuals</li>
+                            <li>Launch or campaign assets</li>
                         </ul>
+                        <div class="plan-fit">
+                            Best when paired with brand/web work so your feeds and site feel unified.
+                        </div>
                     </div>
                 </div>
 
-                <div class="section-header" style="margin-top: 8rem;">
-                    <h2>Investment Plans</h2>
-                    <p>Transparent pricing packages tailored to your business stage.</p>
+                <div class="section-header" style="margin-top: 6rem;">
+                    <h2>Clear Investment Options</h2>
+                    <p>We keep pricing transparent so you know exactly what you’re stepping into.</p>
                 </div>
 
                 <div class="pricing-grid">
                     <div class="pricing-card">
+                        <span class="plan-badge">For new brands</span>
                         <h3 class="price-title">Starter</h3>
                         <span class="price-amount">₹8,000</span>
+                        <div class="price-note">For small brands who need a clean online presence fast.</div>
                         <ul class="price-features">
                             <li><i class="fas fa-check"></i> Custom Logo Design</li>
                             <li><i class="fas fa-check"></i> Basic Brand Guidelines</li>
-                            <li><i class="fas fa-check"></i> 5-Page Website</li>
+                            <li><i class="fas fa-check"></i> Up to 5-page Website</li>
                             <li><i class="fas fa-check"></i> Basic SEO Setup</li>
                         </ul>
-                        <button onclick="navigateTo('contact')" class="btn-glow">Select Plan</button>
+                        <button onclick="navigateTo('contact')" class="btn-glow">Select Starter</button>
                     </div>
                     <div class="pricing-card featured">
+                        <span class="plan-badge">Most Popular</span>
                         <h3 class="price-title">Professional</h3>
                         <span class="price-amount">₹18,000</span>
+                        <div class="price-note">For growing brands that want a proper system, not just a site.</div>
                         <ul class="price-features">
                             <li><i class="fas fa-check"></i> Full Brand Identity Suite</li>
-                            <li><i class="fas fa-check"></i> Advanced E-Commerce Site</li>
+                            <li><i class="fas fa-check"></i> Advanced E-Commerce or Portfolio Site</li>
                             <li><i class="fas fa-check"></i> 5 Social Media Reels</li>
-                            <li><i class="fas fa-check"></i> Copywriting & Content</li>
-                            <li><i class="fas fa-check"></i> 1 Month Support</li>
+                            <li><i class="fas fa-check"></i> Copywriting & On-brand Content</li>
+                            <li><i class="fas fa-check"></i> 1 Month Post-launch Support</li>
                         </ul>
-                        <button onclick="navigateTo('contact')" class="btn-glow" style="background: var(--gold); color: #000;">Most Popular</button>
+                        <button onclick="navigateTo('contact')" class="btn-glow" style="background: var(--gold); color: #000;">
+                            Talk About This Plan
+                        </button>
                     </div>
                     <div class="pricing-card">
+                        <span class="plan-badge">For serious teams</span>
                         <h3 class="price-title">Enterprise</h3>
                         <span class="price-amount">Custom</span>
+                        <div class="price-note">For brands that need an ongoing creative partner.</div>
                         <ul class="price-features">
-                            <li><i class="fas fa-check"></i> Full-Service Partnership</li>
-                            <li><i class="fas fa-check"></i> Custom Web Application</li>
+                            <li><i class="fas fa-check"></i> Full-Service Brand & Web Partnership</li>
+                            <li><i class="fas fa-check"></i> Custom Web Application / Portal</li>
                             <li><i class="fas fa-check"></i> Monthly Content Creation</li>
                             <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
                         </ul>
-                        <button onclick="navigateTo('contact')" class="btn-glow">Contact Us</button>
+                        <button onclick="navigateTo('contact')" class="btn-glow">Book a Call</button>
                     </div>
                 </div>
             </div>
@@ -670,24 +1470,26 @@
         <div id="work" class="page-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Selected Works</h2>
-                    <p>A curation of our most impactful digital transformations.</p>
+                    <h2>Selected Work & Case Snapshots</h2>
+                    <p>Here’s a quick look at how we turn ideas into experiences people actually want to use.</p>
                 </div>
 
                 <div class="filter-bar">
-                    <button class="filter-btn active" onclick="filterWork('all')">All Projects</button>
-                    <button class="filter-btn" onclick="filterWork('web')">Web Design</button>
-                    <button class="filter-btn" onclick="filterWork('brand')">Branding</button>
-                    <button class="filter-btn" onclick="filterWork('content')">Content</button>
+                    <button class="filter-btn active" onclick="filterWork('all', this)">All Projects</button>
+                    <button class="filter-btn" onclick="filterWork('web', this)">Web Design</button>
+                    <button class="filter-btn" onclick="filterWork('brand', this)">Branding</button>
+                    <button class="filter-btn" onclick="filterWork('content', this)">Content</button>
                 </div>
 
                 <div class="work-grid">
                     <!-- Project 1 -->
                     <a href="https://glowtiqa.com" target="_blank" class="work-item" data-category="web brand">
-                        <img src="images/glowtiqaparis.png" alt="Cosmetic Website" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Glowtiqa+Paris'">
+                        <img src="images/glowtiqaparis.png" alt="Glowtiqa Cosmetics" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Glowtiqa+Paris'">
                         <div class="work-overlay">
-                            <span class="work-tag">E-Commerce / Web Design</span>
+                            <span class="work-tag">E-Commerce · Skincare</span>
                             <div class="work-title">Glowtiqa Cosmetics</div>
+                            <div class="work-meta">Premium feel for a results-driven whitening brand.</div>
+                            <div class="case-snippet">We built a minimal, Paris-inspired layout that feels clinical yet aspirational — with clear product storytelling and easier paths to purchase.</div>
                         </div>
                     </a>
 
@@ -696,84 +1498,105 @@
                         <span class="status-badge">IN PROGRESS</span>
                         <img src="images/shaatrading.jpg" alt="Shaa Trading" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Shaa+Trading'">
                         <div class="work-overlay">
-                            <span class="work-tag">Branding / Identity</span>
+                            <span class="work-tag">Branding · B2B · Skincare Distribution</span>
                             <div class="work-title">Shaa Trading</div>
+                            <div class="work-meta">Elevating a distributor into a recognizable brand system.</div>
+                            <div class="case-snippet">We’re currently rebuilding their identity and web experience to feel structured, trustworthy, and aligned with premium clinics they serve.</div>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <a href="https://zyrox-xd.github.io/cake-bites/" target="_blank" class="work-item" data-category="web">
+                    <a href="https://zyrox-xd.github.io/cake-bites/" target="_blank" class="work-item" data-category="web content">
                         <img src="images/cake.jpg" alt="Cake Bites" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Cake+Bites'">
                         <div class="work-overlay">
-                            <span class="work-tag">Web Design / Food</span>
+                            <span class="work-tag">Web Design · F&B</span>
                             <div class="work-title">Cake Bites</div>
+                            <div class="work-meta">Warm, playful visuals for a local bakery brand.</div>
+                            <div class="case-snippet">The site focuses on irresistible visuals and simple navigation so people can quickly see offerings and reach out to order.</div>
                         </div>
                     </a>
 
                     <!-- Project 4 -->
                     <a href="https://zyrox-xd.github.io/RaafiEdits/" target="_blank" class="work-item" data-category="web content">
-                        <img src="images/Raafiedits.png" alt="Portfolio" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Raafi+Edits'">
+                        <img src="images/Raafiedits.png" alt="Raafi Edits" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Raafi+Edits'">
                         <div class="work-overlay">
-                            <span class="work-tag">Portfolio / Creative</span>
+                            <span class="work-tag">Portfolio · Creator</span>
                             <div class="work-title">Raafi Edits</div>
+                            <div class="work-meta">Clean portfolio for a video editor and creator.</div>
+                            <div class="case-snippet">We kept the interface minimal so the focus stays on the work — quick access to projects and clear calls-to-action for collaborations.</div>
                         </div>
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- ABOUT PAGE -->
+        <!-- ABOUT / AGENCY PAGE -->
         <div id="about" class="page-section">
             <div class="container">
                 <div class="about-layout">
                     <div class="about-text">
                         <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-family: 'Cinzel', serif;">The Agency</h2>
-                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">ZOMAXA was founded on a simple premise: quality should never be compromised. Based in India but working globally, we are a collective of strategists, designers, and developers.</p>
-                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">We believe in "Less but Better." Our approach is minimalist yet luxurious, focusing on high impact and timeless design principles.</p>
-                        
-                        <div class="stats-row" style="display: flex; gap: 3rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+                        <p style="color: var(--text-muted); margin-bottom: 1.2rem;">
+                            ZOMAXA was started with a simple belief: small brands deserve the kind of polish and clarity people expect from big names.
+                        </p>
+                        <p style="color: var(--text-muted); margin-bottom: 1.2rem;">
+                            Based in India and working with clients remotely, we bring together strategy, design, and development under one roof. No messy handoffs, no “designer did this, dev broke that” chaos.
+                        </p>
+                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                            Our rule is “less, but better.” We cut out clutter, extra sections, and over-explaining — and keep what moves your brand forward.
+                        </p>
+
+                        <div class="stats-row">
                             <div class="stat">
-                                <h3 style="color: var(--gold); font-size: 2.5rem; line-height: 1;">5+</h3>
-                                <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">Projects</span>
+                                <h3 class="stat-number" data-target="5">0</h3>
+                                <span>Projects shipped</span>
                             </div>
                             <div class="stat">
-                                <h3 style="color: var(--gold); font-size: 2.5rem; line-height: 1;">100%</h3>
-                                <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">Satisfaction</span>
+                                <h3 class="stat-number" data-target="100">0</h3>
+                                <span>Client satisfaction</span>
+                            </div>
+                            <div class="stat">
+                                <h3 class="stat-number" data-target="2">0</h3>
+                                <span>Cities served</span>
                             </div>
                         </div>
                     </div>
                     <div class="about-visual">
-                        <span style="font-size: 12rem; font-family: 'Cinzel', serif; color: rgba(212, 175, 55, 0.1);">Z</span>
-                        <span style="position: absolute; bottom: 20px; right: 20px; color: var(--gold); letter-spacing: 2px;">EST. 2025</span>
+                        <span class="large-z">Z</span>
+                        <span class="est">EST. 2025 · IN</span>
                     </div>
                 </div>
 
-                <div class="section-header" style="margin-top: 6rem;">
-                    <h2>Meet The Team</h2>
+                <div class="section-header" style="margin-top: 3rem;">
+                    <h2>Meet the Core Team</h2>
+                    <p>Three different minds, one shared obsession: clean, effective work.</p>
                 </div>
 
-                <div class="team-grid" style="margin-bottom: 6rem;">
+                <div class="team-grid" style="margin-bottom: 5rem;">
                     <div class="team-card">
                         <div class="team-avatar"><i class="fas fa-user"></i></div>
                         <h3 class="team-name">Shaarif</h3>
-                        <p class="team-role">Founder & Lead Strategist</p>
+                        <p class="team-role">Founder & Brand Strategist</p>
+                        <p class="team-note">Owns the big picture — positioning, offers, and how your brand is perceived online.</p>
                     </div>
                     <div class="team-card">
                         <div class="team-avatar"><i class="fas fa-code"></i></div>
                         <h3 class="team-name">Muhammed</h3>
                         <p class="team-role">Lead Developer</p>
+                        <p class="team-note">Turns approved designs into clean, responsive, and fast websites.</p>
                     </div>
                     <div class="team-card">
                         <div class="team-avatar"><i class="fas fa-paint-brush"></i></div>
                         <h3 class="team-name">Faris</h3>
                         <p class="team-role">Creative Director</p>
+                        <p class="team-note">Makes sure visuals stay consistent, premium, and on-brand across everything.</p>
                     </div>
                 </div>
 
                 <!-- Join Team Section -->
                 <div class="section-header">
-                    <h2>Join Our Team</h2>
-                    <p>Have a digital skill? We are always looking for talent to join our collective.</p>
+                    <h2>Join Our Collective</h2>
+                    <p>Have a digital skill and care about quality? We’re always open to new collaborators.</p>
                 </div>
 
                 <div class="join-team-container">
@@ -782,12 +1605,12 @@
                             <label>Your Name</label>
                             <input type="text" id="job-name" placeholder="Enter your full name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Skill / Role</label>
                             <input type="text" id="job-role" placeholder="e.g. Graphic Designer, SEO Expert" required>
                         </div>
-                        
+
                         <div class="form-group full-width">
                             <label>Portfolio Link (Optional)</label>
                             <input type="url" id="job-link" placeholder="https://yourportfolio.com">
@@ -801,6 +1624,40 @@
                     </form>
                 </div>
 
+                <!-- Testimonials -->
+                <div class="testimonials-wrap">
+                    <div class="section-header" style="margin-top: 5rem; margin-bottom: 3rem;">
+                        <h2>What People Say</h2>
+                        <p>A few words from clients and collaborators we’ve worked with.</p>
+                    </div>
+                    <div class="test-grid">
+                        <div class="test-card">
+                            <div class="quote-mark"><i class="fas fa-quote-right"></i></div>
+                            <p class="test-quote">
+                                “The website finally feels like our brand. Clean, modern, and something we’re proud to send to clinics and customers.”
+                            </p>
+                            <div class="test-name">Team Glowtiqa</div>
+                            <div class="test-role">Skincare Brand</div>
+                        </div>
+                        <div class="test-card">
+                            <div class="quote-mark"><i class="fas fa-quote-right"></i></div>
+                            <p class="test-quote">
+                                “Communication was clear from start to finish. They handled both design and dev, so we didn’t have to manage five different people.”
+                            </p>
+                            <div class="test-name">Shaa Trading</div>
+                            <div class="test-role">Distributor · Skincare & Wellness</div>
+                        </div>
+                        <div class="test-card">
+                            <div class="quote-mark"><i class="fas fa-quote-right"></i></div>
+                            <p class="test-quote">
+                                “They understood what I wanted visually and made it work on the web without overcomplicating things.”
+                            </p>
+                            <div class="test-name">Raafi Edits</div>
+                            <div class="test-role">Video Editor · Creator</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -809,20 +1666,29 @@
             <div class="container">
                 <div class="contact-layout">
                     <div>
-                        <h2 style="font-size: 2.5rem; font-family: 'Cinzel', serif; margin-bottom: 1rem;">Let's Talk</h2>
-                        <p style="color: var(--text-muted); margin-bottom: 3rem;">Ready to elevate your brand? Fill out the form or reach out directly.</p>
-                        
+                        <h2 style="font-size: 2.5rem; font-family: 'Cinzel', serif; margin-bottom: 1rem;">Let’s Talk</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 3rem;">Tell us where you are right now and where you want your brand to be — we’ll help bridge the gap.</p>
+
                         <div class="contact-info-box">
                             <h3>Contact Info</h3>
                             <p><i class="fas fa-map-marker-alt"></i> Bangalore & Bhatkal, Karnataka, India</p>
                             <p><i class="fas fa-envelope"></i> zomaxa.agency@gmail.com</p>
                             <p><i class="fab fa-whatsapp"></i> +91 8904198424</p>
                         </div>
-                        
+
                         <div class="contact-info-box" style="margin-top: 2rem;">
                             <h3>Working Hours</h3>
                             <p><i class="far fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</p>
                             <p><i class="far fa-clock"></i> Weekend: By Appointment</p>
+                        </div>
+
+                        <div class="contact-info-box" style="margin-top: 2rem;">
+                            <h3>What Happens Next?</h3>
+                            <p style="color: var(--text-muted);">
+                                1. We reply on WhatsApp or email.<br>
+                                2. We schedule a short call or chat.<br>
+                                3. You get a clear, no-pressure proposal.
+                            </p>
                         </div>
                     </div>
 
@@ -855,49 +1721,58 @@
 
                         <div class="form-group">
                             <label class="form-label">Project Details</label>
-                            <textarea id="message" class="form-textarea" rows="4" placeholder="Tell us about your goals..." required></textarea>
+                            <textarea id="message" class="form-textarea" rows="4" placeholder="Tell us about your goals, timeline, and what you’ve tried so far..." required></textarea>
                         </div>
 
                         <button type="submit" class="btn-submit">
-                            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Send via WhatsApp
+                            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Send Details via WhatsApp
                         </button>
                     </form>
                 </div>
             </div>
         </div>
-        
-        <!-- AFFILIATE PAGE (Full Integrated Content) -->
+
+        <!-- AFFILIATE PAGE -->
         <div id="affiliate" class="page-section">
-            
+
             <!-- Affiliate Hero -->
             <div class="affiliate-hero">
-                <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1;">Get Paid to <span class="gold-text">Spread the Word</span></h1>
-                <p style="font-size: 1.2rem; max-width: 700px; margin-bottom: 2.5rem; color: rgba(255, 255, 255, 0.8);">Love what we do? Earn money by referring clients to Zomaxa. Whether you're a student, freelancer, or creator – it's simple to join and easy to earn.</p>
-                <a href="#affiliate-form" class="btn-glow" onclick="document.getElementById('affiliate-form').scrollIntoView({behavior: 'smooth'})">Join the Affiliate Program</a>
+                <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1;">
+                    Get Paid to <span class="gold-text">Recommend Good Work</span>
+                </h1>
+                <p style="font-size: 1.2rem; max-width: 700px; margin-bottom: 2.5rem; color: rgba(255, 255, 255, 0.8);">
+                    If you know business owners, creators, or friends who need branding or a website, you can earn by sending them our way.
+                </p>
+                <a href="#affiliate-form" class="btn-glow" onclick="document.getElementById('affiliate-form').scrollIntoView({behavior: 'smooth'})">
+                    Join the Affiliate Program
+                </a>
+                <p style="margin-top: 1.5rem; font-size: .85rem; color: var(--text-muted);">
+                    Simple structure · Transparent payouts · You don’t have to “sell” — just connect.
+                </p>
             </div>
 
             <!-- How It Works -->
             <div class="container">
                 <div class="section-header">
                     <h2>How It Works</h2>
-                    <p>Earn commissions in three simple steps</p>
+                    <p>Three simple steps — no portals, no complicated dashboards.</p>
                 </div>
-                
+
                 <div class="steps-container">
                     <div class="step-card">
                         <div class="step-number">1</div>
-                        <h3>Join the Program</h3>
-                        <p>Fill out a quick form and get your unique referral code or link.</p>
+                        <h3>Join</h3>
+                        <p>Fill the short form below and we’ll give you your referral format and basic info.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">2</div>
-                        <h3>Share & Refer</h3>
-                        <p>Tell friends, local businesses, or clients about Zomaxa.</p>
+                        <h3>Refer</h3>
+                        <p>Send people our way on WhatsApp or share our details using your unique reference.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">3</div>
-                        <h3>Get Paid</h3>
-                        <p>Earn cash when they sign up using your link.</p>
+                        <h3>Earn</h3>
+                        <p>Once they become a paying client, you receive your payout as agreed.</p>
                     </div>
                 </div>
             </div>
@@ -906,9 +1781,9 @@
             <div class="container" style="background-color: #0a0a0a;">
                 <div class="section-header">
                     <h2>Commission Structure</h2>
-                    <p>Choose how you want to earn with our flexible options</p>
+                    <p>Choose what works better for you — instant payouts or recurring income.</p>
                 </div>
-                
+
                 <div class="commission-container">
                     <div class="commission-content">
                         <div class="commission-option">
@@ -919,25 +1794,25 @@
                                     <span class="commission-amount">₹500</span>
                                 </li>
                                 <li>
-                                    <span class="commission-plan">Growth Plan</span>
+                                    <span class="commission-plan">Growth / Pro Plan</span>
                                     <span class="commission-amount">₹1,000</span>
                                 </li>
                                 <li>
-                                    <span class="commission-plan">Elite Plan</span>
+                                    <span class="commission-plan">Elite / Enterprise</span>
                                     <span class="commission-amount">₹1,500</span>
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="or-divider">
                             <span>OR</span>
                         </div>
-                        
+
                         <div class="commission-option">
                             <h3>Monthly Earnings</h3>
                             <div style="text-align: center; margin-top: 40px;">
-                                <div class="commission-amount" style="font-size: 2rem; margin-bottom: 15px;">10-20%</div>
-                                <p style="color: var(--text-muted);">of your referral's monthly fee for as long as they stay</p>
+                                <div class="commission-amount" style="font-size: 2rem; margin-bottom: 15px;">10–20%</div>
+                                <p style="color: var(--text-muted);">of your referral’s monthly fee, as long as they stay on that tier.</p>
                             </div>
                         </div>
                     </div>
@@ -947,25 +1822,25 @@
             <!-- Who Can Join -->
             <div class="container">
                 <div class="section-header">
-                    <h2>Who Can Join?</h2>
-                    <p>This program is open to everyone with a passion for great design</p>
+                    <h2>Who This Is For</h2>
+                    <p>You don’t need to be a salesperson — you just need people who trust you.</p>
                 </div>
-                
+
                 <div class="join-container">
                     <div class="join-card">
                         <div class="join-icon"><i class="fas fa-users"></i></div>
-                        <h3>Anyone with a Network</h3>
-                        <p>Share with friends, family, or business contacts</p>
+                        <h3>Friends with Business Owners</h3>
+                        <p>If people already ask you for advice and recommendations, this is for you.</p>
                     </div>
                     <div class="join-card">
                         <div class="join-icon"><i class="fas fa-heart"></i></div>
-                        <h3>Satisfied Customers</h3>
-                        <p>Our happy clients make the best advocates</p>
+                        <h3>Existing Clients</h3>
+                        <p>If you like our work, you can earn by simply telling others about your experience.</p>
                     </div>
                     <div class="join-card">
                         <div class="join-icon"><i class="fas fa-graduation-cap"></i></div>
                         <h3>Students & Creators</h3>
-                        <p>Perfect for building your portfolio while earning</p>
+                        <p>If your network is growing and you want extra income, this fits well.</p>
                     </div>
                 </div>
             </div>
@@ -974,29 +1849,29 @@
             <div class="container" style="background-color: #0a0a0a;">
                 <div class="section-header">
                     <h2>What You Get</h2>
-                    <p>Our affiliate program comes with powerful benefits</p>
+                    <p>We keep it simple and fair.</p>
                 </div>
-                
+
                 <div class="benefits-container">
                     <div class="benefit-card">
                         <div class="benefit-icon"><i class="fas fa-link"></i></div>
-                        <h3>Personal Referral Link</h3>
-                        <p>Your unique link to track all your referrals and commissions</p>
+                        <h3>Clear Referral System</h3>
+                        <p>We track your referrals by name and simple codes, so there’s no confusion about who came from you.</p>
                     </div>
                     <div class="benefit-card">
                         <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Dashboard Tracking</h3>
-                        <p>Real-time tracking of your referrals and earnings (coming soon)</p>
+                        <h3>Alignment, Not Pressure</h3>
+                        <p>You send people who actually need this — no hard selling, no spammy tactics required.</p>
                     </div>
                     <div class="benefit-card">
                         <div class="benefit-icon"><i class="fas fa-rupee-sign"></i></div>
                         <h3>Easy Payouts</h3>
-                        <p>Get paid via Cash, UPI or bank transfer with no hassle</p>
+                        <p>Get paid via UPI, cash, or bank transfer once the client’s payment clears.</p>
                     </div>
                     <div class="benefit-card">
                         <div class="benefit-icon"><i class="fas fa-tools"></i></div>
-                        <h3>Marketing Tools</h3>
-                        <p>Resources and tips to help you succeed as an affiliate</p>
+                        <h3>Support Material</h3>
+                        <p>We’ll give you a simple PDF / message pack explaining what we do so you can share it easily.</p>
                     </div>
                 </div>
             </div>
@@ -1004,27 +1879,27 @@
             <!-- Affiliate Application Form -->
             <div id="affiliate-form" class="container">
                 <div class="section-header">
-                    <h2>Join Our Affiliate Program</h2>
-                    <p>Fill out the form below to start earning commissions today</p>
+                    <h2>Join the Affiliate Program</h2>
+                    <p>Tell us a bit about yourself and how you plan to refer clients.</p>
                 </div>
-                
+
                 <div class="affiliate-form-container">
                     <form id="affiliateAppForm" class="affiliate-form">
                         <div class="form-group">
                             <label>Full Name</label>
                             <input type="text" id="aff-name" placeholder="Enter your full name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Email Address</label>
                             <input type="email" id="aff-email" placeholder="Enter your email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Phone Number</label>
                             <input type="tel" id="aff-phone" placeholder="Enter your phone number" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Preferred Commission</label>
                             <select id="aff-type" required>
@@ -1036,20 +1911,20 @@
 
                         <div class="form-group full-width">
                             <label>Why do you want to join? (Optional)</label>
-                            <textarea id="aff-message" placeholder="Tell us why you're interested..."></textarea>
+                            <textarea id="aff-message" placeholder="Tell us why you're interested or how you’ll refer..."></textarea>
                         </div>
-                        
+
                         <div class="form-group full-width" style="margin-bottom:0;">
                             <button type="submit" class="btn-submit">
-                                <i class="fas fa-paper-plane"></i> Submit Application
+                                <i class="fas fa-paper-plane"></i> Submit Application (via WhatsApp)
                             </button>
                         </div>
                     </form>
-                    
+
                     <div id="aff-success" class="form-success">
                         <i class="fas fa-check-circle" style="color:var(--success); font-size:3rem; margin-bottom:1rem;"></i>
                         <h3 style="color:var(--success); margin-bottom:0.5rem;">Application Submitted!</h3>
-                        <p>Thank you for applying. We'll review your details and contact you shortly.</p>
+                        <p>Thank you for applying. We’ll review your details and respond on WhatsApp soon.</p>
                     </div>
                 </div>
             </div>
@@ -1058,12 +1933,15 @@
 
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container" style="padding: 0; padding-bottom: 2rem;">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="#" class="logo" style="margin-bottom: 1rem; display: block;">ZOMAXA</a>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Premium creative agency transforming brands through strategy, design, and technology.</p>
+                    <a href="#home" class="logo" style="margin-bottom: 1rem; display: block;" onclick="navigateTo('home')">ZOMAXA<span class="dot">.</span></a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+                        Premium creative agency helping small brands look and feel like big players — through brand, web, and content.
+                    </p>
                 </div>
                 <div class="footer-col">
                     <h4>Agency</h4>
@@ -1071,16 +1949,16 @@
                         <li><a href="#about" onclick="navigateTo('about')">About Us</a></li>
                         <li><a href="#work" onclick="navigateTo('work')">Portfolio</a></li>
                         <li><a href="#services" onclick="navigateTo('services')">Services</a></li>
-                        <li><a href="#contact" onclick="navigateTo('contact')">Contact</a></li>
+                        <li><a href="#affiliate" onclick="navigateTo('affiliate')">Affiliate Program</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Branding</a></li>
-                        <li><a href="#">Development</a></li>
-                        <li><a href="#">Content</a></li>
+                        <li><a href="#services" onclick="navigateTo('services')">Web Design</a></li>
+                        <li><a href="#services" onclick="navigateTo('services')">Branding</a></li>
+                        <li><a href="#services" onclick="navigateTo('services')">Development</a></li>
+                        <li><a href="#services" onclick="navigateTo('services')">Content</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1099,16 +1977,19 @@
     </footer>
 
     <!-- WhatsApp Sticky Button -->
-    <a href="https://wa.me/+918904198424" class="whatsapp-sticky" target="_blank">
+    <a href="https://wa.me/918904198424" class="whatsapp-sticky" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Router Logic
+        // SPA Navigation
         function navigateTo(pageId) {
             history.pushState(null, null, `#${pageId}`);
             renderPage(pageId);
-            document.querySelector('.nav-links').classList.remove('active');
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
         }
 
         function renderPage(pageId) {
@@ -1116,9 +1997,8 @@
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
-                window.scrollTo(0, 0);
-                
-                // Trigger animations for the new page
+                window.scrollTo({ top: 0, behavior: 'instant' });
+
                 animateElements(targetPage);
             }
             document.querySelectorAll('.nav-item').forEach(link => {
@@ -1127,22 +2007,26 @@
             });
         }
 
-        // Work Filtering Logic
-        function filterWork(category) {
+        // Work Filtering Logic (fixed: explicit button argument)
+        function filterWork(category, btnEl) {
             const items = document.querySelectorAll('.work-item');
             const buttons = document.querySelectorAll('.filter-btn');
-            
+
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (btnEl) btnEl.classList.add('active');
 
             items.forEach(item => {
-                const itemCats = item.getAttribute('data-category');
+                const itemCats = item.getAttribute('data-category') || '';
                 if (category === 'all' || itemCats.includes(category)) {
                     item.style.display = 'block';
-                    setTimeout(() => item.style.opacity = '1', 50);
+                    requestAnimationFrame(() => {
+                        item.style.opacity = '1';
+                    });
                 } else {
-                    item.style.display = 'none';
                     item.style.opacity = '0';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 200);
                 }
             });
         }
@@ -1154,36 +2038,36 @@
             const service = document.getElementById('service').value;
             const budget = document.getElementById('budget').value;
             const message = document.getElementById('message').value;
-            const phoneNumber = "918904198424"; 
-            const text = `*New Agency Inquiry*%0a%0a` +
-                         `*Name:* ${name}%0a` +
-                         `*Service:* ${service}%0a` +
-                         `*Budget:* ${budget}%0a` +
-                         `*Message:* ${message}`;
+            const phoneNumber = "918904198424";
+            const text =
+                `*New Agency Inquiry*%0a%0a` +
+                `*Name:* ${name}%0a` +
+                `*Service:* ${service}%0a` +
+                `*Budget:* ${budget}%0a` +
+                `*Message:* ${message}`;
             window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
         });
 
-        // Affiliate Application Form
+        // Affiliate Application Form -> WhatsApp
         document.getElementById('affiliateAppForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const name = document.getElementById('aff-name').value;
             const email = document.getElementById('aff-email').value;
             const phone = document.getElementById('aff-phone').value;
             const type = document.getElementById('aff-type').value;
             const message = document.getElementById('aff-message').value;
-            
+
             const phoneNumber = "918904198424";
-            const text = `*New Affiliate Application*%0a%0a` +
-                         `*Name:* ${name}%0a` +
-                         `*Email:* ${email}%0a` +
-                         `*Phone:* ${phone}%0a` +
-                         `*Type:* ${type}%0a` +
-                         `*Why:* ${message}`;
-            
+            const text =
+                `*New Affiliate Application*%0a%0a` +
+                `*Name:* ${name}%0a` +
+                `*Email:* ${email}%0a` +
+                `*Phone:* ${phone}%0a` +
+                `*Preferred Commission:* ${type}%0a` +
+                `*Why:* ${message || "Not specified"}`;
             window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
-            
-            // Show success message
+
             this.style.display = 'none';
             document.getElementById('aff-success').style.display = 'block';
         });
@@ -1191,22 +2075,24 @@
         // Join Team Form Handler
         document.getElementById('joinTeamForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const name = document.getElementById('job-name').value;
             const role = document.getElementById('job-role').value;
             const link = document.getElementById('job-link').value;
-            
+
             const phoneNumber = "918904198424";
-            const text = `*New Job Application*%0a%0a` +
-                         `*Name:* ${name}%0a` +
-                         `*Role/Skill:* ${role}%0a` +
-                         `*Portfolio:* ${link}`;
-            
+            const text =
+                `*New Job Application*%0a%0a` +
+                `*Name:* ${name}%0a` +
+                `*Role/Skill:* ${role}%0a` +
+                `*Portfolio:* ${link || "Not provided"}`;
+
             window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
         });
 
         function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('active');
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks) navLinks.classList.toggle('active');
         }
 
         // Scroll Animation Logic
@@ -1224,16 +2110,44 @@
         }, observerOptions);
 
         function animateElements(container) {
-            // Select elements to animate within the active container
-            const elements = container.querySelectorAll('.step-card, .join-card, .benefit-card, .commission-option, .service-card, .process-card, .pricing-card, .section-header');
-            
+            const elements = container.querySelectorAll(
+                '.step-card, .join-card, .benefit-card, .commission-option, ' +
+                '.service-card, .process-card, .pricing-card, .section-header, .why-card, .test-card'
+            );
+
             elements.forEach(el => {
-                // Reset styling for animation re-trigger if needed
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(30px)';
                 el.style.transition = 'all 0.6s ease-out';
                 observer.observe(el);
             });
+
+            // animate stats counters if present
+            const stats = container.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                if (!stat.dataset.animated) {
+                    animateCounter(stat);
+                }
+            });
+        }
+
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+            let current = 0;
+            const isPercent = el.textContent.toString().includes('%') || el.getAttribute('data-target') === '100';
+            const speed = 20;
+
+            const update = () => {
+                if (current < target) {
+                    current += Math.ceil(target / 40);
+                    if (current > target) current = target;
+                    el.textContent = isPercent ? current + '%' : current + (el.getAttribute('data-target') === '2' ? '+' : (el.getAttribute('data-target') === '5' ? '+' : ''));
+                    requestAnimationFrame(update);
+                } else {
+                    el.dataset.animated = "true";
+                }
+            };
+            update();
         }
 
         // Initial Load Handling
@@ -1246,7 +2160,6 @@
             const hash = window.location.hash.substring(1);
             if (hash) renderPage(hash); else renderPage('home');
         });
-
     </script>
 </body>
 </html>
