@@ -17,6 +17,7 @@
             --surface: #0f0f0f;
             --surface-light: #161616;
             --text-main: #ffffff;
+            --white: #ffffff; /* Added missing variable */
             --text-muted: #a0a0a0;
             --success: #4CAF50;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -513,119 +514,245 @@
             width: 20px;
         }
 
-        /* WORK / PORTFOLIO */
-        .filter-bar {
+        /* --- IMPROVED WORK / PORTFOLIO CSS --- */
+        .work-section-wrapper {
+            padding: 2rem 0;
+        }
+
+        /* Floating Filter Bar */
+        .filter-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .filter-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 0.5rem;
+            border-radius: 999px;
+            display: flex;
+            gap: 0.5rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
         .filter-btn {
             background: transparent;
             border: none;
             color: var(--text-muted);
+            padding: 0.8rem 1.5rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             cursor: pointer;
-            font-size: 0.8rem;
-            transition: var(--transition);
-            padding-bottom: 5px;
-            border-bottom: 1px solid transparent;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            color: var(--gold);
-            border-bottom-color: var(--gold);
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2rem;
-        }
-
-        .work-item {
+            transition: all 0.4s ease;
             position: relative;
-            aspect-ratio: 16/9;
             overflow: hidden;
-            display: block;
-            text-decoration: none;
-            background: var(--surface-light);
-            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .work-item img {
+        .filter-btn:hover {
+            color: var(--white);
+        }
+
+        .filter-btn.active {
+            background: var(--gold);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Premium Spotlight Effect */
+        .portfolio-grid:hover .portfolio-item:not(:hover) {
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transform: scale(0.98);
+        }
+
+        /* Card Styling */
+        .portfolio-item {
+            grid-column: span 6; /* Default: 2 items per row */
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            background: var(--surface-light);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block; /* Ensure links work properly */
+            text-decoration: none;
+            color: var(--white); /* Ensure link doesn't default to blue */
+        }
+
+        /* Grid Spans */
+        .portfolio-item:first-child { grid-column: span 8; }
+        .portfolio-item:nth-child(2) { grid-column: span 4; }
+
+        .portfolio-img-wrap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .portfolio-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
-            filter: grayscale(100%);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: grayscale(100%) brightness(0.8);
         }
 
-        .work-item:hover img {
-            transform: scale(1.05);
-            filter: grayscale(0%);
+        .portfolio-item:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            z-index: 2;
         }
 
-        .work-overlay {
+        .portfolio-item:hover .portfolio-img-wrap img {
+            transform: scale(1.08);
+            filter: grayscale(0%) brightness(1);
+        }
+
+        /* Content Overlay */
+        .portfolio-content {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 1.8rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-            transform: translateY(18px);
-            opacity: 0;
-            transition: var(--transition);
+            padding: 2.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            z-index: 2;
+            height: 100%;
+            opacity: 1;
         }
 
-        .work-item:hover .work-overlay {
+        /* The Gold Line decoration */
+        .portfolio-line {
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            margin-bottom: 1rem;
+            transition: width 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-line {
+            width: 50px;
+        }
+
+        .portfolio-tags {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            margin-bottom: 0.8rem;
+            opacity: 0.8;
+            transform: translateY(10px);
+            transition: transform 0.5s ease;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .tag-pill {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .portfolio-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            transform: translateY(10px);
+            transition: transform 0.5s ease 0.1s;
+        }
+
+        .portfolio-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 90%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.1s;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hover States */
+        .portfolio-item:hover .portfolio-tags,
+        .portfolio-item:hover .portfolio-title,
+        .portfolio-item:hover .portfolio-desc {
             transform: translateY(0);
             opacity: 1;
         }
 
-        .work-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gold);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .work-title {
+        /* Arrow Icon */
+        .portfolio-arrow {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--white);
-            font-size: 1.5rem;
-            font-family: 'Cinzel', serif;
-            margin-bottom: .5rem;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translate(-20px, 20px);
+            transition: all 0.4s ease;
+            z-index: 3;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .work-meta {
-            font-size: .8rem;
-            color: var(--text-muted);
+        .portfolio-item:hover .portfolio-arrow {
+            opacity: 1;
+            transform: translate(0, 0);
+            background: var(--gold);
+            color: #000;
         }
-
+        
         .status-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: var(--gold);
             color: #000;
             font-size: 0.7rem;
             font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 2px;
-            z-index: 2;
+            padding: 6px 14px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 3;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .case-snippet {
-            margin-top: .6rem;
-            font-size: .8rem;
-            color: var(--text-muted);
-        }
+        /* --- END WORK CSS --- */
 
         /* ABOUT / AGENCY */
         .about-layout {
@@ -1222,6 +1349,22 @@
                 gap: 1.5rem;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
             }
+
+            /* Responsive Portfolio Grid */
+            .portfolio-item, 
+            .portfolio-item:first-child,
+            .portfolio-item:nth-child(2) {
+                grid-column: span 12;
+                aspect-ratio: 16/12;
+            }
+            .filter-glass {
+                overflow-x: auto;
+                max-width: 100%;
+                justify-content: flex-start;
+            }
+            .filter-btn {
+                white-space: nowrap;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1468,65 +1611,98 @@
 
         <!-- WORK PAGE -->
         <div id="work" class="page-section">
-            <div class="container">
+            <div class="container work-section-wrapper">
                 <div class="section-header">
-                    <h2>Selected Work & Case Snapshots</h2>
-                    <p>Here’s a quick look at how we turn ideas into experiences people actually want to use.</p>
+                    <h2>Selected Masterpieces</h2>
+                    <p>Strategic design meets technical precision.</p>
                 </div>
 
-                <div class="filter-bar">
-                    <button class="filter-btn active" onclick="filterWork('all', this)">All Projects</button>
-                    <button class="filter-btn" onclick="filterWork('web', this)">Web Design</button>
-                    <button class="filter-btn" onclick="filterWork('brand', this)">Branding</button>
-                    <button class="filter-btn" onclick="filterWork('content', this)">Content</button>
+                <!-- New Glass Filter Bar -->
+                <div class="filter-container">
+                    <div class="filter-glass">
+                        <button class="filter-btn active" onclick="filterWork('all', this)">All</button>
+                        <button class="filter-btn" onclick="filterWork('web', this)">Websites</button>
+                        <button class="filter-btn" onclick="filterWork('brand', this)">Branding</button>
+                        <button class="filter-btn" onclick="filterWork('social', this)">Social & Reels</button>
+                    </div>
                 </div>
 
-                <div class="work-grid">
-                    <!-- Project 1 -->
-                    <a href="https://glowtiqa.com" target="_blank" class="work-item" data-category="web brand">
-                        <img src="images/glowtiqaparis.png" alt="Glowtiqa Cosmetics" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Glowtiqa+Paris'">
-                        <div class="work-overlay">
-                            <span class="work-tag">E-Commerce · Skincare</span>
-                            <div class="work-title">Glowtiqa Cosmetics</div>
-                            <div class="work-meta">Premium feel for a results-driven whitening brand.</div>
-                            <div class="case-snippet">We built a minimal, Paris-inspired layout that feels clinical yet aspirational — with clear product storytelling and easier paths to purchase.</div>
+                <div class="portfolio-grid">
+                    
+                    <!-- Item 1: Featured (Large) -->
+                    <a href="https://glowtiqa.com" target="_blank" class="portfolio-item" data-category="web brand">
+                        <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="portfolio-img-wrap">
+                            <img src="images/glowtiqaparis.png" alt="Glowtiqa Cosmetics" onerror="this.src='https://placehold.co/1200x800/111111/D4AF37?text=Glowtiqa+Paris'">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-line"></div>
+                            <div class="portfolio-tags">
+                                <span class="tag-pill">E-Commerce</span>
+                                <span class="tag-pill">Branding</span>
+                            </div>
+                            <h3 class="portfolio-title">Glowtiqa Paris</h3>
+                            <p class="portfolio-desc">A luxury skincare experience built on Shopify. Focusing on high-conversion funnels and clinical yet premium aesthetics.</p>
                         </div>
                     </a>
 
-                    <!-- Project 2 -->
-                    <div class="work-item" data-category="brand" style="cursor: default;">
-                        <span class="status-badge">IN PROGRESS</span>
-                        <img src="images/shaatrading.jpg" alt="Shaa Trading" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Shaa+Trading'">
-                        <div class="work-overlay">
-                            <span class="work-tag">Branding · B2B · Skincare Distribution</span>
-                            <div class="work-title">Shaa Trading</div>
-                            <div class="work-meta">Elevating a distributor into a recognizable brand system.</div>
-                            <div class="case-snippet">We’re currently rebuilding their identity and web experience to feel structured, trustworthy, and aligned with premium clinics they serve.</div>
+                    <!-- Item 2: Medium -->
+                    <div class="portfolio-item" data-category="brand">
+                        <span class="status-badge">Rebranding</span>
+                        <div class="portfolio-img-wrap">
+                            <img src="images/shaatrading.jpg" alt="Shaa Trading" onerror="this.src='https://placehold.co/800x800/161616/333?text=Shaa+Trading'">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-line"></div>
+                            <div class="portfolio-tags">
+                                <span class="tag-pill">B2B Distribution</span>
+                            </div>
+                            <h3 class="portfolio-title">Shaa Trading</h3>
+                            <p class="portfolio-desc">Complete identity overhaul for a major skincare distributor, establishing trust with clinics and doctors.</p>
                         </div>
                     </div>
 
-                    <!-- Project 3 -->
-                    <a href="https://zyrox-xd.github.io/cake-bites/" target="_blank" class="work-item" data-category="web content">
-                        <img src="images/cake.jpg" alt="Cake Bites" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Cake+Bites'">
-                        <div class="work-overlay">
-                            <span class="work-tag">Web Design · F&B</span>
-                            <div class="work-title">Cake Bites</div>
-                            <div class="work-meta">Warm, playful visuals for a local bakery brand.</div>
-                            <div class="case-snippet">The site focuses on irresistible visuals and simple navigation so people can quickly see offerings and reach out to order.</div>
+                    <!-- Item 3: Standard -->
+                    <a href="https://zyrox-xd.github.io/cake-bites/" target="_blank" class="portfolio-item" data-category="web">
+                        <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="portfolio-img-wrap">
+                            <img src="images/cake.jpg" alt="Cake Bites" onerror="this.src='https://placehold.co/800x600/222/D4AF37?text=Cake+Bites'">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-line"></div>
+                            <div class="portfolio-tags">
+                                <span class="tag-pill">F&B</span>
+                                <span class="tag-pill">Web Design</span>
+                            </div>
+                            <h3 class="portfolio-title">Cake Bites</h3>
+                            <p class="portfolio-desc">A playful, visually rich local business website designed to capture the appetite instantly.</p>
                         </div>
                     </a>
 
-                    <!-- Project 4 -->
-                    <a href="https://zyrox-xd.github.io/RaafiEdits/" target="_blank" class="work-item" data-category="web content">
-                        <img src="images/Raafiedits.png" alt="Raafi Edits" onerror="this.src='https://placehold.co/800x450/111111/D4AF37?text=Raafi+Edits'">
-                        <div class="work-overlay">
-                            <span class="work-tag">Portfolio · Creator</span>
-                            <div class="work-title">Raafi Edits</div>
-                            <div class="work-meta">Clean portfolio for a video editor and creator.</div>
-                            <div class="case-snippet">We kept the interface minimal so the focus stays on the work — quick access to projects and clear calls-to-action for collaborations.</div>
+                    <!-- Item 4: Standard -->
+                    <a href="https://zyrox-xd.github.io/RaafiEdits/" target="_blank" class="portfolio-item" data-category="web social">
+                        <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="portfolio-img-wrap">
+                            <img src="images/Raafiedits.png" alt="Raafi Edits" onerror="this.src='https://placehold.co/800x600/111/555?text=Raafi+Edits'">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-line"></div>
+                            <div class="portfolio-tags">
+                                <span class="tag-pill">Portfolio</span>
+                                <span class="tag-pill">Creator</span>
+                            </div>
+                            <h3 class="portfolio-title">Raafi Edits</h3>
+                            <p class="portfolio-desc">High-performance portfolio for a video editor, designed to showcase motion content without lag.</p>
                         </div>
                     </a>
+
                 </div>
+                
+                <!-- CTA at bottom of work -->
+                <div style="text-align: center; margin-top: 4rem;">
+                    <button onclick="navigateTo('contact')" class="btn-glow">View All Projects</button>
+                </div>
+
             </div>
         </div>
 
@@ -2007,26 +2183,32 @@
             });
         }
 
-        // Work Filtering Logic (fixed: explicit button argument)
+        // Updated Work Filtering Logic (For new Bento Grid)
         function filterWork(category, btnEl) {
-            const items = document.querySelectorAll('.work-item');
+            const items = document.querySelectorAll('.portfolio-item');
             const buttons = document.querySelectorAll('.filter-btn');
 
+            // Update Active Button
             buttons.forEach(btn => btn.classList.remove('active'));
             if (btnEl) btnEl.classList.add('active');
 
+            // Animate Items
             items.forEach(item => {
                 const itemCats = item.getAttribute('data-category') || '';
+                
                 if (category === 'all' || itemCats.includes(category)) {
-                    item.style.display = 'block';
-                    requestAnimationFrame(() => {
+                    item.style.display = 'block'; // Reset display to let grid handle layout
+                    // Small delay to allow display:block to render before opacity change
+                    setTimeout(() => {
                         item.style.opacity = '1';
-                    });
+                        item.style.transform = 'scale(1)';
+                    }, 10);
                 } else {
                     item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
                     setTimeout(() => {
                         item.style.display = 'none';
-                    }, 200);
+                    }, 300); // Wait for transition
                 }
             });
         }
