@@ -6,6 +6,7 @@
     <title>ZOMAXA | Premium Creative Agency</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23D4AF37%22>Z</text></svg>">
 
     <style>
@@ -17,7 +18,7 @@
             --surface: #0f0f0f;
             --surface-light: #161616;
             --text-main: #ffffff;
-            --white: #ffffff; /* Added missing variable */
+            --white: #ffffff;
             --text-muted: #a0a0a0;
             --success: #4CAF50;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -95,9 +96,7 @@
             gap: .4rem;
         }
 
-        .logo span.dot {
-            color: var(--text-main);
-        }
+        .logo span.dot { color: var(--text-main); }
 
         .nav-links { display: flex; gap: 2.5rem; align-items: center; }
 
@@ -170,6 +169,7 @@
             margin: 0 auto;
         }
 
+        /* Buttons */
         .btn-glow {
             display: inline-block;
             padding: 1rem 2.5rem;
@@ -199,9 +199,7 @@
             transition: transform .6s ease;
         }
 
-        .btn-glow:hover::before {
-            transform: translateX(250%) skewX(-20deg);
-        }
+        .btn-glow:hover::before { transform: translateX(250%) skewX(-20deg); }
 
         .btn-glow:hover {
             background: var(--gold);
@@ -237,10 +235,7 @@
             background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
         }
 
-        .hero-inner {
-            max-width: 1100px;
-            text-align: center;
-        }
+        .hero-inner { max-width: 1100px; text-align: center; }
 
         .hero-eyebrow {
             text-transform: uppercase;
@@ -277,10 +272,7 @@
             margin-bottom: 2.5rem;
         }
 
-        .hero-note {
-            font-size: .8rem;
-            color: var(--text-muted);
-        }
+        .hero-note { font-size: .8rem; color: var(--text-muted); }
 
         /* LOGO TICKER */
         .logo-ticker-wrap {
@@ -333,21 +325,9 @@
             font-family: 'Cinzel', serif;
         }
 
-        .process-card h3 {
-            margin-bottom: 1rem;
-            color: var(--gold);
-        }
-
-        .process-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .process-detail {
-            margin-top: 1rem;
-            font-size: .85rem;
-            color: var(--text-muted);
-        }
+        .process-card h3 { margin-bottom: 1rem; color: var(--gold); }
+        .process-card p { font-size: 0.9rem; color: var(--text-muted); }
+        .process-detail { margin-top: 1rem; font-size: .85rem; color: var(--text-muted); }
 
         /* WHY ZOMAXA */
         .why-grid {
@@ -369,12 +349,7 @@
             border-color: var(--gold);
         }
 
-        .why-icon {
-            font-size: 1.6rem;
-            color: var(--gold);
-            margin-bottom: 1.2rem;
-        }
-
+        .why-icon { font-size: 1.6rem; color: var(--gold); margin-bottom: 1.2rem; }
         .why-tag {
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -383,12 +358,12 @@
             margin-bottom: .4rem;
         }
 
-        /* SERVICES & PRICING */
+        /* SERVICES STYLES */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 6rem;
+            margin-bottom: 4rem;
         }
 
         .service-card {
@@ -409,10 +384,7 @@
             margin-bottom: 2rem;
         }
 
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; }
 
         .service-card ul {
             list-style: none;
@@ -433,15 +405,41 @@
             margin-right: 10px;
         }
 
-        .plan-fit {
-            margin-top: 1.5rem;
-            font-size: .8rem;
-            color: var(--text-muted);
-            border-top: 1px dashed rgba(255,255,255,0.1);
-            padding-top: 1rem;
+        /* PRICING STYLES */
+        .pricing-controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .pricing-grid {
+        .pricing-tab-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+            padding: 0.8rem 2rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+        }
+
+        .pricing-tab-btn.active {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border-color: var(--gold);
+            font-weight: 700;
+        }
+
+        .pricing-category {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .pricing-category.active {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
@@ -454,6 +452,9 @@
             text-align: center;
             position: relative;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .pricing-card.featured {
@@ -462,6 +463,18 @@
             transform: scale(1.03);
             z-index: 2;
         }
+
+        .combo-card {
+            background: linear-gradient(145deg, #121212 0%, #1a1810 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .combo-card .price-amount {
+            color: var(--gold-light);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .smm-card { border-top: 3px solid #E1306C; }
 
         .plan-badge {
             position: absolute;
@@ -475,24 +488,31 @@
             padding: .25rem .6rem;
         }
 
-        .price-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
-
+        .price-title { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main); }
+        
         .price-amount {
-            font-size: 2.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--gold);
             margin-bottom: .5rem;
             display: block;
         }
+        
+        .price-amount span {
+            font-size: 2.2rem;
+            margin-left: 5px;
+        }
 
-        .price-note {
-            font-size: .8rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
+        .price-note { font-size: .8rem; color: var(--text-muted); margin-bottom: 2rem; }
+        
+        .save-badge {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
         }
 
         .price-features {
@@ -513,13 +533,118 @@
             margin-right: 10px;
             width: 20px;
         }
-
-        /* --- IMPROVED WORK / PORTFOLIO CSS --- */
-        .work-section-wrapper {
-            padding: 2rem 0;
+        
+        .pricing-disclaimer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: -2rem auto 3rem;
+            padding: 1rem;
+            border: 1px dashed rgba(255,255,255,0.1);
+            border-radius: 4px;
         }
 
-        /* Floating Filter Bar */
+        .pricing-trust-line {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* CONTACT FORM STYLES */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-link a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-link a:hover { color: var(--gold); }
+        .contact-link i { color: var(--gold); width: 20px; text-align: center; }
+
+        .contact-form {
+            background: var(--surface);
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .form-group { margin-bottom: 2rem; }
+
+        .form-label {
+            display: block;
+            color: var(--gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 0.8rem 0;
+            color: var(--white);
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+
+        .form-select option { background: var(--surface); }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-bottom-color: var(--gold);
+            background: linear-gradient(to bottom, transparent 95%, rgba(212, 175, 55, 0.05) 100%);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gold);
+            color: var(--bg-dark);
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+
+        /* PORTFOLIO & WORK */
+        .work-section-wrapper { padding: 2rem 0; }
+        
         .filter-container {
             display: flex;
             justify-content: center;
@@ -530,11 +655,10 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 0.5rem 0.5rem;
+            padding: 0.5rem;
             border-radius: 999px;
             display: flex;
             gap: 0.5rem;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
         .filter-btn {
@@ -549,39 +673,23 @@
             letter-spacing: 1.5px;
             cursor: pointer;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .filter-btn:hover {
-            color: var(--white);
-        }
-
+        .filter-btn:hover { color: var(--white); }
         .filter-btn.active {
             background: var(--gold);
             color: var(--bg-dark);
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
 
-        /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             gap: 2rem;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
-        
-        /* Premium Spotlight Effect */
-        .portfolio-grid:hover .portfolio-item:not(:hover) {
-            opacity: 0.4;
-            filter: grayscale(100%);
-            transform: scale(0.98);
         }
 
-        /* Card Styling */
         .portfolio-item {
-            grid-column: span 6; /* Default: 2 items per row */
+            grid-column: span 6;
             position: relative;
             border-radius: 6px;
             overflow: hidden;
@@ -590,25 +698,17 @@
             cursor: pointer;
             border: 1px solid rgba(255,255,255,0.05);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            display: block; /* Ensure links work properly */
             text-decoration: none;
-            color: var(--white); /* Ensure link doesn't default to blue */
+            display: block;
+            color: var(--white); /* FIX: Ensure text is white */
         }
 
-        /* Grid Spans */
         .portfolio-item:first-child { grid-column: span 8; }
         .portfolio-item:nth-child(2) { grid-column: span 4; }
 
-        .portfolio-img-wrap {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
+        .portfolio-img-wrap { width: 100%; height: 100%; overflow: hidden; }
         .portfolio-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             filter: grayscale(100%) brightness(0.8);
         }
@@ -616,98 +716,38 @@
         .portfolio-item:hover {
             border-color: rgba(212, 175, 55, 0.4);
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             z-index: 2;
         }
-
         .portfolio-item:hover .portfolio-img-wrap img {
             transform: scale(1.08);
             filter: grayscale(0%) brightness(1);
         }
 
-        /* Content Overlay */
         .portfolio-content {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+            bottom: 0; left: 0; width: 100%; height: 100%;
             padding: 2.5rem;
             background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            z-index: 2;
-            height: 100%;
-            opacity: 1;
+            display: flex; flex-direction: column; justify-content: flex-end;
         }
 
-        /* The Gold Line decoration */
-        .portfolio-line {
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            margin-bottom: 1rem;
-            transition: width 0.5s ease;
-        }
-
-        .portfolio-item:hover .portfolio-line {
-            width: 50px;
-        }
-
-        .portfolio-tags {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-main);
-            margin-bottom: 0.8rem;
-            opacity: 0.8;
-            transform: translateY(10px);
-            transition: transform 0.5s ease;
-            display: flex;
-            gap: 10px;
-        }
+        .portfolio-title { font-size: 2rem; color: var(--white); margin-bottom: 0.5rem; transform: translateY(10px); transition: 0.5s; }
+        .portfolio-desc { font-size: 0.95rem; color: var(--text-muted); transform: translateY(20px); opacity: 0; transition: 0.5s; }
+        .portfolio-tags { display: flex; gap: 10px; margin-bottom: 0.8rem; transform: translateY(10px); transition: 0.5s; }
         
         .tag-pill {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
-            padding: 4px 10px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(5px);
+            padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; text-transform: uppercase;
+            color: var(--white); /* FIX: Ensure text is white */
         }
 
-        .portfolio-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            font-weight: 500;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-            transform: translateY(10px);
-            transition: transform 0.5s ease 0.1s;
+        .portfolio-item:hover .portfolio-title, 
+        .portfolio-item:hover .portfolio-desc, 
+        .portfolio-item:hover .portfolio-tags {
+            transform: translateY(0); opacity: 1;
         }
-
-        .portfolio-desc {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            max-width: 90%;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease 0.1s;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            line-height: 1.6;
-        }
-
-        /* Hover States */
-        .portfolio-item:hover .portfolio-tags,
-        .portfolio-item:hover .portfolio-title,
-        .portfolio-item:hover .portfolio-desc {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        /* Arrow Icon */
+        
+        /* RESTORED MISSING ARROW STYLE */
         .portfolio-arrow {
             position: absolute;
             top: 2rem;
@@ -735,667 +775,250 @@
             background: var(--gold);
             color: #000;
         }
-        
-        .status-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--gold);
-            color: #000;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 3;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
 
-        /* --- END WORK CSS --- */
-
-        /* ABOUT / AGENCY */
-        .about-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            margin-bottom: 6rem;
-        }
-
+        /* ABOUT & TEAM */
+        .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
         .about-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid var(--gold);
-            height: 400px;
-            position: relative;
+            display: flex; justify-content: center; align-items: center;
+            border: 1px solid var(--gold); height: 400px; position: relative;
             background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%);
         }
+        .about-visual span.large-z { font-size: 12rem; font-family: 'Cinzel', serif; color: rgba(212, 175, 55, 0.1); }
+        
+        .stats-row { display: flex; gap: 3rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; }
+        .stat h3 { color: var(--gold); font-size: 2.5rem; line-height: 1; }
+        
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .team-card { text-align: center; padding: 2rem; background: var(--surface); border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
+        .team-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .team-avatar { width: 100px; height: 100px; margin: 0 auto 1.5rem; border-radius: 50%; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted); }
 
-        .about-visual span.large-z {
-            font-size: 12rem;
-            font-family: 'Cinzel', serif;
-            color: rgba(212, 175, 55, 0.1);
+        /* POLICY PAGE STYLES */
+        .policy-content {
+            background: var(--surface);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .policy-content h2 { color: var(--gold); margin-bottom: 1.5rem; font-size: 1.8rem; }
+        .policy-content h3 { color: var(--white); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem; }
+        .policy-content p { color: var(--text-muted); margin-bottom: 1rem; }
+        .policy-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-muted); }
+        .policy-content li { margin-bottom: 0.5rem; }
+
+        /* PROJECT DETAIL PAGE STYLES */
+        .project-detail-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 2rem;
+        }
+        .project-meta-row {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        .project-meta-item strong { color: var(--gold); }
+        
+        .project-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .project-main-text h3 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .project-main-text h3:first-child { margin-top: 0; }
+        
+        .project-main-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-sidebar-box {
+            background: var(--surface-light);
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.02);
+            border-color: var(--gold);
+        }
+        
+        .full-width-img {
+            grid-column: span 2;
         }
 
-        .about-visual span.est {
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .back-btn:hover { color: var(--gold); transform: translateX(-5px); }
+
+        /* SLIDER STYLES */
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            aspect-ratio: 1/1;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        .slider-track img {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+        }
+        .slider-controls {
             position: absolute;
             bottom: 20px;
             right: 20px;
-            color: var(--gold);
-            letter-spacing: 2px;
-            font-size: .8rem;
-        }
-
-        .stats-row {
             display: flex;
-            gap: 3rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-        }
-
-        .stat h3 {
-            color: var(--gold);
-            font-size: 2.5rem;
-            line-height: 1;
-        }
-
-        .stat span {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .team-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition);
-        }
-
-        .team-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-
-        .team-avatar {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            background: var(--surface-light);
-            border: 2px solid var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--text-muted);
-        }
-
-        .team-name {
-            font-size: 1.2rem;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-            font-family: 'Cinzel', serif;
-        }
-
-        .team-role {
-            color: var(--gold);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: .5rem;
-        }
-
-        .team-note {
-            font-size: .8rem;
-            color: var(--text-muted);
-        }
-
-        /* TESTIMONIALS */
-        .testimonials-wrap {
-            margin-top: 5rem;
-        }
-
-        .test-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .test-card {
-            background: var(--surface);
-            border-radius: 8px;
-            padding: 2.5rem 2.2rem;
-            border: 1px solid rgba(255,255,255,0.06);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .test-quote {
-            font-size: .95rem;
-            color: var(--text-muted);
-            margin-bottom: 1.6rem;
-        }
-
-        .test-name {
-            font-size: .95rem;
-            font-weight: 600;
-        }
-
-        .test-role {
-            font-size: .8rem;
-            color: var(--text-muted);
-        }
-
-        .quote-mark {
-            position: absolute;
-            top: 14px;
-            right: 18px;
-            font-size: 2.2rem;
-            color: rgba(212,175,55,0.18);
-        }
-
-        /* FORMS / CONTACT / AFFILIATE */
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info-box h3 {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info-box p {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info-box i {
-            width: 30px;
-            color: var(--gold);
-        }
-
-        .contact-form {
-            background: var(--surface);
-            padding: 3rem;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .form-group.full-width { grid-column: span 2; }
-
-        .form-label,
-        .form-group label {
-            display: block;
-            color: var(--text-muted);
-            margin-bottom: 0.8rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea,
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding: 1rem 0;
-            color: var(--white);
-            font-family: 'Manrope', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-select option,
-        .form-group select option {
-            background: var(--surface);
-            color: var(--white);
-        }
-
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus,
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-bottom-color: var(--gold);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--gold);
-            color: var(--bg-dark);
-            border: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             gap: 10px;
         }
-
-        .btn-submit:hover {
-            background: #b8860b;
-        }
-
-        .affiliate-hero {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 4rem 5%;
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, rgba(0, 0, 0, 1) 70%);
-        }
-
-        .steps-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .step-card {
-            flex: 1;
-            min-width: 280px;
-            background: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .step-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--gold);
-            font-size: 1.8rem;
-            font-weight: 700;
-            border-radius: 50%;
+        .slider-arrow {
+            background: rgba(0,0,0,0.8);
             border: 1px solid var(--gold);
-            font-family: 'Cinzel', serif;
-        }
-
-        .commission-container {
-            background: linear-gradient(135deg, var(--surface) 0%, #1a1a10 100%);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
-            padding: 60px;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .commission-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .commission-option {
-            flex: 1;
-            min-width: 300px;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .commission-option h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
             color: var(--gold);
-            text-align: center;
-        }
-
-        .commission-list {
-            list-style: none;
-        }
-
-        .commission-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .commission-plan { color: var(--white); }
-
-        .commission-amount {
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .or-divider {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .or-divider span { padding: 15px 0; }
-
-        .or-divider:before,
-        .or-divider:after {
-            content: "";
-            width: 1px;
+            width: 40px;
             height: 40px;
-            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-        }
-
-        .join-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .join-card {
-            flex: 1;
-            min-width: 250px;
-            background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 8px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .join-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-        }
-
-        .join-icon {
-            width: 80px;
-            height: 80px;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--gold);
-            font-size: 2.5rem;
-            border-radius: 50%;
-            border: 1px solid var(--gold);
-        }
-
-        .benefits-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .benefit-card {
-            background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 8px;
-            padding: 40px 30px;
-            transition: var(--transition);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-        }
-
-        .benefit-icon {
-            color: var(--gold);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .affiliate-form-container,
-        .join-team-container {
-            background: linear-gradient(135deg, var(--surface) 0%, #161616 100%);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 10px;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 40px;
-        }
-
-        .affiliate-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .form-success {
-            text-align: center;
-            padding: 30px;
-            background: rgba(30, 30, 30, 0.7);
-            border-radius: 8px;
-            border: 1px solid var(--success);
-            display: none;
-        }
-
-        /* WHATSAPP STICKY */
-        .whatsapp-sticky {
-            position: fixed;
-            bottom: 26px;
-            right: 26px;
-            z-index: 999;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--bg-dark);
-            border: 1px solid rgba(37,211,102,.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #25D366;
-            font-size: 1.7rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.45);
             transition: all 0.3s ease;
         }
-
-        .whatsapp-sticky::after {
-            content: "";
-            position: absolute;
-            inset: -3px;
-            border-radius: inherit;
-            border: 1px solid rgba(37, 211, 102, 0.25);
-        }
-
-        .whatsapp-sticky:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        .slider-arrow:hover {
+            background: var(--gold);
+            color: #000;
         }
 
         /* FOOTER */
-        footer {
-            background: var(--surface);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 5rem 5% 2rem;
-            margin-top: auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-col h4 {
-            font-size: 1.1rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-        }
-
+        footer { background: var(--surface); border-top: 1px solid rgba(255,255,255,0.05); padding: 5rem 5% 2rem; margin-top: auto; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+        .footer-col h4 { font-size: 1.1rem; color: var(--gold); margin-bottom: 1.5rem; }
         .footer-col ul { list-style: none; }
-
         .footer-col li { margin-bottom: 0.8rem; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition); }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: rgba(255,255,255,0.2); }
 
-        .footer-col a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
+        /* WHATSAPP STICKY */
+        .whatsapp-sticky {
+            position: fixed; bottom: 26px; right: 26px; z-index: 999;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: var(--bg-dark); border: 1px solid rgba(37,211,102,.9);
+            display: flex; align-items: center; justify-content: center;
+            color: #25D366; font-size: 1.7rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.45); transition: all 0.3s ease;
         }
+        .whatsapp-sticky:hover { transform: translateY(-4px) scale(1.03); }
 
-        .footer-col a:hover {
-            color: var(--gold);
-            padding-left: 5px;
-        }
+        /* AFFILIATE STYLES */
+        .affiliate-hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, rgba(0, 0, 0, 1) 70%); }
+        .steps-container, .join-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 2rem; }
+        .step-card, .join-card, .benefit-card { flex: 1; min-width: 250px; background: var(--surface); border: 1px solid rgba(255,255,255,0.05); padding: 40px 30px; text-align: center; transition: var(--transition); }
+        .step-card:hover, .join-card:hover, .benefit-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        .step-number, .join-icon, .benefit-icon { width: 60px; height: 60px; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); font-size: 1.5rem; }
+        
+        .commission-container { background: linear-gradient(135deg, var(--surface) 0%, #1a1a10 100%); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 10px; padding: 60px; max-width: 1000px; margin: 0 auto; }
+        .commission-content { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+        .commission-option { flex: 1; min-width: 300px; }
+        .commission-option h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--gold); text-align: center; }
+        .commission-list { list-style: none; }
+        .commission-list li { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .commission-plan { color: var(--white); }
+        .commission-amount { color: var(--gold); font-weight: 700; font-size: 1.1rem;}
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: rgba(255,255,255,0.2);
-            font-size: 0.8rem;
-        }
+        .or-divider { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--gold); font-weight: 600; font-size: 1.2rem; }
+        .or-divider span { padding: 15px 0; }
+        .or-divider:before, .or-divider:after { content: ""; width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); }
+
+        .affiliate-form-container, .join-team-container { background: var(--surface-light); padding: 60px 40px; border-radius: 10px; max-width: 800px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.05); }
+        .affiliate-form { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .form-success { text-align: center; padding: 30px; background: rgba(30, 30, 30, 0.7); border-radius: 8px; border: 1px solid var(--success); display: none; }
 
         /* RESPONSIVE */
         @media (max-width: 992px) {
             .hero-content h1 { font-size: 3.5rem; }
             .pricing-card.featured { transform: scale(1); }
-            .about-layout,
-            .contact-layout,
-            .footer-grid,
-            .commission-content,
-            .affiliate-form {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            .or-divider {
-                flex-direction: row;
-                padding: 20px 0;
-            }
-            .or-divider span { padding: 0 20px; }
-            .or-divider:before,
-            .or-divider:after {
-                width: 40px;
-                height: 1px;
-                background: linear-gradient(to right, transparent, var(--gold), transparent);
-            }
-            .form-group.full-width { grid-column: span 1; }
+            .about-layout, .contact-layout, .footer-grid, .commission-content, .affiliate-form, .project-content-grid, .project-gallery { grid-template-columns: 1fr; gap: 3rem; }
+            .contact-form { padding: 2rem; }
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--bg-dark);
-                padding: 2rem;
-                gap: 1.5rem;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-
-            /* Responsive Portfolio Grid */
-            .portfolio-item, 
-            .portfolio-item:first-child,
-            .portfolio-item:nth-child(2) {
-                grid-column: span 12;
-                aspect-ratio: 16/12;
-            }
-            .filter-glass {
-                overflow-x: auto;
-                max-width: 100%;
-                justify-content: flex-start;
-            }
-            .filter-btn {
-                white-space: nowrap;
-            }
+            .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-dark); padding: 2rem; gap: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .portfolio-item, .portfolio-item:first-child, .portfolio-item:nth-child(2) { grid-column: span 12; aspect-ratio: 16/12; }
+            .filter-glass { overflow-x: auto; max-width: 100%; justify-content: flex-start; }
+            .filter-btn { white-space: nowrap; }
+            .gallery-img.full-width-img { grid-column: span 1; }
+            
+            .or-divider { flex-direction: row; padding: 20px 0; }
+            .or-divider span { padding: 0 20px; }
+            .or-divider:before, .or-divider:after { width: 40px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+            .form-group.full-width { grid-column: span 1; }
         }
-
         @media (max-width: 768px) {
-            .hero {
-                min-height: 520px;
-            }
-            .container {
-                padding: 4.5rem 5%;
-            }
-            .section-header h2 {
-                font-size: 2.4rem;
-            }
+            .hero { min-height: 520px; }
+            .container { padding: 4.5rem 5%; }
+            .section-header h2 { font-size: 2.4rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#home" class="logo" onclick="navigateTo('home')">
+        <a href="home" class="logo" onclick="event.preventDefault(); navigateTo('home')">
             ZOMAXA<span class="dot">.</span>
         </a>
         <div class="mobile-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
         <div class="nav-links">
-            <a href="#home" onclick="navigateTo('home')" class="nav-item active">Home</a>
-            <a href="#services" onclick="navigateTo('services')" class="nav-item">Services</a>
-            <a href="#work" onclick="navigateTo('work')" class="nav-item">Work</a>
-            <a href="#about" onclick="navigateTo('about')" class="nav-item">Agency</a>
-            <a href="#contact" onclick="navigateTo('contact')" class="nav-item">Contact</a>
-            <a href="#affiliate" onclick="navigateTo('affiliate')" class="nav-item cta-link">Affiliate</a>
+            <a href="home" onclick="event.preventDefault(); navigateTo('home')" class="nav-item active">Home</a>
+            <a href="services" onclick="event.preventDefault(); navigateTo('services')" class="nav-item">Services</a>
+            <a href="work" onclick="event.preventDefault(); navigateTo('work')" class="nav-item">Work</a>
+            <a href="about" onclick="event.preventDefault(); navigateTo('about')" class="nav-item">Agency</a>
+            <a href="contact" onclick="event.preventDefault(); navigateTo('contact')" class="nav-item">Contact</a>
+            <a href="affiliate" onclick="event.preventDefault(); navigateTo('affiliate')" class="nav-item cta-link">Affiliate</a>
         </div>
     </nav>
 
@@ -1447,33 +1070,21 @@
                         <span class="process-number">01</span>
                         <h3>Discovery & Positioning</h3>
                         <p>We break down your current brand, competitors, and ideal customer so we know what “winning” looks like.</p>
-                        <div class="process-detail">
-                            30–45 min strategy call · Brand audit · Competitor mapping
-                        </div>
                     </div>
                     <div class="process-card">
                         <span class="process-number">02</span>
                         <h3>Strategy & Blueprint</h3>
                         <p>We design the backbone: messaging, structure, and visual direction that aligns with your business goals.</p>
-                        <div class="process-detail">
-                            Site map · Wireframes · Brand voice guide · Conversion plan
-                        </div>
                     </div>
                     <div class="process-card">
                         <span class="process-number">03</span>
                         <h3>Creation & Build</h3>
                         <p>We execute with pixel-level detail — design, development, and content come together in one clean system.</p>
-                        <div class="process-detail">
-                            UI/UX · Frontend dev · Copywriting · Mobile optimization
-                        </div>
                     </div>
                     <div class="process-card">
                         <span class="process-number">04</span>
                         <h3>Launch & Support</h3>
                         <p>We don’t disappear after delivery. We help you launch, refine, and measure initial performance.</p>
-                        <div class="process-detail">
-                            Guided launch · Fixes & tweaks · Optional content support
-                        </div>
                     </div>
                 </div>
             </section>
@@ -1489,19 +1100,19 @@
                         <div class="why-icon"><i class="fas fa-bullseye"></i></div>
                         <div class="why-tag">Strategy-first</div>
                         <h3>Designed to Sell, Not Just Impress</h3>
-                        <p>Every page is built around one thing: what you want visitors to do. That’s why we obsess over funnels, flows, and clarity — not just pretty sections.</p>
+                        <p>Every page is built around one thing: what you want visitors to do. That’s why we obsess over funnels, flows, and clarity.</p>
                     </div>
                     <div class="why-card">
                         <div class="why-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
                         <div class="why-tag">Luxury Minimalism</div>
                         <h3>Premium Look Without the Noise</h3>
-                        <p>We keep things clean, calm, and confident. Minimal layouts, strong typography, and smart use of white space let your brand speak louder.</p>
+                        <p>We keep things clean, calm, and confident. Minimal layouts, strong typography, and smart use of white space.</p>
                     </div>
                     <div class="why-card">
                         <div class="why-icon"><i class="fas fa-handshake"></i></div>
                         <div class="why-tag">Partnership</div>
                         <h3>Built With You, Not Just For You</h3>
-                        <p>You won’t be guessing what’s happening. We ship in clear phases, with check-ins, previews, and room for your input at every critical step.</p>
+                        <p>You won’t be guessing what’s happening. We ship in clear phases, with check-ins and room for your input.</p>
                     </div>
                 </div>
             </section>
@@ -1511,194 +1122,514 @@
         <div id="services" class="page-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Services That Move the Needle</h2>
-                    <p>Brand, web, and content — aligned under one system instead of ten different freelancers.</p>
+                    <h2>Our Expertise</h2>
+                    <p>We don't do "everything." We do these three things exceptionally well.</p>
                 </div>
 
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chess-queen"></i></div>
+                        <div class="service-icon"><i class="fas fa-code"></i></div>
+                        <h3>Web Design & Dev</h3>
+                        <p>High-performance websites built to convert.</p>
+                        <ul>
+                            <li>Custom React / HTML5 Development</li>
+                            <li>E-Commerce / Business Portals</li>
+                            <li>3D Interactions & Animations</li>
+                            <li>Speed Optimization (90+ Score)</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-fingerprint"></i></div>
                         <h3>Brand Identity</h3>
-                        <p>We create a visual language that actually feels like you — not a generic logo template.</p>
+                        <p>Visuals that build authority instantly.</p>
                         <ul>
-                            <li>Logo + Variations + Brand mark</li>
-                            <li>Color, typography & usage rules</li>
-                            <li>Basic or full brand guideline PDF</li>
+                            <li>Logo Design & Brand Marks</li>
+                            <li>Color Psychology & Typography</li>
+                            <li>Packaging Design</li>
+                            <li>Brand Guidelines PDF</li>
                         </ul>
-                        <div class="plan-fit">
-                            Perfect if you’re launching or rebranding and want to look serious from day one.
-                        </div>
                     </div>
+
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-desktop"></i></div>
-                        <h3>Web Design & Development</h3>
-                        <p>Conversion-focused websites that feel premium and load fast across devices.</p>
+                        <div class="service-icon"><i class="fab fa-instagram"></i></div>
+                        <h3>Social Growth (SMM)</h3>
+                        <p>Content that stops the scroll and sells.</p>
                         <ul>
-                            <li>Custom UI/UX design</li>
-                            <li>Responsive frontend development</li>
-                            <li>E-commerce / Portfolio / Landing pages</li>
+                            <li>Reel Creation & Editing</li>
+                            <li>Account Management</li>
+                            <li>Caption Copywriting</li>
+                            <li>Engagement Strategy</li>
                         </ul>
-                        <div class="plan-fit">
-                            Ideal for brands ready to take online sales, trust, and perception seriously.
-                        </div>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-camera-retro"></i></div>
-                        <h3>Content & Social Assets</h3>
-                        <p>Visuals and reels that carry your brand language across platforms.</p>
-                        <ul>
-                            <li>Reels & shorts for Instagram</li>
-                            <li>Product or brand-focused visuals</li>
-                            <li>Launch or campaign assets</li>
-                        </ul>
-                        <div class="plan-fit">
-                            Best when paired with brand/web work so your feeds and site feel unified.
-                        </div>
                     </div>
                 </div>
-
-                <div class="section-header" style="margin-top: 6rem;">
-                    <h2>Clear Investment Options</h2>
-                    <p>We keep pricing transparent so you know exactly what you’re stepping into.</p>
+                
+                <div style="text-align: center; margin-top: 4rem;">
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Want to know the investment?</p>
+                    <button onclick="showPricing()" class="btn-glow">View Pricing</button>
                 </div>
 
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <span class="plan-badge">For new brands</span>
-                        <h3 class="price-title">Starter</h3>
-                        <span class="price-amount">₹8,000</span>
-                        <div class="price-note">For small brands who need a clean online presence fast.</div>
-                        <ul class="price-features">
-                            <li><i class="fas fa-check"></i> Custom Logo Design</li>
-                            <li><i class="fas fa-check"></i> Basic Brand Guidelines</li>
-                            <li><i class="fas fa-check"></i> Up to 5-page Website</li>
-                            <li><i class="fas fa-check"></i> Basic SEO Setup</li>
-                        </ul>
-                        <button onclick="navigateTo('contact')" class="btn-glow">Select Starter</button>
+                <!-- PRICING SECTION START -->
+                <div id="pricing-scroll" style="padding-top: 4rem;">
+                    <div class="section-header">
+                        <h2>Indicative Pricing</h2>
+                        <div class="pricing-disclaimer">
+                            Every business is different. These prices are starting points — final scope depends on your goals.
+                        </div>
                     </div>
-                    <div class="pricing-card featured">
-                        <span class="plan-badge">Most Popular</span>
-                        <h3 class="price-title">Professional</h3>
-                        <span class="price-amount">₹18,000</span>
-                        <div class="price-note">For growing brands that want a proper system, not just a site.</div>
-                        <ul class="price-features">
-                            <li><i class="fas fa-check"></i> Full Brand Identity Suite</li>
-                            <li><i class="fas fa-check"></i> Advanced E-Commerce</li>
-                            <li><i class="fas fa-check"></i> 5 Social Media Reels</li>
-                            <li><i class="fas fa-check"></i> Copywriting & On-brand Content</li>
-                            <li><i class="fas fa-check"></i> 1 Month Post-launch Support</li>
-                        </ul>
-                        <button onclick="navigateTo('contact')" class="btn-glow" style="background: var(--gold); color: #000;">
-                            Talk About This Plan
-                        </button>
+
+                    <div class="pricing-controls">
+                        <button class="pricing-tab-btn active" onclick="switchPricing('combos', event)">Best Value Combos</button>
+                        <button class="pricing-tab-btn" onclick="switchPricing('web', event)">Web Design</button>
+                        <button class="pricing-tab-btn" onclick="switchPricing('smm', event)">Social Media Management</button>
                     </div>
-                    <div class="pricing-card">
-                        <span class="plan-badge">For serious teams</span>
-                        <h3 class="price-title">Enterprise</h3>
-                        <span class="price-amount">Custom</span>
-                        <div class="price-note">For brands that need an ongoing creative partner.</div>
-                        <ul class="price-features">
-                            <li><i class="fas fa-check"></i> Full-Service Brand & Web Partnership</li>
-                            <li><i class="fas fa-check"></i> Custom Web Application / Portal</li>
-                            <li><i class="fas fa-check"></i> Monthly Content Creation</li>
-                            <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
-                        </ul>
-                        <button onclick="navigateTo('contact')" class="btn-glow">Book a Call</button>
+
+                    <!-- 1. COMBOS -->
+                    <div id="price-combos" class="pricing-category active">
+                        <div class="pricing-card combo-card">
+                            <span class="plan-badge">Best for New Businesses</span>
+                            <h3 class="price-title">Brand Launchpad</h3>
+                            <span class="price-amount">Start from <span>₹16k</span></span>
+                            <div class="price-note">For new brands that need to look trustworthy instantly.</div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> <strong>Professional Portfolio Site:</strong> Single scroll, high impact.</li>
+                                <li><i class="fas fa-check"></i> <strong>Complete Identity:</strong> Logo suite & typography.</li>
+                                <li><i class="fas fa-check"></i> <strong>Visual Guide:</strong> Color palette & usage rules.</li>
+                                <li><i class="fas fa-check"></i> <strong>Launch Asset:</strong> Digital business card design.</li>
+                            </ul>
+                            <button onclick="prefillForm('Brand Launchpad Combo')" class="btn-glow" style="background:var(--gold); color:black;">Discuss Your Project</button>
+                        </div>
+
+                        <div class="pricing-card combo-card">
+                            <span class="plan-badge">Recommended</span>
+                            <h3 class="price-title">Growth Engine</h3>
+                            <span class="price-amount">Start from <span>₹25k</span></span>
+                            <div class="price-note">For established local businesses ready to scale up.</div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> <strong>Multi-Page Website:</strong> 5 pages of premium design.</li>
+                                <li><i class="fas fa-check"></i> <strong>Full Branding:</strong> Comprehensive identity system.</li>
+                                <li><i class="fas fa-check"></i> <strong>Social Kickstart:</strong> 3 Reels + 3 Posts to launch.</li>
+                                <li><i class="fas fa-check"></i> <strong>Visibility:</strong> Basic SEO & Google Maps setup.</li>
+                            </ul>
+                            <button onclick="prefillForm('Growth Engine Combo')" class="btn-glow">Check Fit</button>
+                        </div>
+
+                        <div class="pricing-card combo-card">
+                            <h3 class="price-title">Digital Storefront</h3>
+                            <span class="price-amount">Start from <span>₹35k</span></span>
+                            <div class="price-note">For brands selling products online.</div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> <strong>Custom Store:</strong> Secure cart & checkout.</li>
+                                <li><i class="fas fa-check"></i> <strong>Product Setup:</strong> Uploads & organization.</li>
+                                <li><i class="fas fa-check"></i> <strong>Payments:</strong> UPI & Gateway integration.</li>
+                                <li><i class="fas fa-check"></i> <strong>Identity:</strong> Full e-commerce branding.</li>
+                            </ul>
+                            <button onclick="prefillForm('Digital Storefront Combo')" class="btn-glow">Talk to Us</button>
+                        </div>
                     </div>
+
+                    <!-- 2. WEB DESIGN ONLY -->
+                    <div id="price-web" class="pricing-category">
+                        <div class="pricing-card">
+                            <h3 class="price-title">Professional Presence</h3>
+                            <span class="price-amount">Start from <span>₹6k</span></span>
+                            <div class="price-note">Ideal for freelancers, consultants, or personal portfolios.</div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> Single Page (Scroll Layout)</li>
+                                <li><i class="fas fa-check"></i> Fully Mobile Responsive</li>
+                                <li><i class="fas fa-check"></i> Social Media Links</li>
+                                <li><i class="fas fa-check"></i> Inquiry Form</li>
+                            </ul>
+                            <button onclick="prefillForm('Professional Presence Web')" class="btn-glow">Check Fit</button>
+                        </div>
+
+                        <div class="pricing-card featured">
+                            <h3 class="price-title">Service Website</h3>
+                            <span class="price-amount">Start from <span>₹10k</span></span>
+                            <div class="price-note">Standard multi-page site for service-based companies.</div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> Up to 5 Pages (Home, Services, About)</li>
+                                <li><i class="fas fa-check"></i> Smooth Animations & Interactivity</li>
+                                <li><i class="fas fa-check"></i> Easy-to-edit Content Management</li>
+                                <li><i class="fas fa-check"></i> WhatsApp Chat Integration</li>
+                            </ul>
+                            <button onclick="prefillForm('Service Website')" class="btn-glow">Discuss Project</button>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h3 class="price-title">Custom Commerce</h3>
+                            <span class="price-amount">Start from <span>₹25k</span></span>
+                            <div class="price-note">Full-featured online store for serious sellers.</div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> Inventory & Product Management</li>
+                                <li><i class="fas fa-check"></i> Shopping Cart System</li>
+                                <li><i class="fas fa-check"></i> Admin Dashboard</li>
+                                <li><i class="fas fa-check"></i> Order Notifications</li>
+                            </ul>
+                            <button onclick="prefillForm('Custom Commerce Web')" class="btn-glow">Get Quote</button>
+                        </div>
+                    </div>
+
+                    <!-- 3. SMM (SOCIAL MEDIA) -->
+                    <div id="price-smm" class="pricing-category">
+                        <div class="pricing-card smm-card">
+                            <h3 class="price-title">Consistency</h3>
+                            <span class="price-amount">Start from <span>₹8k</span>/mo</span>
+                            <div class="price-note">Keeps your account active and professional.</div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> <strong>4 High-Quality Reels</strong> (1/week)</li>
+                                <li><i class="fas fa-check"></i> <strong>4 Static Posts</strong> (1/week)</li>
+                                <li><i class="fas fa-check"></i> Professional Captions</li>
+                                <li><i class="fas fa-check"></i> Basic Bio Optimization</li>
+                            </ul>
+                            <button onclick="prefillForm('SMM Consistency (8k)')" class="btn-glow">Start Now</button>
+                        </div>
+
+                        <div class="pricing-card smm-card featured">
+                            <span class="plan-badge" style="color: #E1306C; border-color: #E1306C;">Recommended</span>
+                            <h3 class="price-title">Engagement</h3>
+                            <span class="price-amount">Start from <span>₹15k</span>/mo</span>
+                            <div class="price-note">Builds community and increases reach.</div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> <strong>8 Reels</strong> (2/week)</li>
+                                <li><i class="fas fa-check"></i> <strong>8 Static/Carousel Posts</strong></li>
+                                <li><i class="fas fa-check"></i> Story Updates (Alt Days)</li>
+                                <li><i class="fas fa-check"></i> Active Comment Engagement</li>
+                            </ul>
+                            <button onclick="prefillForm('SMM Engagement (15k)')" class="btn-glow">Check Fit</button>
+                        </div>
+
+                        <div class="pricing-card smm-card">
+                            <h3 class="price-title">Authority</h3>
+                            <span class="price-amount">Start from <span>₹25k</span>/mo</span>
+                            <div class="price-note">Full management for aggressive growth.</div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> <strong>12 Reels</strong> (3/week)</li>
+                                <li><i class="fas fa-check"></i> <strong>12 Carousels/Posts</strong></li>
+                                <li><i class="fas fa-check"></i> Daily Stories & Interaction</li>
+                                <li><i class="fas fa-check"></i> Monthly Strategy Call</li>
+                            </ul>
+                            <button onclick="prefillForm('SMM Authority (25k)')" class="btn-glow">Talk to Us</button>
+                        </div>
+                        
+                        <!-- Branding Standalone -->
+                        <div class="pricing-card" style="grid-column: 1 / -1; margin-top: 1rem; border-color: var(--gold);">
+                            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                                <div style="text-align:left;">
+                                    <h3 class="price-title" style="margin:0; font-size:1.5rem;">Just Branding?</h3>
+                                    <p class="price-note" style="margin:0;">Logo, Fonts, Colors, Guidelines & Social Kit.</p>
+                                </div>
+                                <div style="display:flex; align-items:center; gap:1.5rem;">
+                                    <span class="price-amount" style="font-size:1.2rem; display:inline;">Start from <span>₹7k</span></span>
+                                    <button onclick="prefillForm('Branding Kit Only')" class="btn-glow">Get Branding</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="pricing-trust-line">Not sure what you need? We’ll guide you — even if it means recommending a smaller scope.</p>
                 </div>
             </div>
         </div>
 
         <!-- WORK PAGE -->
         <div id="work" class="page-section">
-    <div class="container work-section-wrapper">
-        <div class="section-header">
-            <h2>Selected Masterpieces</h2>
-            <p>Strategic design meets technical precision.</p>
-        </div>
+            <div class="container work-section-wrapper">
+                <div class="section-header">
+                    <h2>Selected Masterpieces</h2>
+                    <p>Strategic design meets technical precision.</p>
+                </div>
 
-        <div class="filter-container">
-            <div class="filter-glass">
-                <button class="filter-btn active" onclick="filterWork('all', this)">All</button>
-                <button class="filter-btn" onclick="filterWork('web', this)">Websites</button>
-                <button class="filter-btn" onclick="filterWork('brand', this)">Branding</button>
-                <button class="filter-btn" onclick="filterWork('social', this)">Social & Reels</button>
+                <div class="filter-container">
+                    <div class="filter-glass">
+                        <button class="filter-btn active" onclick="filterWork('all', this)">All</button>
+                        <button class="filter-btn" onclick="filterWork('web', this)">Websites</button>
+                        <button class="filter-btn" onclick="filterWork('brand', this)">Branding</button>
+                        <button class="filter-btn" onclick="filterWork('social', this)">Social & Reels</button>
+                    </div>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- Glowtiqa Item (Updated categories and tags) -->
+                    <a href="work-glowtiqa" onclick="event.preventDefault(); navigateTo('work-glowtiqa')" class="portfolio-item" data-category="web brand social">
+                        <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="portfolio-img-wrap">
+                            <img src="images/glowtiqaparis.png" alt="Glowtiqa Cosmetics" onerror="this.src='https://placehold.co/1200x800/111111/D4AF37?text=Glowtiqa+Paris'">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-line"></div>
+                            <div class="portfolio-tags">
+                                <span class="tag-pill">E-Commerce</span>
+                                <span class="tag-pill">Social Media</span>
+                            </div>
+                            <h3 class="portfolio-title">Glowtiqa Paris</h3>
+                            <p class="portfolio-desc">Full brand ecosystem: Strategy, Web, and Social Media Direction.</p>
+                        </div>
+                    </a>
+
+                    <!-- Shaa Trading Item -->
+                    <a href="work-shaa" onclick="event.preventDefault(); navigateTo('work-shaa')" class="portfolio-item" data-category="brand">
+                        <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="portfolio-img-wrap">
+                            <img src="images/shaatrading.jpg" alt="Shaa Trading" onerror="this.src='https://placehold.co/800x800/161616/333?text=Shaa+Trading'">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-line"></div>
+                            <div class="portfolio-tags">
+                                <span class="tag-pill">B2B Distribution</span>
+                            </div>
+                            <h3 class="portfolio-title">Shaa Trading</h3>
+                            <p class="portfolio-desc">Complete identity overhaul for a major skincare distributor.</p>
+                        </div>
+                    </a>
+
+                    <!-- Cake Bites Item -->
+                    <a href="work-cake" onclick="event.preventDefault(); navigateTo('work-cake')" class="portfolio-item" data-category="web">
+                        <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="portfolio-img-wrap">
+                            <img src="images/cake.jpg" alt="Cake Bites" onerror="this.src='https://placehold.co/800x600/222/D4AF37?text=Cake+Bites'">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-line"></div>
+                            <div class="portfolio-tags">
+                                <span class="tag-pill">F&B</span>
+                                <span class="tag-pill">Web Design</span>
+                            </div>
+                            <h3 class="portfolio-title">Cake Bites</h3>
+                            <p class="portfolio-desc">A playful, visually rich local business website.</p>
+                        </div>
+                    </a>
+
+                    <!-- Legacy Portfolio Item -->
+                    <a href="work-legacy" onclick="event.preventDefault(); navigateTo('work-legacy')" class="portfolio-item" data-category="web">
+                        <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="portfolio-img-wrap">
+                            <img src="images/portfolio-v1.png" alt="Developer Portfolio" onerror="this.src='https://placehold.co/800x600/111/555?text=Dev+Portfolio'">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-line"></div>
+                            <div class="portfolio-tags">
+                                <span class="tag-pill">Personal</span>
+                                <span class="tag-pill">Dev</span>
+                            </div>
+                            <h3 class="portfolio-title">Legacy Portfolio</h3>
+                            <p class="portfolio-desc">A comprehensive showcase of previous development works.</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="portfolio-grid">
-            
-            <a href="https://glowtiqa.com" target="_blank" class="portfolio-item" data-category="web brand">
-                <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
-                <div class="portfolio-img-wrap">
-                    <img src="images/glowtiqaparis.png" alt="Glowtiqa Cosmetics" onerror="this.src='https://placehold.co/1200x800/111111/D4AF37?text=Glowtiqa+Paris'">
-                </div>
-                <div class="portfolio-content">
-                    <div class="portfolio-line"></div>
-                    <div class="portfolio-tags">
-                        <span class="tag-pill">E-Commerce</span>
-                        <span class="tag-pill">Branding</span>
+        <!-- WORK DETAIL: GLOWTIQA -->
+        <div id="work-glowtiqa" class="page-section">
+            <div class="container">
+                <a href="work" onclick="event.preventDefault(); navigateTo('work')" class="back-btn"><i class="fas fa-arrow-left"></i> Back to All Work</a>
+                <div class="project-detail-header">
+                    <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Glowtiqa Paris</h1>
+                    <div class="project-meta-row">
+                        <span class="project-meta-item"><strong>Client:</strong> Internal Flagship</span>
+                        <span class="project-meta-item"><strong>Industry:</strong> Beauty & Skincare</span>
+                        <span class="project-meta-item"><strong>Scope:</strong> Full Brand & Digital Ecosystem</span>
                     </div>
-                    <h3 class="portfolio-title">Glowtiqa Paris</h3>
-                    <p class="portfolio-desc">A luxury skincare experience built on Shopify. Focusing on high-conversion funnels and clinical yet premium aesthetics.</p>
                 </div>
-            </a>
-
-            <a href="https://shaatrading.in" target="_blank" class="portfolio-item" data-category="brand">
-                <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
-                <div class="portfolio-img-wrap">
-                    <img src="images/shaatrading.jpg" alt="Shaa Trading" onerror="this.src='https://placehold.co/800x800/161616/333?text=Shaa+Trading'">
-                </div>
-                <div class="portfolio-content">
-                    <div class="portfolio-line"></div>
-                    <div class="portfolio-tags">
-                        <span class="tag-pill">B2B Distribution</span>
+                
+                <div class="project-content-grid">
+                    <div class="project-main-text">
+                        <h3>The Challenge</h3>
+                        <p>To build a premium skincare brand from absolute zero. This wasn't just a website job; we needed to create the entire identity, visual language, content strategy, and digital infrastructure to compete with established luxury players immediately upon launch.</p>
+                        
+                        <h3>The Solution</h3>
+                        <p>ZOMAXA handled everything. We developed a comprehensive visual system including consistent model usage and color psychology. We built a high-performance e-commerce website and established a content direction that balances clinical trust with aesthetic appeal.</p>
+                        
+                        <h3>Key Features</h3>
+                        <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-muted);">
+                            <li><strong>Complete Identity:</strong> Logo, packaging, and brand voice built from scratch.</li>
+                            <li><strong>Visual System:</strong> Art direction for models and product photography.</li>
+                            <li><strong>Custom E-Commerce:</strong> Tailored Shopify experience for high conversion.</li>
+                            <li><strong>Content Strategy:</strong> Social media direction aligned with brand values.</li>
+                        </ul>
                     </div>
-                    <h3 class="portfolio-title">Shaa Trading</h3>
-                    <p class="portfolio-desc">Complete identity overhaul for a major skincare distributor, establishing trust with clinics and doctors.</p>
-                </div>
-            </a>
-
-            <a href="https://zyrox-xd.github.io/cake-bites/" target="_blank" class="portfolio-item" data-category="web">
-                <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
-                <div class="portfolio-img-wrap">
-                    <img src="images/cake.jpg" alt="Cake Bites" onerror="this.src='https://placehold.co/800x600/222/D4AF37?text=Cake+Bites'">
-                </div>
-                <div class="portfolio-content">
-                    <div class="portfolio-line"></div>
-                    <div class="portfolio-tags">
-                        <span class="tag-pill">F&B</span>
-                        <span class="tag-pill">Web Design</span>
+                    
+                    <div class="project-sidebar">
+                        <div class="project-sidebar-box">
+                            <h4 style="color:var(--gold); margin-bottom:1rem;">Services Delivered</h4>
+                            <ul style="list-style:none; color:var(--text-muted); font-size:0.9rem;">
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> Full Branding & Identity</li>
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> E-Commerce Development</li>
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> Social Media Marketing</li>
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> Content Direction</li>
+                            </ul>
+                            <a href="https://glowtiqa.com" target="_blank" class="btn-glow" style="width:100%; text-align:center; margin-top:1.5rem;">Visit Live Site</a>
+                        </div>
                     </div>
-                    <h3 class="portfolio-title">Cake Bites</h3>
-                    <p class="portfolio-desc">A playful, visually rich local business website designed to capture the appetite instantly.</p>
                 </div>
-            </a>
-
-            <a href="https://zyrox-xd.github.io/Portfolio/" target="_blank" class="portfolio-item" data-category="web">
-                <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
-                <div class="portfolio-img-wrap">
-                    <img src="images/portfolio-v1.png" alt="Developer Portfolio" onerror="this.src='https://placehold.co/800x600/111/555?text=My+Portfolio'">
-                </div>
-                <div class="portfolio-content">
-                    <div class="portfolio-line"></div>
-                    <div class="portfolio-tags">
-                        <span class="tag-pill">Personal</span>
-                        <span class="tag-pill">Dev</span>
+                
+                <div class="project-gallery">
+                    <img src="images/glowtiqaparis.png" class="gallery-img" alt="Glowtiqa Homepage">
+                    <!-- Brand Identity Slider Replaces Static Image -->
+                    <div class="slider-wrapper">
+                        <div class="slider-track" id="glowtiqa-slider">
+                            <img src="images/Elara-1.jpg" class="gallery-img" alt="Slide 1">
+                            <img src="images/Elara-2.jpg" class="gallery-img" alt="Slide 2">
+                            <img src="images/Elara-3.jpg" class="gallery-img" alt="Slide 3">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-arrow" onclick="slideGlowtiqa(-1)"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-arrow" onclick="slideGlowtiqa(1)"><i class="fas fa-chevron-right"></i></button>
+                        </div>
                     </div>
-                    <h3 class="portfolio-title">Legacy Portfolio</h3>
-                    <p class="portfolio-desc">A comprehensive showcase of previous development works, experiments, and technical capabilities.</p>
+                    <img src="images/asset.jpg" class="gallery-img full-width-img" alt="Social Assets">
+                    <p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: -1.5rem;">Consistent visual direction over time</p>
                 </div>
-            </a>
-
-        </div>
-        
-        <div style="text-align: center; margin-top: 4rem;">
-            <button onclick="navigateTo('contact')" class="btn-glow">View All Projects</button>
+            </div>
         </div>
 
-    </div>
-</div>
+        <!-- WORK DETAIL: SHAA TRADING -->
+        <div id="work-shaa" class="page-section">
+            <div class="container">
+                <a href="work" onclick="event.preventDefault(); navigateTo('work')" class="back-btn"><i class="fas fa-arrow-left"></i> Back to All Work</a>
+                <div class="project-detail-header">
+                    <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Shaa Trading</h1>
+                    <div class="project-meta-row">
+                        <span class="project-meta-item"><strong>Client:</strong> Shaa Trading Enterprises</span>
+                        <span class="project-meta-item"><strong>Industry:</strong> B2B / Medical Distribution</span>
+                        <span class="project-meta-item"><strong>Scope:</strong> Custom Platform Development</span>
+                    </div>
+                </div>
+                
+                <div class="project-content-grid">
+                    <div class="project-main-text">
+                        <h3>The Challenge</h3>
+                        <p>Shaa Trading required a robust digital catalog to serve clinics and B2B partners. They needed more than a brochure site; they needed a functional platform with backend management to handle their extensive product inventory and facilitate bulk orders.</p>
+                        
+                        <h3>The Solution</h3>
+                        <p>We engineered a custom e-commerce and catalog platform specifically for B2B needs. The solution focuses heavily on trust, distribution capability, and clinic-level credibility, moving away from standard retail aesthetics to a more professional, industrial look.</p>
+
+                        <h3>Key Features</h3>
+                        <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-muted);">
+                            <li><strong>Admin Dashboard:</strong> Full control for product management and updates.</li>
+                            <li><strong>B2B UX:</strong> Simplified bulk inquiry and catalog browsing.</li>
+                            <li><strong>Payment Setup:</strong> Integrated payment gateways for secure transactions.</li>
+                            <li><strong>Credibility Focus:</strong> Design elements that appeal to medical professionals.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-sidebar">
+                        <div class="project-sidebar-box">
+                            <h4 style="color:var(--gold); margin-bottom:1rem;">Services Delivered</h4>
+                            <ul style="list-style:none; color:var(--text-muted); font-size:0.9rem;">
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> Custom E-commerce Platform</li>
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> Logo & Identity Overhaul</li>
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> Catalog Structure</li>
+                            </ul>
+                            <a href="https://shaatrading.in" target="_blank" class="btn-glow" style="width:100%; text-align:center; margin-top:1.5rem;">Visit Live Site</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-gallery">
+                    <img src="images/shaatrading.jpg" class="gallery-img" alt="Shaa Home">
+                    <img src="images/admin-d.jpg" class="gallery-img" alt="Admin Panel">
+                </div>
+            </div>
+        </div>
+
+        <!-- WORK DETAIL: CAKE BITES -->
+        <div id="work-cake" class="page-section">
+            <div class="container">
+                <a href="work" onclick="event.preventDefault(); navigateTo('work')" class="back-btn"><i class="fas fa-arrow-left"></i> Back to All Work</a>
+                <div class="project-detail-header">
+                    <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Cake Bites</h1>
+                    <div class="project-meta-row">
+                        <span class="project-meta-item"><strong>Client:</strong> Cake Bites Bakery</span>
+                        <span class="project-meta-item"><strong>Industry:</strong> Food & Beverage</span>
+                        <span class="project-meta-item"><strong>Scope:</strong> Design & Development</span>
+                    </div>
+                </div>
+                
+                <div class="project-content-grid">
+                    <div class="project-main-text">
+                        <h3>The Challenge</h3>
+                        <p>A local bakery needed a straightforward, visually appealing digital presence to capture local traffic. The goal was to reduce the friction between "seeing a cake" and "ordering a cake."</p>
+                        
+                        <h3>The Solution</h3>
+                        <p>We focused purely on Website Design & Development for this project. We created a visually rich interface where high-quality images take center stage. To drive local sales, we integrated direct WhatsApp ordering functionality for every item.</p>
+                        
+                        <h3>Key Features</h3>
+                        <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-muted);">
+                            <li><strong>Visual-First Design:</strong> Dark theme to make product colors pop.</li>
+                            <li><strong>WhatsApp Ordering:</strong> One-click order buttons for immediate conversion.</li>
+                            <li><strong>Local SEO:</strong> Optimized for local search visibility.</li>
+                            <li><strong>Mobile Responsive:</strong> Perfect experience on phones for on-the-go ordering.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-sidebar">
+                        <div class="project-sidebar-box">
+                            <h4 style="color:var(--gold); margin-bottom:1rem;">Services Delivered</h4>
+                            <ul style="list-style:none; color:var(--text-muted); font-size:0.9rem;">
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> Web Design</li>
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> Frontend Development</li>
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-check" style="color:var(--gold); margin-right:8px;"></i> WhatsApp Integration</li>
+                            </ul>
+                            <a href="https://zyrox-xd.github.io/cake-bites/" target="_blank" class="btn-glow" style="width:100%; text-align:center; margin-top:1.5rem;">Visit Live Site</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-gallery">
+                    <img src="images/cake.jpg" class="gallery-img full-width-img" alt="Cake Bites Hero">
+                </div>
+            </div>
+        </div>
+
+        <!-- WORK DETAIL: LEGACY PORTFOLIO -->
+        <div id="work-legacy" class="page-section">
+            <div class="container">
+                <a href="work" onclick="event.preventDefault(); navigateTo('work')" class="back-btn"><i class="fas fa-arrow-left"></i> Back to All Work</a>
+                <div class="project-detail-header">
+                    <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Legacy Portfolio</h1>
+                    <div class="project-meta-row">
+                        <span class="project-meta-item"><strong>Client:</strong> Personal Project</span>
+                        <span class="project-meta-item"><strong>Industry:</strong> Tech / Development</span>
+                        <span class="project-meta-item"><strong>Focus:</strong> Technical Growth</span>
+                    </div>
+                </div>
+                
+                <div class="project-content-grid">
+                    <div class="project-main-text">
+                        <h3>Overview</h3>
+                        <p>This project serves as a digital archive of technical growth. It is a development-focused showcase designed to demonstrate raw coding capability, experimentation with new libraries, and foundational web skills.</p>
+                        
+                        <h3>Purpose</h3>
+                        <p>Unlike client projects which focus on conversion and branding, this portfolio focuses on code quality, performance optimization, and creative coding experiments. It highlights the technical backbone that powers our agency work.</p>
+
+                        <h3>Key Highlights</h3>
+                        <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-muted);">
+                            <li><strong>Experimental Layouts:</strong> Testing non-standard grids and interactions.</li>
+                            <li><strong>Code Showcase:</strong> Clean, semantic HTML/CSS/JS structures.</li>
+                            <li><strong>Performance:</strong> Optimized for speed and technical best practices.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-sidebar">
+                        <div class="project-sidebar-box">
+                            <h4 style="color:var(--gold); margin-bottom:1rem;">Tech Stack</h4>
+                            <ul style="list-style:none; color:var(--text-muted); font-size:0.9rem;">
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-code" style="color:var(--gold); margin-right:8px;"></i> HTML5 / CSS3</li>
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-code" style="color:var(--gold); margin-right:8px;"></i> JavaScript (ES6+)</li>
+                                <li style="margin-bottom:0.5rem;"><i class="fas fa-code" style="color:var(--gold); margin-right:8px;"></i> GitHub Pages</li>
+                            </ul>
+                            <a href="https://zyrox-xd.github.io/Portfolio/" target="_blank" class="btn-glow" style="width:100%; text-align:center; margin-top:1.5rem;">View Archive</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-gallery">
+                    <img src="images/legacy.jpg" class="gallery-img full-width-img" alt="Legacy Portfolio">
+                </div>
+            </div>
+        </div>
 
         <!-- ABOUT / AGENCY PAGE -->
         <div id="about" class="page-section">
@@ -1709,26 +1640,13 @@
                         <p style="color: var(--text-muted); margin-bottom: 1.2rem;">
                             ZOMAXA was started with a simple belief: small brands deserve the kind of polish and clarity people expect from big names.
                         </p>
-                        <p style="color: var(--text-muted); margin-bottom: 1.2rem;">
-                            Based in India and working with clients remotely, we bring together strategy, design, and development under one roof. No messy handoffs, no “designer did this, dev broke that” chaos.
-                        </p>
                         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
                             Our rule is “less, but better.” We cut out clutter, extra sections, and over-explaining — and keep what moves your brand forward.
                         </p>
-
                         <div class="stats-row">
-                            <div class="stat">
-                                <h3 class="stat-number" data-target="5">0</h3>
-                                <span>Projects shipped</span>
-                            </div>
-                            <div class="stat">
-                                <h3 class="stat-number" data-target="100">0</h3>
-                                <span>Client satisfaction</span>
-                            </div>
-                            <div class="stat">
-                                <h3 class="stat-number" data-target="2">0</h3>
-                                <span>Cities served</span>
-                            </div>
+                            <div class="stat"><h3 class="stat-number" data-target="5">0</h3><span>Projects shipped</span></div>
+                            <div class="stat"><h3 class="stat-number" data-target="100">0</h3><span>Client satisfaction</span></div>
+                            <div class="stat"><h3 class="stat-number" data-target="2">0</h3><span>Cities served</span></div>
                         </div>
                     </div>
                     <div class="about-visual">
@@ -1768,28 +1686,22 @@
                     <h2>Join Our Collective</h2>
                     <p>Have a digital skill and care about quality? We’re always open to new collaborators.</p>
                 </div>
-
                 <div class="join-team-container">
                     <form id="joinTeamForm" class="affiliate-form">
                         <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" id="job-name" placeholder="Enter your full name" required>
+                            <label class="form-label">Your Name</label>
+                            <input type="text" id="job-name" class="form-input" placeholder="Enter your full name" required>
                         </div>
-
                         <div class="form-group">
-                            <label>Skill / Role</label>
-                            <input type="text" id="job-role" placeholder="e.g. Graphic Designer, SEO Expert" required>
+                            <label class="form-label">Skill / Role</label>
+                            <input type="text" id="job-role" class="form-input" placeholder="e.g. Graphic Designer, SEO Expert" required>
                         </div>
-
                         <div class="form-group full-width">
-                            <label>Portfolio Link (Optional)</label>
-                            <input type="url" id="job-link" placeholder="https://yourportfolio.com">
+                            <label class="form-label">Portfolio Link (Optional)</label>
+                            <input type="url" id="job-link" class="form-input" placeholder="https://yourportfolio.com">
                         </div>
-
                         <div class="form-group full-width" style="margin-bottom:0;">
-                            <button type="submit" class="btn-submit">
-                                <i class="fab fa-whatsapp"></i> Apply via WhatsApp
-                            </button>
+                            <button type="submit" class="btn-submit"><i class="fab fa-whatsapp"></i> Apply via WhatsApp</button>
                         </div>
                     </form>
                 </div>
@@ -1798,36 +1710,22 @@
                 <div class="testimonials-wrap">
                     <div class="section-header" style="margin-top: 5rem; margin-bottom: 3rem;">
                         <h2>What People Say</h2>
-                        <p>A few words from clients and collaborators we’ve worked with.</p>
                     </div>
                     <div class="test-grid">
                         <div class="test-card">
                             <div class="quote-mark"><i class="fas fa-quote-right"></i></div>
-                            <p class="test-quote">
-                                “The website finally feels like our brand. Clean, modern, and something we’re proud to send to clinics and customers.”
-                            </p>
+                            <p class="test-quote">“The website finally feels like our brand. Clean, modern, and something we’re proud to send to clinics and customers.”</p>
                             <div class="test-name">Team Glowtiqa</div>
                             <div class="test-role">Skincare Brand</div>
                         </div>
                         <div class="test-card">
                             <div class="quote-mark"><i class="fas fa-quote-right"></i></div>
-                            <p class="test-quote">
-                                “Communication was clear from start to finish. They handled both design and dev, so we didn’t have to manage five different people.”
-                            </p>
+                            <p class="test-quote">“Communication was clear from start to finish. They handled both design and dev, so we didn’t have to manage five different people.”</p>
                             <div class="test-name">Shaa Trading</div>
                             <div class="test-role">Distributor · Skincare & Wellness</div>
                         </div>
-                        <div class="test-card">
-                            <div class="quote-mark"><i class="fas fa-quote-right"></i></div>
-                            <p class="test-quote">
-                                “They understood what I wanted visually and made it work on the web without overcomplicating things.”
-                            </p>
-                            <div class="test-name">Raafi Edits</div>
-                            <div class="test-role">Video Editor · Creator</div>
-                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -1835,30 +1733,19 @@
         <div id="contact" class="page-section">
             <div class="container">
                 <div class="contact-layout">
-                    <div>
+                    <div class="contact-info-wrapper">
                         <h2 style="font-size: 2.5rem; font-family: 'Cinzel', serif; margin-bottom: 1rem;">Let’s Talk</h2>
-                        <p style="color: var(--text-muted); margin-bottom: 3rem;">Tell us where you are right now and where you want your brand to be — we’ll help bridge the gap.</p>
-
+                        <p style="color: var(--text-muted); margin-bottom: 3rem; line-height: 1.6;">
+                            Whether you know exactly what you need or just have a rough idea, we'll help you clarify it.
+                        </p>
                         <div class="contact-info-box">
-                            <h3>Contact Info</h3>
-                            <p><i class="fas fa-map-marker-alt"></i> Bangalore & Bhatkal, Karnataka, India</p>
-                            <p><i class="fas fa-envelope"></i> zomaxa.agency@gmail.com</p>
-                            <p><i class="fab fa-whatsapp"></i> +91 8904198424</p>
+                            <h3 style="color:var(--white); font-size: 1.2rem; margin-bottom:1rem;">Fastest Way to Reach Us</h3>
+                            <p class="contact-link"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918904198424" target="_blank">+91 89041 98424</a></p>
+                            <p class="contact-link"><i class="fas fa-envelope"></i> <a href="mailto:zomaxa.agency@gmail.com">zomaxa.agency@gmail.com</a></p>
                         </div>
-
-                        <div class="contact-info-box" style="margin-top: 2rem;">
-                            <h3>Working Hours</h3>
-                            <p><i class="far fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</p>
-                            <p><i class="far fa-clock"></i> Weekend: By Appointment</p>
-                        </div>
-
-                        <div class="contact-info-box" style="margin-top: 2rem;">
-                            <h3>What Happens Next?</h3>
-                            <p style="color: var(--text-muted);">
-                                1. We reply on WhatsApp or email.<br>
-                                2. We schedule a short call or chat.<br>
-                                3. You get a clear, no-pressure proposal.
-                            </p>
+                        <div class="contact-info-box" style="margin-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+                            <h3 style="color:var(--gold); font-size: 1rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Office</h3>
+                            <p style="color:var(--text-muted); font-size: 0.9rem;">Bangalore & Bhatkal, Karnataka</p>
                         </div>
                     </div>
 
@@ -1867,35 +1754,25 @@
                             <label class="form-label">Your Name</label>
                             <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
                         </div>
-
                         <div class="form-group">
-                            <label class="form-label">Service Interested In</label>
-                            <select id="service" class="form-select" required>
-                                <option value="Web Design">Web Design & Development</option>
-                                <option value="Branding">Branding & Identity</option>
-                                <option value="Social Media Reels">Social Media / Reels</option>
-                                <option value="Full Package">Full Brand Package</option>
-                                <option value="Other">Other Inquiry</option>
-                            </select>
+                            <label class="form-label">Service / Package</label>
+                            <input type="text" id="selected-package" class="form-input" placeholder="e.g. Business Scale Combo (Auto-filled)" required>
                         </div>
-
                         <div class="form-group">
-                            <label class="form-label">Project Budget (INR)</label>
+                            <label class="form-label">Approx. Budget</label>
                             <select id="budget" class="form-select">
-                                <option value="₹5k - ₹25k">₹5k - ₹25k</option>
-                                <option value="₹25k - ₹50k">₹25k - ₹50k</option>
-                                <option value="₹50k - ₹1L">₹50k - ₹1L</option>
-                                <option value="₹1L+">₹1L+</option>
+                                <option value="₹5k - ₹15k">₹5,000 - ₹15,000</option>
+                                <option value="₹15k - ₹30k">₹15,000 - ₹30,000</option>
+                                <option value="₹30k - ₹50k">₹30,000 - ₹50,000</option>
+                                <option value="₹50k+">₹50,000+</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label class="form-label">Project Details</label>
-                            <textarea id="message" class="form-textarea" rows="4" placeholder="Tell us about your goals, timeline, and what you’ve tried so far..." required></textarea>
+                            <textarea id="message" class="form-textarea" rows="4" placeholder="Tell us about your business goals or specific requirements..."></textarea>
                         </div>
-
                         <button type="submit" class="btn-submit">
-                            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Send Details via WhatsApp
+                            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Start Project via WhatsApp
                         </button>
                     </form>
                 </div>
@@ -1904,8 +1781,6 @@
 
         <!-- AFFILIATE PAGE -->
         <div id="affiliate" class="page-section">
-
-            <!-- Affiliate Hero -->
             <div class="affiliate-hero">
                 <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1;">
                     Get Paid to <span class="gold-text">Recommend Good Work</span>
@@ -1913,71 +1788,38 @@
                 <p style="font-size: 1.2rem; max-width: 700px; margin-bottom: 2.5rem; color: rgba(255, 255, 255, 0.8);">
                     If you know business owners, creators, or friends who need branding or a website, you can earn by sending them our way.
                 </p>
-                <a href="#affiliate-form" class="btn-glow" onclick="document.getElementById('affiliate-form').scrollIntoView({behavior: 'smooth'})">
-                    Join the Affiliate Program
-                </a>
-                <p style="margin-top: 1.5rem; font-size: .85rem; color: var(--text-muted);">
-                    Simple structure · Transparent payouts · You don’t have to “sell” — just connect.
-                </p>
+                <a href="#affiliate-form" class="btn-glow" onclick="document.getElementById('affiliate-form').scrollIntoView({behavior: 'smooth'})">Join the Affiliate Program</a>
+                <p style="margin-top: 1.5rem; font-size: .85rem; color: var(--text-muted);">Simple structure · Transparent payouts</p>
             </div>
 
-            <!-- How It Works -->
             <div class="container">
                 <div class="section-header">
                     <h2>How It Works</h2>
                     <p>Three simple steps — no portals, no complicated dashboards.</p>
                 </div>
-
                 <div class="steps-container">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3>Join</h3>
-                        <p>Fill the short form below and we’ll give you your referral format and basic info.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3>Refer</h3>
-                        <p>Send people our way on WhatsApp or share our details using your unique reference.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3>Earn</h3>
-                        <p>Once they become a paying client, you receive your payout as agreed.</p>
-                    </div>
+                    <div class="step-card"><div class="step-number">1</div><h3>Join</h3><p>Fill the short form below and we’ll give you your referral format.</p></div>
+                    <div class="step-card"><div class="step-number">2</div><h3>Refer</h3><p>Send people our way on WhatsApp using your unique reference.</p></div>
+                    <div class="step-card"><div class="step-number">3</div><h3>Earn</h3><p>Once they become a paying client, you receive your payout.</p></div>
                 </div>
             </div>
 
-            <!-- Commission Structure -->
             <div class="container" style="background-color: #0a0a0a;">
                 <div class="section-header">
                     <h2>Commission Structure</h2>
                     <p>Choose what works better for you — instant payouts or recurring income.</p>
                 </div>
-
                 <div class="commission-container">
                     <div class="commission-content">
                         <div class="commission-option">
                             <h3>One-Time Payouts</h3>
                             <ul class="commission-list">
-                                <li>
-                                    <span class="commission-plan">Starter Plan</span>
-                                    <span class="commission-amount">₹500</span>
-                                </li>
-                                <li>
-                                    <span class="commission-plan">Growth / Pro Plan</span>
-                                    <span class="commission-amount">₹1,000</span>
-                                </li>
-                                <li>
-                                    <span class="commission-plan">Elite / Enterprise</span>
-                                    <span class="commission-amount">₹1,500</span>
-                                </li>
+                                <li><span class="commission-plan">Starter Plan</span><span class="commission-amount">₹500</span></li>
+                                <li><span class="commission-plan">Growth / Pro Plan</span><span class="commission-amount">₹1,000</span></li>
+                                <li><span class="commission-plan">Elite / Enterprise</span><span class="commission-amount">₹1,500</span></li>
                             </ul>
                         </div>
-
-                        <div class="or-divider">
-                            <span>OR</span>
-                        </div>
-
+                        <div class="or-divider"><span>OR</span></div>
                         <div class="commission-option">
                             <h3>Monthly Earnings</h3>
                             <div style="text-align: center; margin-top: 40px;">
@@ -1989,108 +1831,31 @@
                 </div>
             </div>
 
-            <!-- Who Can Join -->
-            <div class="container">
-                <div class="section-header">
-                    <h2>Who This Is For</h2>
-                    <p>You don’t need to be a salesperson — you just need people who trust you.</p>
-                </div>
-
-                <div class="join-container">
-                    <div class="join-card">
-                        <div class="join-icon"><i class="fas fa-users"></i></div>
-                        <h3>Friends with Business Owners</h3>
-                        <p>If people already ask you for advice and recommendations, this is for you.</p>
-                    </div>
-                    <div class="join-card">
-                        <div class="join-icon"><i class="fas fa-heart"></i></div>
-                        <h3>Existing Clients</h3>
-                        <p>If you like our work, you can earn by simply telling others about your experience.</p>
-                    </div>
-                    <div class="join-card">
-                        <div class="join-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3>Students & Creators</h3>
-                        <p>If your network is growing and you want extra income, this fits well.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Benefits -->
-            <div class="container" style="background-color: #0a0a0a;">
-                <div class="section-header">
-                    <h2>What You Get</h2>
-                    <p>We keep it simple and fair.</p>
-                </div>
-
-                <div class="benefits-container">
-                    <div class="benefit-card">
-                        <div class="benefit-icon"><i class="fas fa-link"></i></div>
-                        <h3>Clear Referral System</h3>
-                        <p>We track your referrals by name and simple codes, so there’s no confusion about who came from you.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Alignment, Not Pressure</h3>
-                        <p>You send people who actually need this — no hard selling, no spammy tactics required.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon"><i class="fas fa-rupee-sign"></i></div>
-                        <h3>Easy Payouts</h3>
-                        <p>Get paid via UPI, cash, or bank transfer once the client’s payment clears.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon"><i class="fas fa-tools"></i></div>
-                        <h3>Support Material</h3>
-                        <p>We’ll give you a simple PDF / message pack explaining what we do so you can share it easily.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Affiliate Application Form -->
             <div id="affiliate-form" class="container">
                 <div class="section-header">
                     <h2>Join the Affiliate Program</h2>
-                    <p>Tell us a bit about yourself and how you plan to refer clients.</p>
                 </div>
-
                 <div class="affiliate-form-container">
                     <form id="affiliateAppForm" class="affiliate-form">
+                        <div class="form-group"><label class="form-label">Full Name</label><input type="text" id="aff-name" class="form-input" placeholder="Enter your full name" required></div>
+                        <div class="form-group"><label class="form-label">Email Address</label><input type="email" id="aff-email" class="form-input" placeholder="Enter your email" required></div>
+                        <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" id="aff-phone" class="form-input" placeholder="Enter your phone number" required></div>
                         <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" id="aff-name" placeholder="Enter your full name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" id="aff-email" placeholder="Enter your email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="tel" id="aff-phone" placeholder="Enter your phone number" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Preferred Commission</label>
-                            <select id="aff-type" required>
+                            <label class="form-label">Preferred Commission</label>
+                            <select id="aff-type" class="form-select" required>
                                 <option value="" disabled selected>Select commission type</option>
                                 <option value="One-Time Payouts">One-Time Payouts</option>
                                 <option value="Monthly Earnings">Monthly Earnings</option>
                             </select>
                         </div>
-
                         <div class="form-group full-width">
-                            <label>Why do you want to join? (Optional)</label>
-                            <textarea id="aff-message" placeholder="Tell us why you're interested or how you’ll refer..."></textarea>
+                            <label class="form-label">Why do you want to join? (Optional)</label>
+                            <textarea id="aff-message" class="form-textarea" placeholder="Tell us why you're interested..."></textarea>
                         </div>
-
                         <div class="form-group full-width" style="margin-bottom:0;">
-                            <button type="submit" class="btn-submit">
-                                <i class="fas fa-paper-plane"></i> Submit Application (via WhatsApp)
-                            </button>
+                            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Submit Application (via WhatsApp)</button>
                         </div>
                     </form>
-
                     <div id="aff-success" class="form-success">
                         <i class="fas fa-check-circle" style="color:var(--success); font-size:3rem; margin-bottom:1rem;"></i>
                         <h3 style="color:var(--success); margin-bottom:0.5rem;">Application Submitted!</h3>
@@ -2098,9 +1863,46 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
+        <!-- POLICY PAGE -->
+        <div id="policy" class="page-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Privacy Policy</h2>
+                    <p>Last Updated: December 2025</p>
+                </div>
+                <div class="policy-content">
+                    <p>At ZOMAXA, we respect your privacy and are committed to protecting it. This policy explains what information we collect and how we use it.</p>
+                    
+                    <h3>1. Information We Collect</h3>
+                    <p>We only collect information that you voluntarily provide to us via contact forms, WhatsApp, or email. This typically includes:</p>
+                    <ul>
+                        <li>Name and Contact Details (Phone, Email)</li>
+                        <li>Project Details and Business Information</li>
+                    </ul>
+
+                    <h3>2. How We Use Your Information</h3>
+                    <p>We use your data solely for:</p>
+                    <ul>
+                        <li>Responding to inquiries and project proposals.</li>
+                        <li>Delivering services and communicating project updates.</li>
+                        <li>Internal record keeping.</li>
+                    </ul>
+                    <p>We do <strong>not</strong> sell, distribute, or lease your personal information to third parties unless we have your permission or are required by law.</p>
+
+                    <h3>3. Security</h3>
+                    <p>We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic, and managerial procedures to safeguard and secure the information we collect online.</p>
+
+                    <h3>4. Cookies</h3>
+                    <p>Our website uses minimal cookies to ensure site functionality and performance. We do not use invasive tracking cookies.</p>
+
+                    <h3>5. Contact Us</h3>
+                    <p>If you have any questions about this privacy policy, please contact us at:</p>
+                    <p>Email: <a href="mailto:zomaxa.agency@gmail.com" style="color:var(--gold);">zomaxa.agency@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- FOOTER -->
@@ -2108,27 +1910,25 @@
         <div class="container" style="padding: 0; padding-bottom: 2rem;">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="#home" class="logo" style="margin-bottom: 1rem; display: block;" onclick="navigateTo('home')">ZOMAXA<span class="dot">.</span></a>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
-                        Premium creative agency helping small brands look and feel like big players — through brand, web, and content.
-                    </p>
+                    <a href="home" class="logo" style="margin-bottom: 1rem; display: block;" onclick="event.preventDefault(); navigateTo('home')">ZOMAXA<span class="dot">.</span></a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Premium creative agency helping small brands look and feel like big players.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Agency</h4>
                     <ul>
-                        <li><a href="#about" onclick="navigateTo('about')">About Us</a></li>
-                        <li><a href="#work" onclick="navigateTo('work')">Portfolio</a></li>
-                        <li><a href="#services" onclick="navigateTo('services')">Services</a></li>
-                        <li><a href="#affiliate" onclick="navigateTo('affiliate')">Affiliate Program</a></li>
+                        <li><a href="about" onclick="event.preventDefault(); navigateTo('about')">About Us</a></li>
+                        <li><a href="work" onclick="event.preventDefault(); navigateTo('work')">Portfolio</a></li>
+                        <li><a href="services" onclick="event.preventDefault(); navigateTo('services')">Services</a></li>
+                        <li><a href="affiliate" onclick="event.preventDefault(); navigateTo('affiliate')">Affiliate Program</a></li>
+                        <li><a href="policy" onclick="event.preventDefault(); navigateTo('policy')">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#services" onclick="navigateTo('services')">Web Design</a></li>
-                        <li><a href="#services" onclick="navigateTo('services')">Branding</a></li>
-                        <li><a href="#services" onclick="navigateTo('services')">Development</a></li>
-                        <li><a href="#services" onclick="navigateTo('services')">Content</a></li>
+                        <li><a href="services" onclick="event.preventDefault(); navigateTo('services')">Web Design</a></li>
+                        <li><a href="services" onclick="event.preventDefault(); navigateTo('services')">Branding</a></li>
+                        <li><a href="services" onclick="event.preventDefault(); navigateTo('services')">SMM</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -2140,22 +1940,24 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                &copy; 2025 ZOMAXA Agency. All Rights Reserved.
-            </div>
+            <div class="footer-bottom">&copy; 2025 ZOMAXA Agency. All Rights Reserved.</div>
         </div>
     </footer>
 
-    <!-- WhatsApp Sticky Button -->
-    <a href="https://wa.me/918904198424" class="whatsapp-sticky" target="_blank" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- WhatsApp Sticky -->
+    <a href="https://wa.me/918904198424" class="whatsapp-sticky" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         // SPA Navigation
         function navigateTo(pageId) {
-            history.pushState(null, null, `#${pageId}`);
+            // Handle root/home
+            const path = pageId === 'home' ? '/' : pageId;
+            
+            // Push state to history
+            history.pushState({pageId: pageId}, null, path);
+            
             renderPage(pageId);
+            
             const navLinks = document.querySelector('.nav-links');
             if (navLinks && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
@@ -2163,107 +1965,147 @@
         }
 
         function renderPage(pageId) {
+            // Hide all pages
             document.querySelectorAll('.page-section').forEach(page => page.classList.remove('active'));
+            
+            // Show target page
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'instant' });
-
                 animateElements(targetPage);
+            } else {
+                // Fallback if ID not found (e.g. invalid URL)
+                const home = document.getElementById('home');
+                if(home) home.classList.add('active');
             }
+
+            // Update Nav Active State
             document.querySelectorAll('.nav-item').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${pageId}`) link.classList.add('active');
-            });
-        }
-
-        // Updated Work Filtering Logic (For new Bento Grid)
-        function filterWork(category, btnEl) {
-            const items = document.querySelectorAll('.portfolio-item');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            // Update Active Button
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if (btnEl) btnEl.classList.add('active');
-
-            // Animate Items
-            items.forEach(item => {
-                const itemCats = item.getAttribute('data-category') || '';
-                
-                if (category === 'all' || itemCats.includes(category)) {
-                    item.style.display = 'block'; // Reset display to let grid handle layout
-                    // Small delay to allow display:block to render before opacity change
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300); // Wait for transition
+                // Check if link href matches current pageId (handle work sub-pages highlight)
+                const href = link.getAttribute('href');
+                if (href === pageId || (pageId.startsWith('work-') && href === 'work')) {
+                    link.classList.add('active');
                 }
             });
         }
 
-        // WhatsApp Main Contact Form
+        // Initial Load
+        window.addEventListener('load', () => {
+            // Determine page based on URL path
+            // Example: /services -> path = "services"
+            const path = window.location.pathname.replace(/^\/|\/$/g, '');
+            
+            // If path is empty, it's home. If it matches an ID, render it.
+            const pageId = path || 'home';
+            
+            // Check if element exists, else default to home
+            if(document.getElementById(pageId)) {
+                renderPage(pageId);
+            } else {
+                renderPage('home');
+            }
+        });
+
+        // Back/Forward Button
+        window.addEventListener('popstate', (event) => {
+            if(event.state && event.state.pageId) {
+                renderPage(event.state.pageId);
+            } else {
+                // Fallback to path parsing
+                const path = window.location.pathname.replace(/^\/|\/$/g, '');
+                renderPage(path || 'home');
+            }
+        });
+
+        function filterWork(category, btnEl) {
+            const items = document.querySelectorAll('.portfolio-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+
+            items.forEach(item => {
+                const itemCats = item.getAttribute('data-category') || '';
+                if (category === 'all' || itemCats.includes(category)) {
+                    item.style.display = 'block';
+                    setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
+                } else {
+                    item.style.opacity = '0'; item.style.transform = 'scale(0.95)';
+                    setTimeout(() => { item.style.display = 'none'; }, 300);
+                }
+            });
+        }
+
+        // Pricing Logic
+        function switchPricing(category, event) {
+            document.querySelectorAll('.pricing-tab-btn').forEach(btn => btn.classList.remove('active'));
+            if(event && event.target) event.target.classList.add('active');
+            document.querySelectorAll('.pricing-category').forEach(cat => cat.classList.remove('active'));
+            const selectedCat = document.getElementById(`price-${category}`);
+            if (selectedCat) selectedCat.classList.add('active');
+        }
+
+        function showPricing() {
+            // If already on services page, just scroll
+            if(document.getElementById('services').classList.contains('active')){
+                const el = document.getElementById('pricing-scroll');
+                if(el) el.scrollIntoView({behavior: 'smooth'});
+            } else {
+                navigateTo('services');
+                setTimeout(() => {
+                    const el = document.getElementById('pricing-scroll');
+                    if(el) el.scrollIntoView({behavior: 'smooth'});
+                }, 100);
+            }
+        }
+
+        function prefillForm(planName) {
+            navigateTo('contact');
+            setTimeout(() => {
+                const input = document.getElementById('selected-package');
+                if (input) {
+                    input.value = planName;
+                    input.focus();
+                    input.style.borderBottomColor = '#D4AF37';
+                }
+            }, 100);
+        }
+
+        // Form Handlers
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
-            const service = document.getElementById('service').value;
+            const pack = document.getElementById('selected-package').value;
             const budget = document.getElementById('budget').value;
             const message = document.getElementById('message').value;
             const phoneNumber = "918904198424";
-            const text =
-                `*New Agency Inquiry*%0a%0a` +
-                `*Name:* ${name}%0a` +
-                `*Service:* ${service}%0a` +
-                `*Budget:* ${budget}%0a` +
-                `*Message:* ${message}`;
-            window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+            const rawText = `*New Inquiry: ZOMAXA*\n______________________\n\n*Name:* ${name}\n*Package:* ${pack}\n*Budget:* ${budget}\n*Details:* ${message ? message : 'N/A'}`;
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(rawText)}`, '_blank');
         });
 
-        // Affiliate Application Form -> WhatsApp
         document.getElementById('affiliateAppForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
             const name = document.getElementById('aff-name').value;
             const email = document.getElementById('aff-email').value;
             const phone = document.getElementById('aff-phone').value;
             const type = document.getElementById('aff-type').value;
             const message = document.getElementById('aff-message').value;
-
             const phoneNumber = "918904198424";
-            const text =
-                `*New Affiliate Application*%0a%0a` +
-                `*Name:* ${name}%0a` +
-                `*Email:* ${email}%0a` +
-                `*Phone:* ${phone}%0a` +
-                `*Preferred Commission:* ${type}%0a` +
-                `*Why:* ${message || "Not specified"}`;
-            window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
-
+            const text = `*New Affiliate Application*\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Preferred Commission:* ${type}\n*Why:* ${message || "Not specified"}`;
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
             this.style.display = 'none';
             document.getElementById('aff-success').style.display = 'block';
         });
 
-        // Join Team Form Handler
         document.getElementById('joinTeamForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
             const name = document.getElementById('job-name').value;
             const role = document.getElementById('job-role').value;
             const link = document.getElementById('job-link').value;
-
             const phoneNumber = "918904198424";
-            const text =
-                `*New Job Application*%0a%0a` +
-                `*Name:* ${name}%0a` +
-                `*Role/Skill:* ${role}%0a` +
-                `*Portfolio:* ${link || "Not provided"}`;
-
-            window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+            const text = `*New Job Application*\n\n*Name:* ${name}\n*Role/Skill:* ${role}\n*Portfolio:* ${link || "Not provided"}`;
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
         });
 
         function toggleMenu() {
@@ -2271,11 +2113,7 @@
             if (navLinks) navLinks.classList.toggle('active');
         }
 
-        // Scroll Animation Logic
-        const observerOptions = {
-            threshold: 0.1
-        };
-
+        // Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2283,59 +2121,47 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         function animateElements(container) {
-            const elements = container.querySelectorAll(
-                '.step-card, .join-card, .benefit-card, .commission-option, ' +
-                '.service-card, .process-card, .pricing-card, .section-header, .why-card, .test-card'
-            );
-
+            const elements = container.querySelectorAll('.step-card, .join-card, .benefit-card, .commission-option, .service-card, .process-card, .pricing-card, .section-header, .why-card, .test-card');
             elements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'all 0.6s ease-out';
+                el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'all 0.6s ease-out';
                 observer.observe(el);
             });
-
-            // animate stats counters if present
             const stats = container.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                if (!stat.dataset.animated) {
-                    animateCounter(stat);
-                }
-            });
+            stats.forEach(stat => { if (!stat.dataset.animated) animateCounter(stat); });
         }
 
         function animateCounter(el) {
             const target = parseInt(el.getAttribute('data-target'), 10) || 0;
             let current = 0;
             const isPercent = el.textContent.toString().includes('%') || el.getAttribute('data-target') === '100';
-            const speed = 20;
-
             const update = () => {
                 if (current < target) {
                     current += Math.ceil(target / 40);
                     if (current > target) current = target;
                     el.textContent = isPercent ? current + '%' : current + (el.getAttribute('data-target') === '2' ? '+' : (el.getAttribute('data-target') === '5' ? '+' : ''));
                     requestAnimationFrame(update);
-                } else {
-                    el.dataset.animated = "true";
-                }
+                } else { el.dataset.animated = "true"; }
             };
             update();
         }
 
-        // Initial Load Handling
-        window.addEventListener('popstate', () => {
-            const hash = window.location.hash.substring(1);
-            if (hash) renderPage(hash); else renderPage('home');
-        });
-
-        window.addEventListener('load', () => {
-            const hash = window.location.hash.substring(1);
-            if (hash) renderPage(hash); else renderPage('home');
-        });
+        // GLOWTIQA SLIDER LOGIC
+        let glowtiqaSlideIndex = 0;
+        function slideGlowtiqa(direction) {
+            const track = document.getElementById('glowtiqa-slider');
+            if(!track) return;
+            const totalSlides = track.children.length;
+            
+            glowtiqaSlideIndex += direction;
+            
+            if (glowtiqaSlideIndex < 0) glowtiqaSlideIndex = totalSlides - 1;
+            if (glowtiqaSlideIndex >= totalSlides) glowtiqaSlideIndex = 0;
+            
+            track.style.transform = `translateX(-${glowtiqaSlideIndex * 100}%)`;
+        }
     </script>
 </body>
 </html>
