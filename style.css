@@ -315,10 +315,67 @@ footer { background: var(--surface); border-top: 1px solid rgba(255,255,255,0.05
     .filter-btn { white-space: nowrap; }
     .gallery-img.full-width-img { grid-column: span 1; }
     .or-divider { flex-direction: row; padding: 20px 0; }
-    .or-divider span { padding: 0 20px; }
+    .or-divider span { paddiang: 0 20px; }
     .or-divider:before, .or-divider:after { width: 40px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
     .form-group.full-width { grid-column: span 1; }
 }
+@media (max-width: 768px) {
+    .hero { min-height: 520px; }
+    .container { padding: 4.5rem 5%; }
+    .section-header h2 { font-size: 2.4rem; }
+}
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .hero-content h1 { font-size: 3.5rem; }
+    .pricing-card.featured { transform: scale(1); }
+    
+    /* Grid adjustments */
+    .about-layout, 
+    .contact-layout, 
+    .footer-grid, 
+    .affiliate-form, 
+    .project-content-grid, 
+    .project-gallery { 
+        grid-template-columns: 1fr; 
+        gap: 3rem; 
+    }
+
+    /* --- COMMISSION STRUCTURE FIX START --- */
+    .commission-content {
+        display: flex;
+        flex-direction: column; /* Stacks items vertically */
+        gap: 2rem;
+    }
+
+    .or-divider {
+        flex-direction: row; /* Aligns Lines + Text horizontally */
+        width: 100%;         /* Takes full width */
+        padding: 10px 0;
+    }
+
+    .or-divider span {
+        padding: 0 20px; /* Fixed typo: 'paddiang' -> padding */
+    }
+
+    .or-divider:before, .or-divider:after {
+        width: 50%; /* Lines stretch out */
+        height: 1px; /* Lines become thin horizontally */
+        /* Change gradient to Left-to-Right */
+        background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    /* --- COMMISSION STRUCTURE FIX END --- */
+
+    .contact-form { padding: 2rem; }
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+    .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-dark); padding: 2rem; gap: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .portfolio-item, .portfolio-item:first-child, .portfolio-item:nth-child(2) { grid-column: span 12; aspect-ratio: 16/12; }
+    .filter-glass { overflow-x: auto; max-width: 100%; justify-content: flex-start; }
+    .filter-btn { white-space: nowrap; }
+    .gallery-img.full-width-img { grid-column: span 1; }
+    .form-group.full-width { grid-column: span 1; }
+}
+
 @media (max-width: 768px) {
     .hero { min-height: 520px; }
     .container { padding: 4.5rem 5%; }
