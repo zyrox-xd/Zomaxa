@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About The Agency | ZOMAXA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23D4AF37%22>Z</text></svg>">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">ZOMAXA<span class="dot">.</span></a>
+        <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="services.html" class="nav-item">Services</a>
+            <a href="work.html" class="nav-item">Work</a>
+            <a href="about.html" class="nav-item">Agency</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+            <a href="affiliate.html" class="nav-item cta-link">Affiliate</a>
+        </div>
+    </nav>
+    <main class="page-section">
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-text">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-family: 'Cinzel', serif;">The Agency</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.2rem;">ZOMAXA was started with a simple belief: small brands deserve the kind of polish and clarity people expect from big names.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Our rule is “less, but better.” We cut out clutter, extra sections, and over-explaining — and keep what moves your brand forward.</p>
+                    <div class="stats-row">
+                        <div class="stat"><h3 class="stat-number" data-target="5">0</h3><span>Projects shipped</span></div>
+                        <div class="stat"><h3 class="stat-number" data-target="100">0</h3><span>Client satisfaction</span></div>
+                        <div class="stat"><h3 class="stat-number" data-target="2">0</h3><span>Cities served</span></div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <span class="large-z">Z</span>
+                    <span class="est">EST. 2025 · IN</span>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 3rem;">
+                <h2>Meet the Core Team</h2>
+                <p>Three different minds, one shared obsession: clean, effective work.</p>
+            </div>
+
+            <div class="team-grid" style="margin-bottom: 5rem;">
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user"></i></div>
+                    <h3 class="team-name">Shaarif</h3>
+                    <p class="team-role">Founder & Developer</p>
+                    <p class="team-note">Leads strategy, Web development, and overall project management.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-bullhorn"></i></div>
+                    <h3 class="team-name">Muhammed</h3>
+                    <p class="team-role">Social Media Manager</p>
+                    <p class="team-note">Handles content planning, posting schedules, and engagement across platforms.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-paint-brush"></i></div>
+                    <h3 class="team-name">Faris</h3>
+                    <p class="team-role">Creative Director</p>
+                    <p class="team-note">Makes sure visuals stay consistent, premium, and on-brand across everything.</p>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Join Our Collective</h2>
+                <p>Have a digital skill and care about quality? We’re always open to new collaborators.</p>
+            </div>
+            <div class="join-team-container">
+                <form id="joinTeamForm" class="affiliate-form">
+                    <div class="form-group">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" id="job-name" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Skill / Role</label>
+                        <input type="text" id="job-role" class="form-input" placeholder="e.g. Graphic Designer, SEO Expert" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Portfolio Link (Optional)</label>
+                        <input type="url" id="job-link" class="form-input" placeholder="https://yourportfolio.com">
+                    </div>
+                    <div class="form-group full-width" style="margin-bottom:0;">
+                        <button type="submit" class="btn-submit"><i class="fab fa-whatsapp"></i> Apply via WhatsApp</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="testimonials-wrap">
+                <div class="section-header" style="margin-top: 5rem; margin-bottom: 3rem;">
+                    <h2>What People Say</h2>
+                </div>
+                <div class="test-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="test-card" style="background:var(--surface); padding:2rem; border:1px solid rgba(255,255,255,0.05);">
+                        <div class="quote-mark" style="color:var(--gold); font-size:1.5rem; margin-bottom:1rem;"><i class="fas fa-quote-right"></i></div>
+                        <p class="test-quote" style="color:var(--text-muted); font-style:italic; margin-bottom:1rem;">“The website finally feels like our brand. Clean, modern, and something we’re proud to send to clinics and customers.”</p>
+                        <div class="test-name" style="font-weight:700;">Team Glowtiqa</div>
+                        <div class="test-role" style="font-size:0.8rem; color:var(--gold);">Skincare Brand</div>
+                    </div>
+                    <div class="test-card" style="background:var(--surface); padding:2rem; border:1px solid rgba(255,255,255,0.05);">
+                        <div class="quote-mark" style="color:var(--gold); font-size:1.5rem; margin-bottom:1rem;"><i class="fas fa-quote-right"></i></div>
+                        <p class="test-quote" style="color:var(--text-muted); font-style:italic; margin-bottom:1rem;">“Communication was clear from start to finish. They handled both design and dev, so we didn’t have to manage five different people.”</p>
+                        <div class="test-name" style="font-weight:700;">Shaa Trading</div>
+                        <div class="test-role" style="font-size:0.8rem; color:var(--gold);">Distributor · Skincare & Wellness</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container" style="padding: 0; padding-bottom: 2rem;">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 1rem; display: block;">ZOMAXA<span class="dot">.</span></a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Premium creative agency helping small brands look and feel like big players.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Agency</h4>
+                    <ul><li><a href="about.html">About Us</a></li><li><a href="work.html">Portfolio</a></li><li><a href="services.html">Services</a></li><li><a href="affiliate.html">Affiliate Program</a></li><li><a href="policy.html">Privacy Policy</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Branding</a></li><li><a href="services.html">SMM</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul><li><a href="https://instagram.com/zomaxa.media" target="_blank">Instagram</a></li><li><a href="https://www.linkedin.com/in/zomaxa-agency-ba5084372/" target="_blank">LinkedIn</a></li><li><a href="mailto:zomaxa.agency@gmail.com">Email</a></li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2025 ZOMAXA Agency. All Rights Reserved.</div>
+        </div>
+    </footer>
+    <a href="https://wa.me/918904198424" class="whatsapp-sticky" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <script src="script.js"></script>
+</body>
+</html>

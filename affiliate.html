@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Program | ZOMAXA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23D4AF37%22>Z</text></svg>">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">ZOMAXA<span class="dot">.</span></a>
+        <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="services.html" class="nav-item">Services</a>
+            <a href="work.html" class="nav-item">Work</a>
+            <a href="about.html" class="nav-item">Agency</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+            <a href="affiliate.html" class="nav-item cta-link">Affiliate</a>
+        </div>
+    </nav>
+    <main class="page-section">
+        <div class="affiliate-hero">
+            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1;">Get Paid to <span class="gold-text">Recommend Good Work</span></h1>
+            <p style="font-size: 1.2rem; max-width: 700px; margin-bottom: 2.5rem; color: rgba(255, 255, 255, 0.8);">If you know business owners, creators, or friends who need branding or a website, you can earn by sending them our way.</p>
+            <a href="#affiliate-form" class="btn-glow" onclick="document.getElementById('affiliate-form').scrollIntoView({behavior: 'smooth'})">Join the Affiliate Program</a>
+            <p style="margin-top: 1.5rem; font-size: .85rem; color: var(--text-muted);">Simple structure · Transparent payouts</p>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Three simple steps — no portals, no complicated dashboards.</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card"><div class="step-number">1</div><h3>Join</h3><p>Fill the short form below and we’ll give you your referral format.</p></div>
+                <div class="step-card"><div class="step-number">2</div><h3>Refer</h3><p>Send people our way on WhatsApp using your unique reference.</p></div>
+                <div class="step-card"><div class="step-number">3</div><h3>Earn</h3><p>Once they become a paying client, you receive your payout.</p></div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color: #0a0a0a;">
+            <div class="section-header">
+                <h2>Commission Structure</h2>
+                <p>Choose what works better for you — instant payouts or recurring income.</p>
+            </div>
+            <div class="commission-container">
+                <div class="commission-content">
+                    <div class="commission-option">
+                        <h3>One-Time Payouts</h3>
+                        <ul class="commission-list">
+                            <li><span class="commission-plan">Starter Plan</span><span class="commission-amount">₹500</span></li>
+                            <li><span class="commission-plan">Growth / Pro Plan</span><span class="commission-amount">₹1,000</span></li>
+                            <li><span class="commission-plan">Elite / Enterprise</span><span class="commission-amount">₹1,500</span></li>
+                        </ul>
+                    </div>
+                    <div class="or-divider"><span>OR</span></div>
+                    <div class="commission-option">
+                        <h3>Monthly Earnings</h3>
+                        <div style="text-align: center; margin-top: 40px;">
+                            <div class="commission-amount" style="font-size: 2rem; margin-bottom: 15px;">10–20%</div>
+                            <p style="color: var(--text-muted);">of your referral’s monthly fee, as long as they stay on that tier.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="affiliate-form" class="container">
+            <div class="section-header">
+                <h2>Join the Affiliate Program</h2>
+            </div>
+            <div class="affiliate-form-container">
+                <form id="affiliateAppForm" class="affiliate-form">
+                    <div class="form-group"><label class="form-label">Full Name</label><input type="text" id="aff-name" class="form-input" placeholder="Enter your full name" required></div>
+                    <div class="form-group"><label class="form-label">Email Address</label><input type="email" id="aff-email" class="form-input" placeholder="Enter your email" required></div>
+                    <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" id="aff-phone" class="form-input" placeholder="Enter your phone number" required></div>
+                    <div class="form-group">
+                        <label class="form-label">Preferred Commission</label>
+                        <select id="aff-type" class="form-select" required>
+                            <option value="" disabled selected>Select commission type</option>
+                            <option value="One-Time Payouts">One-Time Payouts</option>
+                            <option value="Monthly Earnings">Monthly Earnings</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Why do you want to join? (Optional)</label>
+                        <textarea id="aff-message" class="form-textarea" placeholder="Tell us why you're interested..."></textarea>
+                    </div>
+                    <div class="form-group full-width" style="margin-bottom:0;">
+                        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Submit Application (via WhatsApp)</button>
+                    </div>
+                </form>
+                <div id="aff-success" class="form-success">
+                    <i class="fas fa-check-circle" style="color:var(--success); font-size:3rem; margin-bottom:1rem;"></i>
+                    <h3 style="color:var(--success); margin-bottom:0.5rem;">Application Submitted!</h3>
+                    <p>Thank you for applying. We’ll review your details and respond on WhatsApp soon.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container" style="padding: 0; padding-bottom: 2rem;">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 1rem; display: block;">ZOMAXA<span class="dot">.</span></a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Premium creative agency helping small brands look and feel like big players.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Agency</h4>
+                    <ul><li><a href="about.html">About Us</a></li><li><a href="work.html">Portfolio</a></li><li><a href="services.html">Services</a></li><li><a href="affiliate.html">Affiliate Program</a></li><li><a href="policy.html">Privacy Policy</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Branding</a></li><li><a href="services.html">SMM</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul><li><a href="https://instagram.com/zomaxa.media" target="_blank">Instagram</a></li><li><a href="https://www.linkedin.com/in/zomaxa-agency-ba5084372/" target="_blank">LinkedIn</a></li><li><a href="mailto:zomaxa.agency@gmail.com">Email</a></li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2025 ZOMAXA Agency. All Rights Reserved.</div>
+        </div>
+    </footer>
+    <a href="https://wa.me/918904198424" class="whatsapp-sticky" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <script src="script.js"></script>
+</body>
+</html>

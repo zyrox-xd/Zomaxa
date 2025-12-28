@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | ZOMAXA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23D4AF37%22>Z</text></svg>">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">ZOMAXA<span class="dot">.</span></a>
+        <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="services.html" class="nav-item">Services</a>
+            <a href="work.html" class="nav-item">Work</a>
+            <a href="about.html" class="nav-item">Agency</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+            <a href="affiliate.html" class="nav-item cta-link">Affiliate</a>
+        </div>
+    </nav>
+    <main class="page-section">
+        <div class="container work-section-wrapper">
+            <div class="section-header">
+                <h2>Selected Masterpieces</h2>
+                <p>Strategic design meets technical precision.</p>
+            </div>
+            <div class="filter-container">
+                <div class="filter-glass">
+                    <button class="filter-btn active" onclick="filterWork('all', this)">All</button>
+                    <button class="filter-btn" onclick="filterWork('web', this)">Websites</button>
+                    <button class="filter-btn" onclick="filterWork('brand', this)">Branding</button>
+                    <button class="filter-btn" onclick="filterWork('social', this)">Social & Reels</button>
+                </div>
+            </div>
+            <div class="portfolio-grid">
+                <a href="work-glowtiqa.html" class="portfolio-item" data-category="web brand social">
+                    <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="portfolio-img-wrap"><img src="images/glowtiqaparis.png" alt="Glowtiqa Cosmetics" onerror="this.src='https://placehold.co/1200x800/111111/D4AF37?text=Glowtiqa+Paris'"></div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-line"></div>
+                        <div class="portfolio-tags"><span class="tag-pill">E-Commerce</span><span class="tag-pill">Social Media</span></div>
+                        <h3 class="portfolio-title">Glowtiqa Paris</h3>
+                        <p class="portfolio-desc">Full brand ecosystem: Strategy, Web, and Social Media Direction.</p>
+                    </div>
+                </a>
+                
+                <a href="work-shaa.html" class="portfolio-item" data-category="brand">
+                    <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="portfolio-img-wrap"><img src="images/shaatrading.jpg" alt="Shaa Trading" onerror="this.src='https://placehold.co/800x800/161616/333?text=Shaa+Trading'"></div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-line"></div>
+                        <div class="portfolio-tags"><span class="tag-pill">B2B Distribution</span></div>
+                        <h3 class="portfolio-title">Shaa Trading</h3>
+                        <p class="portfolio-desc">Complete identity overhaul for a major skincare distributor.</p>
+                    </div>
+                </a>
+
+                <a href="work-cake.html" class="portfolio-item" data-category="web">
+                     <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="portfolio-img-wrap"><img src="images/cake.jpg" alt="Cake Bites" onerror="this.src='https://placehold.co/800x600/222/D4AF37?text=Cake+Bites'"></div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-line"></div>
+                        <div class="portfolio-tags"><span class="tag-pill">F&B</span><span class="tag-pill">Web Design</span></div>
+                        <h3 class="portfolio-title">Cake Bites</h3>
+                        <p class="portfolio-desc">A playful, visually rich local business website.</p>
+                    </div>
+                </a>
+
+                <a href="work-legacy.html" class="portfolio-item" data-category="web">
+                     <div class="portfolio-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="portfolio-img-wrap"><img src="images/portfolio-v1.png" alt="Developer Portfolio" onerror="this.src='https://placehold.co/800x600/111/555?text=Dev+Portfolio'"></div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-line"></div>
+                        <div class="portfolio-tags"><span class="tag-pill">Personal</span><span class="tag-pill">Dev</span></div>
+                        <h3 class="portfolio-title">Legacy Portfolio</h3>
+                        <p class="portfolio-desc">A comprehensive showcase of previous development works.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container" style="padding: 0; padding-bottom: 2rem;">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 1rem; display: block;">ZOMAXA<span class="dot">.</span></a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Premium creative agency helping small brands look and feel like big players.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Agency</h4>
+                    <ul><li><a href="about.html">About Us</a></li><li><a href="work.html">Portfolio</a></li><li><a href="services.html">Services</a></li><li><a href="affiliate.html">Affiliate Program</a></li><li><a href="policy.html">Privacy Policy</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Branding</a></li><li><a href="services.html">SMM</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul><li><a href="https://instagram.com/zomaxa.media" target="_blank">Instagram</a></li><li><a href="https://www.linkedin.com/in/zomaxa-agency-ba5084372/" target="_blank">LinkedIn</a></li><li><a href="mailto:zomaxa.agency@gmail.com">Email</a></li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2025 ZOMAXA Agency. All Rights Reserved.</div>
+        </div>
+    </footer>
+    <a href="https://wa.me/918904198424" class="whatsapp-sticky" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <script src="script.js"></script>
+</body>
+</html>

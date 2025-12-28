@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Pricing | ZOMAXA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23D4AF37%22>Z</text></svg>">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">ZOMAXA<span class="dot">.</span></a>
+        <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="services.html" class="nav-item">Services</a>
+            <a href="work.html" class="nav-item">Work</a>
+            <a href="about.html" class="nav-item">Agency</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+            <a href="affiliate.html" class="nav-item cta-link">Affiliate</a>
+        </div>
+    </nav>
+    <main class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expertise</h2>
+                <p>We don't do "everything." We do these three things exceptionally well.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Design & Dev</h3><p>High-performance websites built to convert.</p>
+                    <ul><li>Custom React / HTML5 Development</li><li>E-Commerce / Business Portals</li><li>3D Interactions & Animations</li><li>Speed Optimization (90+ Score)</li></ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-fingerprint"></i></div>
+                    <h3>Brand Identity</h3><p>Visuals that build authority instantly.</p>
+                    <ul><li>Logo Design & Brand Marks</li><li>Color Psychology & Typography</li><li>Packaging Design</li><li>Brand Guidelines PDF</li></ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fab fa-instagram"></i></div>
+                    <h3>Social Growth (SMM)</h3><p>Content that stops the scroll and sells.</p>
+                    <ul><li>Reel Creation & Editing</li><li>Account Management</li><li>Caption Copywriting</li><li>Engagement Strategy</li></ul>
+                </div>
+            </div>
+
+            <div id="pricing-scroll" style="padding-top: 4rem;">
+                <div class="section-header">
+                    <h2>Indicative Pricing</h2>
+                    <div class="pricing-disclaimer">Every business is different. These prices are starting points — final scope depends on your goals.</div>
+                </div>
+
+                <div class="pricing-controls">
+                    <button class="pricing-tab-btn active" onclick="switchPricing('combos', event)">Best Value Combos</button>
+                    <button class="pricing-tab-btn" onclick="switchPricing('web', event)">Web Design</button>
+                    <button class="pricing-tab-btn" onclick="switchPricing('smm', event)">Social Media Management</button>
+                </div>
+
+                <div id="price-combos" class="pricing-category active">
+                    <div class="pricing-card combo-card">
+                        <span class="plan-badge">Best for New Businesses</span>
+                        <h3 class="price-title">Brand Launchpad</h3>
+                        <span class="price-amount">Start from <span>₹16k</span></span>
+                        <div class="price-note">For new brands that need to look trustworthy instantly.</div>
+                        <ul class="price-features"><li><i class="fas fa-check"></i> <strong>Professional Portfolio Site</strong></li><li><i class="fas fa-check"></i> <strong>Complete Identity</strong></li><li><i class="fas fa-check"></i> <strong>Visual Guide</strong></li><li><i class="fas fa-check"></i> <strong>Digital Card</strong></li></ul>
+                        <button onclick="selectPlan('Brand Launchpad Combo')" class="btn-glow" style="background:var(--gold); color:black;">Discuss Project</button>
+                    </div>
+                    <div class="pricing-card combo-card">
+                        <span class="plan-badge">Recommended</span>
+                        <h3 class="price-title">Growth Engine</h3>
+                        <span class="price-amount">Start from <span>₹25k</span></span>
+                        <div class="price-note">For established local businesses ready to scale up.</div>
+                        <ul class="price-features"><li><i class="fas fa-check"></i> <strong>Multi-Page Website</strong></li><li><i class="fas fa-check"></i> <strong>Full Branding</strong></li><li><i class="fas fa-check"></i> <strong>Social Kickstart (3 Reels)</strong></li><li><i class="fas fa-check"></i> <strong>Google Maps Setup</strong></li></ul>
+                        <button onclick="selectPlan('Growth Engine Combo')" class="btn-glow">Check Fit</button>
+                    </div>
+                    <div class="pricing-card combo-card">
+                        <h3 class="price-title">Digital Storefront</h3>
+                        <span class="price-amount">Start from <span>₹35k</span></span>
+                        <div class="price-note">For brands selling products online.</div>
+                        <ul class="price-features"><li><i class="fas fa-check"></i> <strong>Custom Store</strong></li><li><i class="fas fa-check"></i> <strong>Product Setup</strong></li><li><i class="fas fa-check"></i> <strong>Payments Integration</strong></li><li><i class="fas fa-check"></i> <strong>E-com Branding</strong></li></ul>
+                        <button onclick="selectPlan('Digital Storefront Combo')" class="btn-glow">Talk to Us</button>
+                    </div>
+                </div>
+
+                <div id="price-web" class="pricing-category">
+                    <div class="pricing-card">
+                        <h3 class="price-title">Professional Presence</h3>
+                        <span class="price-amount">Start from <span>₹6k</span></span>
+                        <div class="price-note">Ideal for freelancers, consultants, or portfolios.</div>
+                        <ul class="price-features"><li><i class="fas fa-check"></i> Single Page (Scroll Layout)</li><li><i class="fas fa-check"></i> Fully Mobile Responsive</li><li><i class="fas fa-check"></i> Social Media Links</li><li><i class="fas fa-check"></i> Inquiry Form</li></ul>
+                        <button onclick="selectPlan('Professional Presence Web')" class="btn-glow">Check Fit</button>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3 class="price-title">Service Website</h3>
+                        <span class="price-amount">Start from <span>₹10k</span></span>
+                        <div class="price-note">Standard multi-page site for service companies.</div>
+                        <ul class="price-features"><li><i class="fas fa-check"></i> Up to 5 Pages</li><li><i class="fas fa-check"></i> Smooth Animations</li><li><i class="fas fa-check"></i> Easy Content Editing</li><li><i class="fas fa-check"></i> WhatsApp Chat</li></ul>
+                        <button onclick="selectPlan('Service Website')" class="btn-glow">Discuss Project</button>
+                    </div>
+                    <div class="pricing-card">
+                        <h3 class="price-title">Custom Commerce</h3>
+                        <span class="price-amount">Start from <span>₹25k</span></span>
+                        <div class="price-note">Full-featured online store for serious sellers.</div>
+                        <ul class="price-features"><li><i class="fas fa-check"></i> Inventory Management</li><li><i class="fas fa-check"></i> Shopping Cart System</li><li><i class="fas fa-check"></i> Admin Dashboard</li><li><i class="fas fa-check"></i> Order Notifications</li></ul>
+                        <button onclick="selectPlan('Custom Commerce Web')" class="btn-glow">Get Quote</button>
+                    </div>
+                </div>
+
+                <div id="price-smm" class="pricing-category">
+                     <div class="pricing-card smm-card">
+                        <h3 class="price-title">Consistency</h3>
+                        <span class="price-amount">Start from <span>₹8k</span>/mo</span>
+                        <div class="price-note">Keeps your account active and professional.</div>
+                        <ul class="price-features"><li><i class="fas fa-check"></i> <strong>4 Reels</strong> (1/week)</li><li><i class="fas fa-check"></i> <strong>4 Static Posts</strong> (1/week)</li><li><i class="fas fa-check"></i> Captions & Hashtags</li><li><i class="fas fa-check"></i> Bio Optimization</li></ul>
+                        <button onclick="selectPlan('SMM Consistency (8k)')" class="btn-glow">Start Now</button>
+                    </div>
+                    <div class="pricing-card smm-card featured">
+                        <span class="plan-badge" style="color: #E1306C; border-color: #E1306C;">Recommended</span>
+                        <h3 class="price-title">Engagement</h3>
+                        <span class="price-amount">Start from <span>₹15k</span>/mo</span>
+                        <div class="price-note">Builds community and increases reach.</div>
+                        <ul class="price-features"><li><i class="fas fa-check"></i> <strong>8 Reels</strong> (2/week)</li><li><i class="fas fa-check"></i> <strong>8 Posts</strong></li><li><i class="fas fa-check"></i> Story Updates</li><li><i class="fas fa-check"></i> Comment Engagement</li></ul>
+                        <button onclick="selectPlan('SMM Engagement (15k)')" class="btn-glow">Check Fit</button>
+                    </div>
+                    <div class="pricing-card smm-card">
+                        <h3 class="price-title">Authority</h3>
+                        <span class="price-amount">Start from <span>₹25k</span>/mo</span>
+                        <div class="price-note">Full management for aggressive growth.</div>
+                        <ul class="price-features"><li><i class="fas fa-check"></i> <strong>12 Reels</strong> (3/week)</li><li><i class="fas fa-check"></i> <strong>12 Carousels/Posts</strong></li><li><i class="fas fa-check"></i> Daily Stories</li><li><i class="fas fa-check"></i> Monthly Strategy Call</li></ul>
+                        <button onclick="selectPlan('SMM Authority (25k)')" class="btn-glow">Talk to Us</button>
+                    </div>
+                    <div class="pricing-card" style="grid-column: 1 / -1; margin-top: 1rem; border-color: var(--gold);">
+                        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                            <div style="text-align:left;">
+                                <h3 class="price-title" style="margin:0; font-size:1.5rem;">Just Branding?</h3>
+                                <p class="price-note" style="margin:0;">Logo, Fonts, Colors, Guidelines & Social Kit.</p>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:1.5rem;">
+                                <span class="price-amount" style="font-size:1.2rem; display:inline;">Start from <span>₹7k</span></span>
+                                <button onclick="selectPlan('Branding Kit Only')" class="btn-glow">Get Branding</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="pricing-trust-line">Not sure what you need? We’ll guide you — even if it means recommending a smaller scope.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container" style="padding: 0; padding-bottom: 2rem;">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 1rem; display: block;">ZOMAXA<span class="dot">.</span></a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Premium creative agency helping small brands look and feel like big players.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Agency</h4>
+                    <ul><li><a href="about.html">About Us</a></li><li><a href="work.html">Portfolio</a></li><li><a href="services.html">Services</a></li><li><a href="affiliate.html">Affiliate Program</a></li><li><a href="policy.html">Privacy Policy</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Branding</a></li><li><a href="services.html">SMM</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul><li><a href="https://instagram.com/zomaxa.media" target="_blank">Instagram</a></li><li><a href="https://www.linkedin.com/in/zomaxa-agency-ba5084372/" target="_blank">LinkedIn</a></li><li><a href="mailto:zomaxa.agency@gmail.com">Email</a></li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2025 ZOMAXA Agency. All Rights Reserved.</div>
+        </div>
+    </footer>
+    <a href="https://wa.me/918904198424" class="whatsapp-sticky" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <script src="script.js"></script>
+</body>
+</html>
